@@ -279,7 +279,7 @@ main > section {
          -o-transition: all 0.8s ease 0s;
             transition: all 0.8s ease 0s;
 
-    background-color: rgba(0,0,0,.4);
+    background-color: #008600;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     padding: 5px 0;
 }
@@ -512,7 +512,7 @@ h1.navbar-brand {
 ==================================================================*/
 
 #about {
-    background-color: #009EE3;
+    background-color: #223941;
     color: #fff;
 }
 
@@ -952,10 +952,10 @@ ul.external li a:hover {
 }
 
 .form-control {
-    border: 1px solid #ececec;
+    border: 2px solid white;
     border-radius: 0;
     box-shadow: none;
-    color: #818181;
+    color: white;
     font-size: 16px;
     height: 50px;
 }
@@ -1018,7 +1018,7 @@ textarea.form-control {
 ==============================================================*/
 
 #footer {
-    background-color: #2E2E2E;
+    background-color: #008600;
     padding: 70px 0;
     color: #fff;
 }
@@ -1043,7 +1043,7 @@ textarea.form-control {
 
 .subscribe.form-control {
     background-color: transparent;
-    border: 1px solid #7f7f7f;
+    border: 1px solid white;
 }
 
 .subscribe.form-control:focus {
@@ -1053,10 +1053,10 @@ textarea.form-control {
 }
 
 .submit-icon {
-    background-color: #7f7f7f;
+    background-color: white;
     border: 0 none;
     border-radius: 0;
-    color: #c1c1c1;
+    color: #008600;
     padding: 13px 20px;
     position: absolute;
     overflow: hidden;
@@ -1109,7 +1109,7 @@ textarea.form-control {
 }
 
 .footer-social ul li a {
-    color: #7f7f7f;
+    color: white;
     display: block;
     
     -webkit-transition: all 0.2s ease 0s;
@@ -1119,8 +1119,12 @@ textarea.form-control {
             transition: all 0.2s ease 0s;
 }
 
+.footer-social ul li a i {
+    font-size: 2em;
+}
+
 .footer-social ul li a:hover {
-    color: #009EE3;
+    color: #f9f122;
 }
 
 .footer-content > p {
