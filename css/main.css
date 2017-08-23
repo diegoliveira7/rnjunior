@@ -13,7 +13,21 @@
 /* =================================== */
 /*	Basic Style 
 /* =================================== */
-
+.appearance-select{
+    color: black !important;
+    outline: none !important;
+    border-color: transparent !important;
+   -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+   -moz-appearance: none; /* Remove estilo padrão do FireFox */
+   appearance: none; /* Remove estilo padrão do FireFox*/
+   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;  /* Imagem de fundo (Seta) */
+   background-position: 0 center;  /*Posição da imagem do background*/
+   width: 100%; /* Tamanho do select, maior que o tamanho da div "div-select" */
+   height:30px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
+   border:1px solid #ddd;
+   padding-left: 35px;
+   text-align: end;
+}
 body {
     background-color: #fff;
     font-family: 'Open Sans', sans-serif;
@@ -179,7 +193,7 @@ main > section {
 }
 
 .sec-title h2:after {
-    border-bottom: 1px solid #009ee3;
+    border-bottom: 1px solid #f0b833;
     content: "";
     display: block;
     left: 45%;
@@ -205,7 +219,7 @@ main > section {
 /* ==========================================*/
 
 #preloader {
-    background-color: #fff;
+    background-color: #008600;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -214,7 +228,9 @@ main > section {
 
 /*Battery*/
 .loder-box {
-  background-color: rgba(0, 0, 0, 0.02);
+    display: flex;
+    align-items: center;
+  text-align: center;
   border-radius: 1px;
   height: 100px;
   left: 50%;
@@ -224,49 +240,9 @@ main > section {
   top: 50%;
   width: 128px;
 }
-
-.battery{
-    width: 60px;
-    height: 25px;
-    top: 35%;
-    border: 1px #2E2E2E solid;
-    border-radius: 2px;
-    position: relative;
-    -webkit-animation: charge 5s linear infinite;
-       -moz-animation: charge 5s linear infinite;
-            animation: charge 5s linear infinite;
-    margin: 0 auto;
+.loder-box>img{
+    width: 100px;
 }
-
-.battery:after {
-  background-color: #2E2E2E;
-  border-radius: 0 1px 1px 0;
-  content: "";
-  height: 10px;
-  position: absolute;
-  right: -5px;
-  top: 7px;
-  width: 3px;
-}
-
-@-webkit-keyframes charge{
-    0%{box-shadow: inset 0px 0px 0px #2E2E2E;}
-    100%{box-shadow: inset 60px 0px 0px #2E2E2E;}
-}
-
-@-moz-keyframes charge{
-    0%{box-shadow: inset 0px 0px 0px #2E2E2E;}
-    100%{box-shadow: inset 60px 0px 0px #2E2E2E;}
-}
-
-@keyframes charge{
-    0%{box-shadow: inset 0px 0px 0px #2E2E2E;}
-    100%{box-shadow: inset 60px 0px 0px #2E2E2E;}
-}
-
-
-
-
 
 /**
 /*	Header

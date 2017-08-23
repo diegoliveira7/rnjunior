@@ -61,7 +61,7 @@
 }
 
 #nav-arrows > a {
-  border: 1px solid #fff;
+	border-radius: 50%;
   color: #fff;
   display: block;
   height: 60px;
@@ -88,7 +88,7 @@
 	right: 50px;
 }
 
-#nav-arrows > a.sl-next:hover {
+#nav-arrows > a:hover {
 	background-color: #009EE3;
 	border-color: #009EE3;
 	color: #fff;
