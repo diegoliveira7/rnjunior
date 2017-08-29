@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 {% load static %}
+{% load widget_tweaks %}
 <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
@@ -135,7 +135,7 @@
 					
 					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
 						
-						<div class="bg-img bg-img-3"></div>
+						<div class="bg-img" style="background-image: url({% static 'img/slider/cinelli.jpeg' %})"></div>
 						<div class="slide-caption">
                             <div class="caption-content">
                                 <h2>BLUE Onepage HTML5 Template</h2>
@@ -371,7 +371,14 @@
 						
 						
 						<div class="col-md-7 contact-form wow animated fadeInLeft">
-							<form action="#" method="post">
+							<form action="#" method="post">{% csrf_token %}
+								{% for form in form_rodape %}
+								<div class="input-field">
+									{{ form.errors }}
+									{% render_field form class="form-control" %}
+								</div>
+								{% endfor %}
+								<!--
 								<div class="input-field">
 									<input type="text" name="name" class="form-control" placeholder="Nome">
 								</div>
@@ -383,8 +390,8 @@
 								</div>
 								<div class="input-field">
 									<textarea name="message" class="form-control" placeholder="Mensagem"></textarea>
-								</div>
-						       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Enviar</button>
+								</div>-->
+						       	<input type="submit" id="submit" name="form_rodape" class="btn btn-blue btn-effect" value="Enviar"></input>
 							</form>
 						</div>
 						

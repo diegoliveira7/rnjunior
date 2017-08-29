@@ -15,9 +15,11 @@ class ClienteNewsletter(models.Model):
 		verbose_name = "Newsletter"
 		verbose_name_plural = "Newsletter"
 
+
 class Noticias(models.Model):
 
 	texto = models.CharField("Texto", max_length=100)
+	imagem = models.ImageField("Imagem", upload_to="media/%y/%m/%d")
 
 	def save(self, *args, **kwargs):
 		listaDosEmails = []
