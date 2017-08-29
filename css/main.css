@@ -1103,10 +1103,13 @@ textarea.form-control {
 }
 
 .footer-content > p {
-    color: #008600;
+    color: white;
     font-size: 12px;
 }
-
+.footer-content >p> a {
+    color: #ffdb39;
+    font-size: 12px;
+}
 
 
 /*============================================================ 
@@ -1422,9 +1425,44 @@ textarea.form-control {
 
 
 .displayNodeArea{
-    display: none;
+    display: none !important;
 }
 
 .displayNodeServico{
-    display: none;
+    display: none !important;
+}
+#empresas-selecionadas{
+    margin-top: 20px;
+}
+.resultados-contrate{
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-content: center;
+}
+.resultados-contrate>div{
+    margin: auto;
+}
+.resultados-contrate>div>button{
+    margin-top: 10px;
+    opacity:0;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+.resultados-contrate:hover>div>button{
+    opacity:1;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+.resultados-contrate>div>a>img{
+    margin:auto;
+    max-width:100%; 
+    max-height:100%; 
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+.resultados-contrate:hover>div>a>img{
+    transform: scale(0.6);
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
 }

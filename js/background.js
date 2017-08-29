@@ -1,3 +1,5 @@
+var myColor="#005f00"
+
 var c = document.getElementById('backgroundWaves'),
     ctx = c.getContext('2d'),
     cw = c.width = window.innerWidth,
@@ -15,7 +17,7 @@ var c = document.getElementById('backgroundWaves'),
         max: 40
       },
       thickness: 0,
-      strokeColor: '#a7cc66',
+      strokeColor: myColor,
       level: .35,
       curved: true
     },
@@ -74,7 +76,7 @@ Point.prototype.update = function(){
 Point.prototype.render = function(){
   ctx.beginPath();
   ctx.arc(this.x, this.y, 3, 0, Math.PI * 2, false);
-  ctx.fillStyle = '#a7cc66';
+  ctx.fillStyle = myColor;
   ctx.fill();
 };
 
@@ -105,7 +107,7 @@ var renderShape = function(){
   ctx.lineTo(-opt.range.x - opt.thickness, ch + opt.thickness);
   ctx.lineTo(cw + opt.range.x + opt.thickness, ch + opt.thickness);
   ctx.closePath();   
-  ctx.fillStyle = '#a7cc66';
+  ctx.fillStyle = myColor;
   ctx.fill();  
   ctx.stroke();
 };

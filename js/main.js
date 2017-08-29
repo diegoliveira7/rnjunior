@@ -82,6 +82,15 @@ $(function() {
 
 
 $(document).ready(function(){
+    
+    $( window ).load( function(){
+        $( '.lazyload' ).each( function(){
+            //* set the img src from data-src
+            $( this ).attr( 'src', $( this ).attr( 'data-src' ) );
+        } );
+    } );
+
+
 
     // Contrate sua ej
     var $areas = $('#contrateSuaEjArea').change(function() {
