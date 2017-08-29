@@ -5,6 +5,7 @@ from django.conf import settings
 from .models import ClienteNewsletter
 
 
+#Formulário criado para enviar os e-mails do rodapé
 class EnviarEmailRodape(forms.Form):
 
     nome = forms.CharField(label="Nome", max_length=100, widget=forms.TextInput({'required': 'required', 'placeholder': 'Nome'}))
@@ -27,6 +28,7 @@ class EnviarEmailRodape(forms.Form):
         )
 
 
+#Formulário criado para salvar os clientes no newsletter
 class NewsletterModelForm(forms.ModelForm):
 
     class Meta:

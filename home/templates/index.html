@@ -225,18 +225,21 @@
 						
 
 						<ul class="project-wrapper wow animated fadeInUp">
+							{% for parceiro in parceiros %}
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item.jpg' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+								<img src="{% static 'img/portfolio/item.jpg' %}" class="img-responsive" alt="{{ parceiro.texto }}">
 								<figcaption class="mask">
-									<h3>Wall street</h3>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
+									<h3>{{ parceiro.titulo }}</h3>
+									<p>
+										{{ parceiro.texto|slice:":100" }}...
+									</p>
 								</figcaption>
 								<ul class="external">
 									<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="{% static 'img/portfolio/item.jpg' %}"><i class="fa fa-search"></i></a></li>
 									<li><a href=""><i class="fa fa-link"></i></a></li>
 								</ul>
 							</li>
-							
+							{% endfor %}							
 							<li class="portfolio-item">
 								<img src="{% static 'img/portfolio/item2.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
@@ -378,19 +381,6 @@
 									{% render_field form class="form-control" %}
 								</div>
 								{% endfor %}
-								<!--
-								<div class="input-field">
-									<input type="text" name="name" class="form-control" placeholder="Nome">
-								</div>
-								<div class="input-field">
-									<input type="email" name="email" class="form-control" placeholder="Email">
-								</div>
-								<div class="input-field">
-									<input type="text" name="subject" class="form-control" placeholder="Assunto">
-								</div>
-								<div class="input-field">
-									<textarea name="message" class="form-control" placeholder="Mensagem"></textarea>
-								</div>-->
 						       	<input type="submit" id="submit" name="form_rodape" class="btn btn-blue btn-effect" value="Enviar"></input>
 							</form>
 						</div>
@@ -422,10 +412,12 @@
 						<div class="wow animated fadeInDown">
 							<p>Assine nossa newsletter</p>
 						</div>
-						<form action="#" method="post" class="subscribe-form wow animated fadeInUp">
+						<form action="#" method="post" class="subscribe-form wow animated fadeInUp">{% csrf_token %}
 							<div class="input-field">
-								<input type="email" class="subscribe form-control" placeholder="Digite seu Email">
-								<button type="submit" class="submit-icon">
+								{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" %}
+								{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu Email" %}
+								<!--<input type="email" class="subscribe form-control" placeholder="Digite seu Email">-->
+								<button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
 									<i class="fa fa-paper-plane fa-lg"></i>
 								</button>
 							</div>
