@@ -83,6 +83,35 @@ $(function() {
 
 $(document).ready(function(){
 
+    // Contrate sua ej
+    var $areas = $('#contrateSuaEjArea').change(function() {
+        $('#contrateSuaEjServico').val("0");
+        var id=$('#contrateSuaEjArea').find(":selected")[0].id
+        if (id == 'area-none') {
+            $('#contrateSuaEjServico > option').hide();
+            $('#empresas-selecionadas > div').addClass('displayNodeArea');
+        } else {
+            var $el = $('.' + id)
+            $('#empresas-selecionadas > div').removeClass('displayNodeArea');
+            $('#empresas-selecionadas > div').not($el).addClass('displayNodeArea');
+
+            $("#contrateSuaEjServico > ."+id).show();
+            $("#contrateSuaEjServico > option").not($el).hide();
+        }
+    })
+    var $servicos = $('#contrateSuaEjServico').change(function() {
+        var id=$('#contrateSuaEjServico').find(":selected")[0].id
+        if (id == 'servico-none') {
+            $('#contrateSuaEjServico > option').addClass('displayNodeServico');
+        } else {
+            var $el = $('.' + id)
+            $('#empresas-selecionadas > div').removeClass('displayNodeServico');
+            $('#empresas-selecionadas > div').not($el).addClass('displayNodeServico');
+        }
+    })
+
+
+
 	/* ========================================================================= */
 	/*	Menu item highlighting
 	/* ========================================================================= */
@@ -198,7 +227,7 @@ function init() {
         styles: [{
             featureType: 'water',
             stylers: [{
-                color: '#46bcec'
+                color: '#008600'
             }, {
                 visibility: 'on'
             }]

@@ -190,24 +190,47 @@
 						  <div class="form-group col-xs-12 col-md-offset-2 col-md-4">
 						    <label for="exampleInputEmail1">Escolha a área:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjArea">
-						      <option>1</option>
-						      <option>2</option>
-						      <option>3</option>
-						      <option>4</option>
-						      <option>5</option>
+						      <option id="area-none" disabled selected>Escolher</option>
+						      <option id="area-1">1</option>
+						      <option id="area-2">2</option>
+						      <option id="area-3">3</option>
 						    </select>
 						  </div>
 						  <div class="form-group col-xs-12 col-md-4">
 						    <label for="exampleInputPassword1">Escolha o serviço:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjServico">
-						      <option>1</option>
-						      <option>2</option>
-						      <option>3</option>
-						      <option>4</option>
-						      <option>5</option>
+						      <option id="servico-none" disabled selected>Escolher</option>
+						      <option class="area-1" id="servico-4">1-4</option>
+						      <option class="area-2" id="servico-5">2-5</option>
+						      <option class="area-3" id="servico-6">3-6</option>
+						      <option class="area-1" id="servico-7">1-7</option>
+						      <option class="area-2" id="servico-8">2-8</option>
+						      <option class="area-3" id="servico-9">3-9</option>
 						    </select>
 						  </div>
-						</form>						
+						</form>
+
+						<div class="col-xs-12" id="empresas-selecionadas">
+							<div class="area-1 servico-4 col-xs-6 col-sm-4 col-md-3 displayNodeServico">
+								sou da area 1 e servico 4
+							</div>
+							<div class="area-2 servico-5 col-xs-6 col-sm-4 col-md-3 displayNodeServico">
+								sou da area 2 e servico 5
+							</div>
+							<div class="area-3 servico-6 col-xs-6 col-sm-4 col-md-3 displayNodeServico">
+								sou da area 3 e servico 6
+							</div>
+							<div class="area-1 servico-7 col-xs-6 col-sm-4 col-md-3 displayNodeServico">
+								sou da area 1 e servico 7
+							</div>
+							<div class="area-2 servico-8 col-xs-6 col-sm-4 col-md-3 displayNodeServico">
+								sou da area 2 e servico 8
+							</div>
+							<div class="area-3 servico-9 col-xs-6 col-sm-4 col-md-3 displayNodeServico">
+								sou da area 3 e servico 9
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</section>
@@ -408,14 +431,15 @@
 		</main>
 		
 		<footer id="footer">
+			<canvas style="width: 100%;height: 300px;position: absolute;" id="backgroundWaves"></canvas>
 			<div class="container">
 				<div class="row text-center">
-					<div class="footer-content">
+					<div class="col-xs-12 footer-content">
 						<div class="wow animated fadeInDown">
 							<p>Assine nossa newsletter</p>
 						</div>
 						<form action="#" method="post" class="subscribe-form wow animated fadeInUp">
-							<div class="input-field">
+							<div class="input-field" style="max-width:380px;margin: auto;">
 								<input type="email" class="subscribe form-control" placeholder="Digite seu Email">
 								<button type="submit" class="submit-icon">
 									<i class="fa fa-paper-plane fa-lg"></i>
@@ -432,7 +456,7 @@
 							</ul>
 						</div>
 						
-						<p>Copyright &copy; 2014-2015 Design and Developed By<a href="http://www.themefisher.com">Themefisher</a> </p>
+						<p>Copyright &copy; 2017 <a href="http://www.ejectufrn.com.br">EJECT</a> </p>
 					</div>
 				</div>
 			</div>
@@ -461,5 +485,6 @@
         <script src="js/wow.min.js"></script>
 		<!-- Custom Functions -->
         <script src="js/main.js"></script>
+        <script src="js/background.js"></script>
     </body>
 </html>

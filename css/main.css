@@ -994,13 +994,13 @@ textarea.form-control {
 ==============================================================*/
 
 #footer {
+    height: 300px;
     background-color: #008600;
     padding: 70px 0;
     color: #fff;
 }
 
 .footer-content {
-    width: 390px;
     margin: 0 auto;
 }
 
@@ -1034,10 +1034,9 @@ textarea.form-control {
     border-radius: 0;
     color: #008600;
     padding: 13px 20px;
-    position: absolute;
+    margin-top: -50px;
+    float: right;
     overflow: hidden;
-    right: 0;
-    top: 0;
 }
 
 .submit-icon .fa-paper-plane {
@@ -1104,7 +1103,7 @@ textarea.form-control {
 }
 
 .footer-content > p {
-    color: #ababab;
+    color: #008600;
     font-size: 12px;
 }
 
@@ -1419,4 +1418,13 @@ textarea.form-control {
     .footer-content {
         width: 380px;
     }
+}
+
+
+.displayNodeArea{
+    display: none;
+}
+
+.displayNodeServico{
+    display: none;
 }
