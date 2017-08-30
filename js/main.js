@@ -79,7 +79,8 @@ $(function() {
 
 });
 
-
+var equipeInicial
+var equipeSelecionada=null
 
 $(document).ready(function(){
     
@@ -88,10 +89,25 @@ $(document).ready(function(){
             //* set the img src from data-src
             $( this ).attr( 'src', $( this ).attr( 'data-src' ) );
         } );
+        $( '.lazyloadBackground' ).each( function(){
+            //* set the img src from data-src
+            $( this ).css( 'background-image','url('+ $( this ).attr( 'data-src' )+")" );
+        } );
+        equipeInicial=$("#equipe-completa").html()
     } );
 
+    $('.equipe-pessoa').click(function() {
+        $(this).parent().css("width","100%")
+        equipeSelecionada=$(this).attr('title')
+        $("#equipe-completa").html($(this).parent().html())
+    })
 
-
+    $('body').click(function(evt) {
+        var target = evt.target;
+        if(target.id !== equipeSelecionada && equipeSelecionada!==null && target.id!==""){
+                $("#equipe-completa").html(equipeInicial)
+        }
+    })
     // Contrate sua ej
     var $areas = $('#contrateSuaEjArea').change(function() {
         $('#contrateSuaEjServico').val("0");

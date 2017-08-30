@@ -1466,3 +1466,15 @@ textarea.form-control {
     transition-timing-function: ease-in-out;
     transition-duration: 300ms;
 }
+
+.equipe-pessoa{
+    transition-duration:300ms;
+    background-position: center;
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    border-radius: 50%;
+    margin:15px auto;
+    cursor:pointer;
+}
