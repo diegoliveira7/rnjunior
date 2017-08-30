@@ -77,3 +77,46 @@ class Parceiros(models.Model):
 class Inteiro(models.Model):
 
     num = models.PositiveSmallIntegerField()
+
+
+class AreaModel(models.Model):
+
+    area = models.CharField("Área", max_length=100)
+
+    def __str__(self):
+        return self.area
+
+    def nome_formatado(self):
+        return self.area.replace(" ", "-").lower()
+
+    class Meta:
+        verbose_name = "Área"
+
+
+class SetorModel(models.Model):
+
+    setor = models.CharField("Setor", max_length=100)
+    area_referencia = models.ForeignKey(AreaModel, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.setor
+
+    def nome_formatado(self):
+        return self.setor.replace(" ", "-").lower()
+
+    class Meta:
+        verbose_name = "Setor"
+        verbose_name_plural = "Setores"
+
+
+class EmpresaModel(models.Model):
+
+    nome_empresa = models.CharField("Nome da empresa", max_length=100)
+    foto_empresa = models.ImageField("Foto da empresa", upload_to="%y/%m/%d")
+    setor_referencia = models.ManyToManyField(SetorModel)
+
+    def __str__(self):
+        return self.nome_empresa
+
+    class Meta:
+        verbose_name = "Empresa"

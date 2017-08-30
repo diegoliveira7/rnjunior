@@ -24,3 +24,6 @@ class ParceirosAdmin(admin.ModelAdmin):
 admin.site.register(ClienteNewsletter, ClienteNewsletterAdmin)
 admin.site.register(Noticias, NoticiasAdmin)
 admin.site.register(Parceiros, ParceirosAdmin)
+admin.site.register(AreaModel)
+admin.site.register(SetorModel)
+admin.site.register(EmpresaModel)

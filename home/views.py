@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 from .forms import EnviarEmailRodape, NewsletterModelForm
-from .models import Noticias, Parceiros
+from .models import Noticias, Parceiros, AreaModel, SetorModel, EmpresaModel
 
 #View mestra que recebe todos os valores de contexto e
 #valida os formulários
@@ -10,13 +10,16 @@ class HomeView(TemplateView):
 
     template_name = 'index.html'
 
-    #Pega os  valores e no template como variáveis a serem usadas
+    #Pega os  valores e joga no template como variáveis a serem usadas
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form_rodape'] = EnviarEmailRodape()
         context['form_newsletter'] = NewsletterModelForm()
         context['noticias'] = Noticias.objects.all()
         context['parceiros'] = Parceiros.objects.all()
+        context['AreaModel'] = AreaModel.objects.all()
+        context['SetorModel'] = SetorModel.objects.all()
+        context['EmpresaModel'] = EmpresaModel.objects.all()
         return context
 
     #Quando tem um método "post" a view processa o pedido
