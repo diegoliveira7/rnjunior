@@ -78,9 +78,7 @@ $(function() {
     Page.init();
 
 });
-
-var equipeInicial
-var equipeSelecionada=null
+var selecionado=null
 
 $(document).ready(function(){
     
@@ -97,16 +95,21 @@ $(document).ready(function(){
     } );
 
     $('.equipe-pessoa').click(function() {
-        $(this).parent().css("width","100%")
-        equipeSelecionada=$(this).attr('title')
-        $("#equipe-completa").html($(this).parent().html())
+        selecionado=$(this)
+        $(this).parent().toggleClass("col-xs-12")
+        $(this).parent().toggleClass("col-md-2")
+        $(this).parent().toggleClass("col-xs-6")
+        $("#voltar-equipe-completa").css("display","flex")
+        $("#equipe-completa").children().css("display","none")
+        $(this).parent().css("display","block")
     })
-
-    $('body').click(function(evt) {
-        var target = evt.target;
-        if(target.id !== equipeSelecionada && equipeSelecionada!==null && target.id!==""){
-                $("#equipe-completa").html(equipeInicial)
-        }
+    $("#voltar-equipe-completa").click(function() {
+        console.log("hey")
+        selecionado.parent().toggleClass("col-xs-6")
+        selecionado.parent().toggleClass("col-md-2")
+        selecionado.parent().toggleClass("col-xs-12")
+        $("#voltar-equipe-completa").css("display","none")
+        $("#equipe-completa").children().css("display","block")
     })
     // Contrate sua ej
     var $areas = $('#contrateSuaEjArea').change(function() {
