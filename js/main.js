@@ -94,22 +94,28 @@ $(document).ready(function(){
         equipeInicial=$("#equipe-completa").html()
     } );
 
-    $('.equipe-pessoa').click(function() {
-        selecionado=$(this)
-        $(this).parent().toggleClass("col-xs-12")
-        $(this).parent().toggleClass("col-md-2")
-        $(this).parent().toggleClass("col-xs-6")
-        $("#voltar-equipe-completa").css("display","flex")
-        $("#equipe-completa").children().css("display","none")
-        $(this).parent().css("display","block")
+    $('.equipe-pessoa-select').click(function() {
+        if(selecionado?$(this)[0].id!==selecionado[0].id:true){
+            selecionado=$(this)
+            $(this).parent().toggleClass("col-xs-12")
+            $(this).parent().toggleClass("col-md-2")
+            $(this).parent().toggleClass("col-xs-6")
+            $("."+$(this)[0].id).css("display","block")
+            $("#voltar-equipe-completa").css("display","flex")
+            $("#equipe-completa").children().css("display","none")
+            $(this).parent().css("display","block")
+        }
     })
     $("#voltar-equipe-completa").click(function() {
-        console.log("hey")
-        selecionado.parent().toggleClass("col-xs-6")
-        selecionado.parent().toggleClass("col-md-2")
-        selecionado.parent().toggleClass("col-xs-12")
-        $("#voltar-equipe-completa").css("display","none")
-        $("#equipe-completa").children().css("display","block")
+        if(selecionado){
+            $("."+selecionado[0].id).css("display","none")
+            selecionado.parent().toggleClass("col-xs-6")
+            selecionado.parent().toggleClass("col-md-2")
+            selecionado.parent().toggleClass("col-xs-12")
+            $("#voltar-equipe-completa").css("display","none")
+            $("#equipe-completa").children().css("display","block")
+            selecionado=null
+        }
     })
     // Contrate sua ej
     var $areas = $('#contrateSuaEjArea').change(function() {
