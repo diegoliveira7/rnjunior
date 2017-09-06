@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 from .forms import EnviarEmailRodape, NewsletterModelForm
-from .models import Noticias, Parceiros, AreaModel, SetorModel, EmpresaModel
+from .models import Noticias, Parceiros, AreaModel, SetorModel, EmpresaModel, \
+                    Diretor, Assessores
 
 #View mestra que recebe todos os valores de contexto e
 #valida os formulários
@@ -20,6 +21,8 @@ class HomeView(TemplateView):
         context['AreaModel'] = AreaModel.objects.all()
         context['SetorModel'] = SetorModel.objects.all()
         context['EmpresaModel'] = EmpresaModel.objects.all()
+        context['DiretorModel'] = Diretor.objects.all()
+        context['AssessoresModel'] = Assessores.objects.all()
         return context
 
     #Quando tem um método "post" a view processa o pedido
