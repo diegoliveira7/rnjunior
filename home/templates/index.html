@@ -205,7 +205,7 @@
 						    <select class="appearance-select form-control" id="contrateSuaEjServico">
 						      <option id="servico-none" disabled selected>Escolher</option>
 						      {% for setor in SetorModel %}
-						      <option class="area-{{ setor.area_referencia.area.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
+						      <option class="area-{{ setor.area_referencia.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
 						      {% endfor %}
 						      <option class="area-1" id="servico-4">1-4</option>
 						      <option class="area-2" id="servico-5">2-5</option>
@@ -218,6 +218,19 @@
 						</form>
 
 						<div class="col-xs-12" id="empresas-selecionadas">
+							
+							{% for empresa in EmpresaModel %}
+								{% for setor in empresa.setor_referencia.all %}
+								<div class="area-{{ setor.area_referencia.nome_formatado }} servico-{{ setor.nome_formatado }} col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
+									<div>
+										<a href="https://www.facebook.com/" target="_blank">
+											<img class="lazyload" data-src="{{ empresa.foto_empresa.url }}">
+										</a>
+										<button class="btn">{{ empresa }}</button>
+									</div>
+								</div>
+								{% endfor %}
+							{% endfor %}
 							<div class="area-1 servico-4 col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
 								<div>
 									<a href="https://www.facebook.com/" target="_blank">
