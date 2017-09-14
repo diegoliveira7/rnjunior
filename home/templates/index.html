@@ -38,8 +38,6 @@
         <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 		<!-- Main Stylesheet -->
 		<link rel="stylesheet" href="{% static 'css/main.css' %}">
-		
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
@@ -205,17 +203,10 @@
 						  <div class="form-group col-xs-12 col-md-4">
 						    <label for="exampleInputPassword1">Escolha o serviço:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjServico">
-<<<<<<< HEAD
 							  <option id="servico-none" disabled selected>Escolher</option>
 							  {% for setor in SetorModel %}
 							  <option class="area-{{ setor.area_referencia.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
 							  {% endfor %}
-=======
-						      <option id="servico-none" disabled selected>Escolher</option>
-						      {% for setor in SetorModel %}
-						      <option class="area-{{ setor.area_referencia.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
-						      {% endfor %}
->>>>>>> 05da5d32d62ea8547ef6199643a8d5f517cb51fc
 						      <option class="area-1" id="servico-4">1-4</option>
 						      <option class="area-2" id="servico-5">2-5</option>
 						      <option class="area-3" id="servico-6">3-6</option>
@@ -227,7 +218,6 @@
 						</form>
 
 						<div class="col-xs-12" id="empresas-selecionadas">
-<<<<<<< HEAD
 							{% for empresa in EmpresaModel %}
 								{% for setor in empresa.setor_referencia.all %}
 									<div class="area-{{ setor.area_referencia.nome_formatado }} servico-{{ setor.nome_formatado }} col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
@@ -238,19 +228,6 @@
 											<button class="btn">{{ empresa }}</button>
 										</div>
 									</div>
-=======
-							
-							{% for empresa in EmpresaModel %}
-								{% for setor in empresa.setor_referencia.all %}
-								<div class="area-{{ setor.area_referencia.nome_formatado }} servico-{{ setor.nome_formatado }} col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
-									<div>
-										<a href="https://www.facebook.com/" target="_blank">
-											<img class="lazyload" data-src="{{ empresa.foto_empresa.url }}">
-										</a>
-										<button class="btn">{{ empresa }}</button>
-									</div>
-								</div>
->>>>>>> 05da5d32d62ea8547ef6199643a8d5f517cb51fc
 								{% endfor %}
 							{% endfor %}
 							<div class="area-1 servico-4 col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
