@@ -2,8 +2,6 @@ from django.db import models
 from django.conf import settings
 from django.core.mail import send_mail
 
-from .utils import noticia_save
-
 
 #Modelo responsável por salvar o pessoal no Newsletter
 class ClienteNewsletter(models.Model):
@@ -140,6 +138,7 @@ class EmpresaModel(models.Model):
 class Diretor(models.Model):
 
     nome = models.CharField("Nome do diretor", max_length=200)
+    cargo = models.CharField("Cargo", max_length=150)
     foto = models.ImageField("Foto do diretor", upload_to="diretor/%y/%m/%d")
 
     def __str__(self):

@@ -79,7 +79,7 @@ main > section {
 }
 
 .btn-blue {
-    background-color: rgba(0,158,227, 0.78);
+    background-color: #008600;
     box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.15) inset;
     padding: 15px 55px;
     color: #fff;
@@ -162,7 +162,7 @@ main > section {
 }
 
 .btn-effect:hover, .btn-effect:focus, .btn-effect:active {
-	color: #009EE3;
+	color: #008600;
 }
 
 .btn-effect:hover:before, .btn-effect:focus:before, .btn-effect:active:before {
@@ -946,7 +946,7 @@ textarea.form-control {
 }
 
 #submit:before {
-  background-color: #0A85BB;
+  background-color: #ffdb39;
 }
 
 #submit.btn-effect:after {
@@ -954,7 +954,7 @@ textarea.form-control {
 }
 
 .contact-details h3 {
-    border-bottom: 1px solid #008ecc;
+    border-bottom: 1px solid #008600;
     font-weight: 700;
     margin-bottom: 15px;
     padding-bottom: 15px;
@@ -1473,8 +1473,26 @@ textarea.form-control {
     background-size: cover;
     height: 100px;
     width: 100px;
-    background-color: red;
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 5px  rgba(0,0,0,0.5);
     border-radius: 50%;
     margin:15px auto;
     cursor:pointer;
+}
+
+.equipe-pessoa:hover{
+    transition-duration:300ms;
+    transform: scale(1.15);
+    box-shadow: 2px 2px 7px  rgba(0,0,0,0.5);
+}
+
+.centered {
+    text-align: center;
+    font-size: 0;
+}
+.centered > div {
+    float: none;
+    display: inline-block;
+    text-align: left;
+    font-size: 13px;
 }
