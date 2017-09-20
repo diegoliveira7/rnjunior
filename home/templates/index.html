@@ -676,6 +676,13 @@
 							</div>
 							<form action="#" method="post" class="subscribe-form wow animated fadeInUp">
 								{% csrf_token %}
+								{% if form.subject.errors %}
+								    <ol>
+								    {% for error in form.subject.errors %}
+								        <li><strong>{{ error|escape }}</strong></li>
+								    {% endfor %}
+								    </ol>
+								{% endif %}
 								<div class="input-field" style="max-width:380px;margin: auto;">
 									{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" style="border-bottom:none" %}
 									{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu Email" %}

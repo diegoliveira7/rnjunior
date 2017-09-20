@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 from django.core.mail import send_mail
 
+from ckeditor.fields import RichTextField
+
 
 #Modelo responsável por salvar o pessoal no Newsletter
 class ClienteNewsletter(models.Model):
@@ -21,6 +23,7 @@ class ClienteNewsletter(models.Model):
 class Noticias(models.Model):
 
     texto = models.CharField("Texto", max_length=100)
+    texto_teste = RichTextField()
     imagem = models.ImageField("Imagem", upload_to="noticias/%y/%m/%d")
     modificado = models.BooleanField(default=False)
     data_orientation = models.CharField(max_length=100, blank=True)
