@@ -105,10 +105,10 @@
             <div id="slider" class="sl-slider-wrapper">
 
 				<div class="sl-slider">
-				
-					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+					{% for noticia in NoticiasModel %}
+					<div class="sl-slide" data-orientation="{{ noticia.data_orientation }}" data-slice1-rotation="{{ forum.data_slice_1 }}" data-slice2-rotation="{{ forum.data_slice_2 }}" data-slice1-scale="{{ noticia.data_slice_1_scale }}" data-slice2-scale="{{ noticia.data_slice_2_scale }}">
 
-						<div class="bg-img bg-img-1"></div>
+						<div class="bg-img bg-img-1" style="background-image: url('{{ noticia.imagem.url }}')"></div>
 
 						<div class="slide-caption">
                             <div class="caption-content">
@@ -119,6 +119,7 @@
                         </div>
 						
 					</div>
+					{% endfor %}
 					
 					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
 					
@@ -674,18 +675,23 @@
 							<div class="wow animated fadeInDown">
 								<p>Assine nossa newsletter</p>
 							</div>
+							{% if success_form_newsletter %}
+							<ul class="messages">
+								<li class="success">
+									Seu cadastro foi feito com sucesso.
+								</li>
+							</ul>
+							{% endif %}
 							<form action="#" method="post" class="subscribe-form wow animated fadeInUp">
 								{% csrf_token %}
-								{% if form.subject.errors %}
-								    <ol>
-								    {% for error in form.subject.errors %}
-								        <li><strong>{{ error|escape }}</strong></li>
-								    {% endfor %}
-								    </ol>
-								{% endif %}
 								<div class="input-field" style="max-width:380px;margin: auto;">
-									{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" style="border-bottom:none" %}
-									{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu Email" %}
+									{% for field in form_newsletter %}
+										{% if field.errors %}
+											{{ field.errors }} ({{ field.label }})
+										{% endif %}										
+									{% endfor %}
+									{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" required="required" %}
+									{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu E-mail" required="required" %}
 									<button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
 										<i class="fa fa-paper-plane fa-lg"></i>
 									</button>
@@ -717,6 +723,13 @@
 						
 						
 						<div class="col-md-7 contact-form wow animated fadeInLeft">
+							{% if success_form_rodape %}
+							<ul class="messages">
+								<li class="success">
+									Seu e-mail foi enviado com sucesso.
+								</li>
+							</ul>
+							{% endif %}
 							<form action="#" method="post">{% csrf_token %}
 								{% for form in form_rodape %}
 								<div class="input-field">

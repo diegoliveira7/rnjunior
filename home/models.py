@@ -8,8 +8,8 @@ from ckeditor.fields import RichTextField
 #Modelo responsável por salvar o pessoal no Newsletter
 class ClienteNewsletter(models.Model):
 
-    nome = models.CharField("Nome do cliente", max_length=100)
-    email = models.EmailField("E-mail do cliente")
+    nome = models.CharField("Nome", max_length=100)
+    email = models.EmailField("E-mail")
 
     def __str__(self):
         return self.nome
