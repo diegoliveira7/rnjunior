@@ -604,11 +604,12 @@ h1.navbar-brand {
 
 .portfolio-item {
     cursor: pointer;
-    margin: 0 1% 1% 0;
+    margin: auto;
     overflow: hidden;
     position: relative;
-    width: 32%;
+    width: 33%;
     border-radius: 25px;
+
 }
 
 figcaption.mask {
