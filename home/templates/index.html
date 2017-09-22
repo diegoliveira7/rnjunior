@@ -37,7 +37,7 @@
 		<!-- bootstrap.min -->
         <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
@@ -120,6 +120,20 @@
 						
 					</div>
 					{% endfor %}
+
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+
+						<div class="bg-img bg-img-1"></div>
+
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2 class="animated fadeInDown">RN Junior</h2>
+                                <span class="animated fadeInDown">Clean and Professional one page Template</span>
+                                <a href="#" class="btn btn-blue btn-effect">Join US</a>
+                            </div>
+                        </div>
+						
+					</div>
 					
 					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
 					
@@ -195,8 +209,8 @@
 						      <option id="area-none" disabled selected>Escolher</option>
 						      <option id="area-1">1</option>
 						      <option id="area-2">2</option>
-							  <option id="area-3">3</option>
-							  {% for area in AreaModel %}
+						      <option id="area-3">3</option>
+						      {% for area in AreaModel %}
 							  <option id="area-{{ area.nome_formatado }}">{{ area }}</option>
 							  {% endfor %}
 						    </select>
@@ -204,8 +218,8 @@
 						  <div class="form-group col-xs-12 col-md-4">
 						    <label for="exampleInputPassword1">Escolha o serviço:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjServico">
-							  <option id="servico-none" disabled selected>Escolher</option>
-							  {% for setor in SetorModel %}
+						      <option id="servico-none" disabled selected>Escolher</option>
+						      {% for setor in SetorModel %}
 							  <option class="area-{{ setor.area_referencia.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
 							  {% endfor %}
 						      <option class="area-1" id="servico-4">1-4</option>
@@ -297,7 +311,7 @@
 						
 
 						<ul class="project-wrapper wow animated fadeInUp">
-							{% for parceiro in parceiros %}
+							{% for parceiro in ParceirosModel %}
 							<li class="portfolio-item">
 									<img src="{{ parceiro.foto.url }}" class="img-responsive" alt="{{ parceiro.texto }}">
 									<figcaption class="mask">
@@ -311,74 +325,68 @@
 								</li>
 							{% endfor %}
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item.jpg' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+								<img src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="{% static 'img/portfolio/item.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="{% static 'img/portfolio/eject.png' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item2.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="{% static 'img/portfolio/logomarca.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street" href="{% static 'img/slider/banner.jpg' %}" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Wall street" href="{% static 'img/portfolio/logomarca.png' %}" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item3.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="{% static 'img/portfolio/ufrn.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Behind The world" data-fancybox-group="works" href="{% static 'img/portfolio/item3.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Behind The world" data-fancybox-group="works" href="{% static 'img/portfolio/ufrn.png' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item4.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
+								<img src="{% static 'img/portfolio/brasiljunior.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 4" data-fancybox-group="works" href="{% static 'img/portfolio/item4.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Wall street 4" data-fancybox-group="works" href="{% static 'img/portfolio/brasiljunior.png' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item5.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="{% static 'img/portfolio/adm.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 5" data-fancybox-group="works" href="{% static 'img/portfolio/item5.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Wall street 5" data-fancybox-group="works" href="{% static 'img/portfolio/adm.png' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item6.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="{% static 'img/portfolio/produtiva.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 6" data-fancybox-group="works" href="{% static 'img/portfolio/item6.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Wall street 6" data-fancybox-group="works" href="{% static 'img/portfolio/produtiva.jpg' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 						</ul>
@@ -470,26 +478,6 @@
 											<h5 style="width:80%;margin:auto;text-align:center">{{ assessor }}</h5>
 										</div>
 										{% endfor %}
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
 									</div>
 								</div>
 								{% endfor %}
@@ -682,12 +670,14 @@
 								</li>
 							</ul>
 							{% endif %}
-							<form action="#" method="post" class="subscribe-form wow animated fadeInUp">
+							<form method="post" class="subscribe-form wow animated fadeInUp">
 								{% csrf_token %}
 								<div class="input-field" style="max-width:380px;margin: auto;">
 									{% for field in form_newsletter %}
 										{% if field.errors %}
-											{{ field.errors }} ({{ field.label }})
+											<div style="display: inline-block;">
+												{{ field.errors }} ({{ field.label }})
+											</div>
 										{% endif %}										
 									{% endfor %}
 									{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" required="required" %}
@@ -730,7 +720,7 @@
 								</li>
 							</ul>
 							{% endif %}
-							<form action="#" method="post">{% csrf_token %}
+							<form method="post">{% csrf_token %}
 								{% for form in form_rodape %}
 								<div class="input-field">
 									{{ form.errors }}

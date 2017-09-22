@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 
-from home.views import HomeView
+from home.views import HomeView, HomeViewTeste, NewsletterForm
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name="index"),
+    url(r'^sucesso-form-newsletter/$', NewsletterForm.as_view(), name="form_newsletter"),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
