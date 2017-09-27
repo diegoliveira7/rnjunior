@@ -79,7 +79,7 @@ $(function() {
 
 });
 var selecionado=null
-
+var servicoSelecionado=null
 $(document).ready(function(){
     
     $( window ).load( function(){
@@ -93,6 +93,11 @@ $(document).ready(function(){
         } );
         equipeInicial=$("#equipe-completa").html()
     } );
+
+    $('.openModalContrateSuaEj').click(function() {
+        $('#referenciaContrateUmaEJ').text('Contato com a empresa '+$(this).attr( "empresa" )+" em relação ao serviço "+servicoSelecionado) 
+        $('#myModal').modal('show')   
+    })
 
     $('.equipe-pessoa-select').click(function() {
         if(selecionado?$(this)[0].id!==selecionado[0].id:true){
@@ -135,6 +140,7 @@ $(document).ready(function(){
     })
     var $servicos = $('#contrateSuaEjServico').change(function() {
         var id=$('#contrateSuaEjServico').find(":selected")[0].id
+        servicoSelecionado=id;
         if (id == 'servico-none') {
             $('#contrateSuaEjServico > option').addClass('displayNodeServico');
         } else {

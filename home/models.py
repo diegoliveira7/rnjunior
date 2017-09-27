@@ -129,6 +129,7 @@ class EmpresaModel(models.Model):
 
     nome_empresa = models.CharField("Nome da empresa", max_length=100)
     foto_empresa = models.ImageField("Foto da empresa", upload_to="empresa/%y/%m/%d")
+    email_empresa = models.EmailField("E-mail da empresa")
     setor_referencia = models.ManyToManyField(SetorModel)
 
     def __str__(self):

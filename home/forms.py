@@ -34,3 +34,22 @@ class NewsletterModelForm(forms.ModelForm):
     class Meta:
         model = ClienteNewsletter
         fields = ['nome', 'email']
+
+
+class EnviarEmailModel(forms.Form):
+
+    nome = forms.CharField(label="Nome", max_length=100, widget=forms.TextInput({'required': 'required', 'placeholder': 'Nome'}))
+    email = forms.CharField(label="E-mail", widget=forms.EmailInput({'required': 'required', 'placeholder': 'Email'}))
+    mensagem = forms.CharField(label="Assunto", max_length=100, widget=forms.Textarea({'required': 'required', 'placeholder': 'Mensagem'}))
+
+    def enviar_email(self, email_empresa):
+        nomeCliente = self.cleaned_data['nome']
+        emailCliente = self.cleaned_data['email']
+        mensagemCliente = self.cleaned_data['mensagem']
+        send_mail(
+            nomeCliente,
+            mensagemCliente,
+            settings.DEFAULT_FROM_EMAIL,
+            [email_empresa],
+            fail_silently=False
+        )
