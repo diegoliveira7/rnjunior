@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.core.mail import send_mail
+from django.core.urlresolvers import reverse
 
 from ckeditor.fields import RichTextField
 
@@ -22,8 +23,10 @@ class ClienteNewsletter(models.Model):
 #Cadastra as notícias e joga no SlideShow
 class Noticias(models.Model):
 
+    titulo = models.CharField(max_length=100, unique=True)
     texto = models.CharField("Texto", max_length=100)
     texto_teste = RichTextField()
+    slug = models.SlugField("Link", max_length=100, unique=True, help_text="Link da notícia. Não usar caracteres com acentos ou caracteres especiais.")
     imagem = models.ImageField("Imagem", upload_to="noticias/%y/%m/%d")
     modificado = models.BooleanField(default=False)
     data_orientation = models.CharField(max_length=100, blank=True)
@@ -31,6 +34,9 @@ class Noticias(models.Model):
     data_slice_2 = models.SmallIntegerField(blank=True, null=True)
     data_slice_1_scale = models.FloatField(blank=True, null=True)
     data_slice_2_scale = models.FloatField(blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('noticia', kwargs={'slug': self.slug})
 
     def noticia_save(self, valor_string, valor1, valor2, valor3, valor4):
         self.data_orientation = valor_string

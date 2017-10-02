@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, FormView
-from django.contrib import messages
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import TemplateView, DetailView
 
 from .forms import EnviarEmailRodape, NewsletterModelForm, EnviarEmailModel
 from .models import Noticias, Parceiros, AreaModel, SetorModel, EmpresaModel, \
@@ -57,3 +56,13 @@ class HomeView(TemplateView):
                 email = request.POST
                 form.enviar_email("rosieli@filhadaputa.com")
         return render(request, self.template_name, context)
+
+
+class NoticiaView(DetailView):
+
+    model = Noticias
+    template_name = 'noticias.html'
+
+    def get_object(self, queryset=None):
+        obj = get_object_or_404(Noticias, slug=self.kwargs['slug'])
+        return obj

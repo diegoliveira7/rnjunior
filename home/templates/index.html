@@ -12,9 +12,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>RN Junior</title>		
 		<!-- Meta Description -->
-        <meta name="description" content="Blue One Page Creative HTML5 Template">
-        <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
-        <meta name="author" content="Muhammad Morshed">
+        <meta name="description" content="RN Junior">
+        <meta name="keywords" content="Site federação empresas juniores RN">
+        <meta name="author" content="EJECT">
 		
 		<!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -105,6 +105,7 @@
             <div id="slider" class="sl-slider-wrapper">
 
 				<div class="sl-slider">
+
 					{% for noticia in NoticiasModel %}
 					<div class="sl-slide" data-orientation="{{ noticia.data_orientation }}" data-slice1-rotation="{{ forum.data_slice_1 }}" data-slice2-rotation="{{ forum.data_slice_2 }}" data-slice1-scale="{{ noticia.data_slice_1_scale }}" data-slice2-scale="{{ noticia.data_slice_2_scale }}">
 
@@ -114,13 +115,13 @@
                             <div class="caption-content">
                                 <h2 class="animated fadeInDown">RN Junior</h2>
                                 <span class="animated fadeInDown">Clean and Professional one page Template</span>
-                                <a href="#" class="btn btn-blue btn-effect">Join US</a>
+                                <a href="{{ noticia.get_absolute_url }}" class="btn btn-blue btn-effect">Join US</a>
                             </div>
                         </div>
 						
 					</div>
 					{% endfor %}
-
+				
 					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 
 						<div class="bg-img bg-img-1"></div>
@@ -140,7 +141,7 @@
 						<div class="bg-img bg-img-2"></div>
 						<div class="slide-caption">
                             <div class="caption-content">
-                                <h2>BLUE Onepage HTML5 Template</h2>
+                                <h2>RN Junior</h2>
                                 <span>Clean and Professional one page Template</span>
                                 <a href="#" class="btn btn-blue btn-effect">Join US</a>
                             </div>
@@ -153,7 +154,7 @@
 						<div class="bg-img bg-img-3"></div>
 						<div class="slide-caption">
                             <div class="caption-content">
-                                <h2>BLUE Onepage HTML5 Template</h2>
+                                <h2>RN Junior</h2>
                                 <span>Clean and Professional one page Template</span>
                                 <a href="#" class="btn btn-blue btn-effect">Join US</a>
                             </div>
@@ -206,8 +207,8 @@
 						  <div class="form-group col-xs-12 col-md-offset-2 col-md-4">
 						    <label for="exampleInputEmail1">Escolha a área:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjArea">
-							  <option id="area-none" disabled selected>Escolher</option>
-							  {% for area in AreaModel %}
+						      <option id="area-none" disabled selected>Escolher</option>
+						      {% for area in AreaModel %}
 							  <option id="area-{{ area.nome_formatado }}">{{ area }}</option>
 							  {% endfor %}
 						      <option id="area-1">1</option>
@@ -218,8 +219,8 @@
 						  <div class="form-group col-xs-12 col-md-4">
 						    <label for="exampleInputPassword1">Escolha o serviço:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjServico">
-							  <option id="servico-none" disabled selected>Escolher</option>
-							  {% for setor in SetorModel %}
+						      <option id="servico-none" disabled selected>Escolher</option>
+						      {% for setor in SetorModel %}
 							  <option class="area-{{ setor.area_referencia.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
 							  {% endfor %}
 						      <option class="area-1" id="servico-4">1-4</option>
@@ -311,6 +312,7 @@
 						
 
 						<ul class="project-wrapper wow animated fadeInUp">
+
 							{% for parceiro in ParceirosModel %}
 							<li class="portfolio-item">
 								<img src="{{ parceiro.foto.url }}" class="img-responsive" alt="{{ parceiro.texto }}">
@@ -323,6 +325,7 @@
 								</ul>
 							</li>
 							{% endfor %}
+
 							<li class="portfolio-item">
 								<img src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 								<figcaption class="mask">
@@ -405,7 +408,7 @@
 							<p class="wow animated bounceInRight"></p>
 						</div>
 						
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center wow animated zoomIn">
+						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn">
 							<div class="service-item">
 								<div class="service-icon">
 									<i class="fa fa-tasks fa-3x"></i>
@@ -416,7 +419,7 @@
 							<button type="submit" id="submit" class="btn btn-blue btn-effect">Entre em Contato</button>
 						</div>
 					
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.3s">
+						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.3s">
 							<div class="service-item">
 								<div class="service-icon">
 									<i class="fa fa-tasks fa-3x"></i>
@@ -427,18 +430,6 @@
 							<button type="submit" id="submit" class="btn btn-blue btn-effect">Entre em Contato</button>
 						</div>
 					
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.6s">
-							<div class="service-item">
-								<div class="service-icon">
-									<i class="fa fa-clock-o fa-3x"></i>
-								</div>
-								<h3>RN na minha EJ</h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-							</div>
-							<button type="submit" id="submit" class="btn btn-blue btn-effect">Entre em Contato</button>
-						</div>
-
-			
 					</div>
 				</div>
 			</section>
@@ -712,7 +703,7 @@
 						
 						
 						<div class="col-md-7 contact-form wow animated fadeInLeft">
-								{% if success_form_rodape %}
+							{% if success_form_rodape %}
 								<ul class="messages">
 									<li class="success">
 										Seu e-mail foi enviado com sucesso.
@@ -741,7 +732,7 @@
 			
 					</div>
 				</div>
-			</section>
+</section>
 			<!-- end Contact section -->
 			
 			<section id="google-map">
@@ -758,13 +749,16 @@
 			        <p id="referenciaContrateUmaEJ"></p>
 			      </div>
 					<form action="#" style="padding: 0 10px" method="post">
-						{% csrf_token %}
-						{% for form in form_enviar_email_model %}
-							<div class="input-field">
-							{% render_field form class="form-control" placeholder=form.label %}
-							</div>
-						{% endfor %}
-				       	<button type="submit" id="submit" class="btn btn-blue btn-effect" name="form_modal" value="Enviar_Modal">Enviar</button>
+						<div class="input-field">
+							<input style="color:black" required type="text" name="name" class="form-control" placeholder="Nome">
+						</div>
+						<div class="input-field">
+							<input style="color:black" required type="email" name="email" class="form-control" placeholder="Email">
+						</div>
+						<div class="input-field">
+							<textarea style="color:black;resize: vertical;" name="message" class="form-control" placeholder="Mensagem"></textarea>
+						</div>
+				       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Enviar</button>
 			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</form>
 			    </div>
