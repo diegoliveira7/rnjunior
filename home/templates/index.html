@@ -107,7 +107,7 @@
 				<div class="sl-slider">
 
 					{% for noticia in NoticiasModel %}
-					<div class="sl-slide" data-orientation="{{ noticia.data_orientation }}" data-slice1-rotation="{{ forum.data_slice_1 }}" data-slice2-rotation="{{ forum.data_slice_2 }}" data-slice1-scale="{{ noticia.data_slice_1_scale }}" data-slice2-scale="{{ noticia.data_slice_2_scale }}">
+					<div class="sl-slide" data-orientation="{{ noticia.data_orientation }}" data-slice1-rotation="{{ noticia.data_slice_1 }}" data-slice2-rotation="{{ noticia.data_slice_2 }}" data-slice1-scale="{{ noticia.data_slice_1_scale }}" data-slice2-scale="{{ noticia.data_slice_2_scale }}">
 
 						<div class="bg-img bg-img-1" style="background-image: url('{{ noticia.imagem.url }}')"></div>
 
@@ -749,16 +749,16 @@
 			        <p id="referenciaContrateUmaEJ"></p>
 			      </div>
 					<form action="#" style="padding: 0 10px" method="post">
-						<div class="input-field">
-							<input style="color:black" required type="text" name="name" class="form-control" placeholder="Nome">
-						</div>
-						<div class="input-field">
-							<input style="color:black" required type="email" name="email" class="form-control" placeholder="Email">
-						</div>
-						<div class="input-field">
-							<textarea style="color:black;resize: vertical;" name="message" class="form-control" placeholder="Mensagem"></textarea>
-						</div>
-				       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Enviar</button>
+						{% csrf_token %}
+						{% for field in form_enviar_email_model %}
+							<div class="input-field">
+								{% render_field field class="form-control" %}
+							</div>
+						{% endfor %}
+				       	<button type="submit" id="submit" class="btn btn-blue btn-effect" name="form_modal" value="Enviar_Modal">Enviar</button>
+				       	<!--
+				       	<button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
+				       	-->
 			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</form>
 			    </div>

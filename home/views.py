@@ -53,7 +53,9 @@ class HomeView(TemplateView):
         elif request.POST.get('form_modal') == 'Enviar_Modal':
             form = EnviarEmailModel(request.POST)
             if form.is_valid():
-                email = request.POST
+                teste = request.POST.get('form_modal')
+                #email = EmpresaModel.objects.get(nome_empresa=request.POST.get('form_modal'))
+                #print("Tipo: " + str(teste[:3]))
                 form.enviar_email("rosieli@filhadaputa.com")
         return render(request, self.template_name, context)
 

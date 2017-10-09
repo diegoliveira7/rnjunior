@@ -60,19 +60,7 @@ class Noticias(models.Model):
             listaDosEmails,
             fail_silently=False,
         )
-        num = Inteiro.objects.get(id=1)
-        if num.num == 1 and self.modificado == False:
-            self.noticia_save("horizontal", -25, -25, 2, 2)
-            num.num += 1
-            num.save()
-        elif num.num == 2 and self.modificado == False:
-            self.noticia_save("vertical", 10, -15, 1.5, 1.5)
-            num.num += 1
-            num.save()
-        elif self.modificado == False:
-            self.noticia_save("horizontal", 3, 3, 2, 1)
-            num.num = 1
-            num.save()
+        self.noticia_save("vertical", 10, -15, 1.5, 1.5)
         super().save(*args, **kwargs)
 
     def __str__(self):
