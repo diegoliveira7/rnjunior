@@ -36,6 +36,7 @@ class NewsletterModelForm(forms.ModelForm):
         fields = ['nome', 'email']
 
 
+#Formulário para o modal das empresas
 class EnviarEmailModel(forms.Form):
 
     nome = forms.CharField(label="Nome", max_length=100, widget=forms.TextInput({'required': 'required', 'placeholder': 'Nome'}))

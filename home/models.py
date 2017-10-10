@@ -17,7 +17,7 @@ class ClienteNewsletter(models.Model):
 
     class Meta:
         verbose_name = "Newsletter"
-        verbose_name_plural = "Newsletter"
+        verbose_name_plural = "08 - Newsletter"
 
 
 #Cadastra as notícias e joga no SlideShow
@@ -68,6 +68,7 @@ class Noticias(models.Model):
 
     class Meta:
         verbose_name = "Notícia"
+        verbose_name_plural = "01 - Notícias"
 
 
 #Modelo para salvar os parceiros
@@ -82,11 +83,7 @@ class Parceiros(models.Model):
 
     class Meta:
         verbose_name = "Parceiro"
-
-
-class Inteiro(models.Model):
-
-    num = models.PositiveSmallIntegerField()
+        verbose_name_plural = "05 - Parceiros"
 
 
 class AreaModel(models.Model):
@@ -101,6 +98,7 @@ class AreaModel(models.Model):
 
     class Meta:
         verbose_name = "Área"
+        verbose_name_plural = "02 - Áreas"
 
 
 class SetorModel(models.Model):
@@ -116,7 +114,7 @@ class SetorModel(models.Model):
 
     class Meta:
         verbose_name = "Setor"
-        verbose_name_plural = "Setores"
+        verbose_name_plural = "03 - Setores"
 
 
 class EmpresaModel(models.Model):
@@ -131,6 +129,7 @@ class EmpresaModel(models.Model):
 
     class Meta:
         verbose_name = "Empresa"
+        verbose_name_plural = "04 - Empresas"
 
 
 class Diretor(models.Model):
@@ -144,7 +143,7 @@ class Diretor(models.Model):
 
     class Meta:
         verbose_name = "Diretor"
-        verbose_name_plural = "Diretores"
+        verbose_name_plural = "06 - Diretores"
 
 
 class Assessores(models.Model):
@@ -158,4 +157,4 @@ class Assessores(models.Model):
 
     class Meta:
         verbose_name = "Assessor"
-        verbose_name_plural = "Assessores"
+        verbose_name_plural = "07 - Assessores"

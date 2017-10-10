@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.contrib import admin
 from .models import *
 
@@ -17,6 +19,9 @@ class NoticiasAdmin(admin.ModelAdmin):
 	exclude = ('modificado', 'data_orientation', 'data_slice_1', 
 		'data_slice_2', 'data_slice_1_scale', 'data_slice_2_scale',
 		)
+	#Esse campo indica que quando você escrever o campo 'título', o campo
+	#'slug' será escrito com o valor de 'título' sem caracteres especiais
+	#ou espaços
 	prepopulated_fields = {'slug': ('titulo',)}
 
 
@@ -33,4 +38,3 @@ admin.site.register(SetorModel)
 admin.site.register(EmpresaModel)
 admin.site.register(Diretor)
 admin.site.register(Assessores)
-admin.site.register(Inteiro)
