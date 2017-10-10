@@ -13,8 +13,6 @@
 	position: relative;
 }
 
-
-
 .bg-img {
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -153,15 +151,17 @@
 	border-radius: 50%;
 	background: rgba(255,255,255,0.8);
 }
-
+/* Substituindo as imagens no banner */
 .bg-img-1 {
-	background-image: url(../img/slider/banner.jpg);
+	background-image: url(../img/slider/RN1.JPG);
 }
 .bg-img-2 {
-	background-image: url(../img/slider/affinity.jpeg);
+	background-image: url(../img/slider/RN2.JPG);
+    background-color: rgba(0,0,0,0.75);
 }
 .bg-img-3 {
-	background-image: url(../img/slider/cinelli.jpeg);
+	background-image: url(../img/slider/RN3.JPG);
+    background-color: rgba(0,0,0,0.75);
 }
 
 

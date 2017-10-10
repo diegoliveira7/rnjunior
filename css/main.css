@@ -607,7 +607,6 @@ h1.navbar-brand {
     overflow: hidden;
     position: relative;
     border-radius: 25px;
-
 }
 
 figcaption.mask {
@@ -927,7 +926,7 @@ ul.external li a:hover {
 .input-field {
     margin-bottom: 10px;
 }
-
+/* Ajustando as cores do formulario de contato */
 .form-control {
     border: 2px solid white;
     border-radius: 0;
@@ -935,7 +934,7 @@ ul.external li a:hover {
     color: black;
     font-size: 16px;
     height: 50px;
-    border-color: #008600;
+    border-color: #ccc;
 }
 
 textarea.form-control {
