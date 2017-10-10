@@ -319,6 +319,7 @@ h1.navbar-brand {
 
 .slide-caption {
     color: #fff;
+    text-shadow: 1px 1px 1px #080808;
     display: table;
     height: 100%;
     left: 0;
