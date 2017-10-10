@@ -14,6 +14,7 @@
 }
 
 .bg-img {
+	filter: brightness(70%);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;

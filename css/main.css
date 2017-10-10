@@ -20,12 +20,12 @@
    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
    -moz-appearance: none; /* Remove estilo padrão do FireFox */
    appearance: none; /* Remove estilo padrão do FireFox*/
-   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #008600;  /* Imagem de fundo (Seta) */
-   background-position: 0 center;  /*Posição da imagem do background*/
+   background: url(../img/icons/down-icon.png) no-repeat #203940;  /* Imagem de fundo (Seta) */
+   background-position: 10px center;  /*Posição da imagem do background*/
    width: 100%; /* Tamanho do select, maior que o tamanho da div "div-select" */
    height:30px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
    border:1px solid #ddd;
-   padding-left: 35px;
+   padding-left: 40px;
    text-align: end;
 }
 body {
@@ -334,6 +334,7 @@ h1.navbar-brand {
 .slide-caption .caption-content {
     vertical-align: middle;
     display: table-cell;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
 }
 
 .caption-content h2 {

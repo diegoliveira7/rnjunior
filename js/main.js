@@ -103,7 +103,7 @@ $(document).ready(function(){
         if(selecionado?$(this)[0].id!==selecionado[0].id:true){
             selecionado=$(this)
             $(this).parent().toggleClass("col-xs-12")
-            $(this).parent().toggleClass("col-md-2")
+            $(this).parent().toggleClass("col-md-3")
             $(this).parent().toggleClass("col-xs-6")
             $("."+$(this)[0].id).css("display","block")
             $("#voltar-equipe-completa").css("display","flex")
@@ -115,10 +115,10 @@ $(document).ready(function(){
         if(selecionado){
             $("."+selecionado[0].id).css("display","none")
             selecionado.parent().toggleClass("col-xs-6")
-            selecionado.parent().toggleClass("col-md-2")
+            selecionado.parent().toggleClass("col-md-3")
             selecionado.parent().toggleClass("col-xs-12")
             $("#voltar-equipe-completa").css("display","none")
-            $("#equipe-completa").children().css("display","block")
+            $("#equipe-completa").children().css("display","inline-block")
             selecionado=null
         }
     })
@@ -255,11 +255,10 @@ function init() {
 	    var mapOptions = {
 	        zoom: 15,
 	        center: myLatLng,
-	        disableDefaultUI: true,
 	        scrollwheel: false,
 	        navigationControl: true,
-	        mapTypeControl: false,
-	        scaleControl: false,
+	        mapTypeControl: true,
+	        scaleControl: true,
 	        draggable: true,
 
         // How you would like to style the map. 
@@ -324,7 +323,7 @@ function init() {
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(22.402789, 91.822156),
         map: map,
-		icon: 'img/icons/map-marker.png',
+		icon: 'img/icons/map-marker.svg',
     });
 }
 
