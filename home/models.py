@@ -1,26 +1,32 @@
 from django.db import models
 from django.conf import settings
 from django.core.mail import send_mail
+from django.core.urlresolvers import reverse
+
+from ckeditor.fields import RichTextField
 
 
 #Modelo responsável por salvar o pessoal no Newsletter
 class ClienteNewsletter(models.Model):
 
-    nome = models.CharField("Nome do cliente", max_length=100)
-    email = models.EmailField("E-mail do cliente")
+    nome = models.CharField("Nome", max_length=100)
+    email = models.EmailField("E-mail")
 
     def __str__(self):
         return self.nome
 
     class Meta:
         verbose_name = "Newsletter"
-        verbose_name_plural = "Newsletter"
+        verbose_name_plural = "08 - Newsletter"
 
 
 #Cadastra as notícias e joga no SlideShow
 class Noticias(models.Model):
 
+    titulo = models.CharField(max_length=100, unique=True)
     texto = models.CharField("Texto", max_length=100)
+    texto_teste = RichTextField()
+    slug = models.SlugField("Link", max_length=100, unique=True, help_text="Link da notícia. Não usar caracteres com acentos ou caracteres especiais.")
     imagem = models.ImageField("Imagem", upload_to="noticias/%y/%m/%d")
     modificado = models.BooleanField(default=False)
     data_orientation = models.CharField(max_length=100, blank=True)
@@ -28,6 +34,9 @@ class Noticias(models.Model):
     data_slice_2 = models.SmallIntegerField(blank=True, null=True)
     data_slice_1_scale = models.FloatField(blank=True, null=True)
     data_slice_2_scale = models.FloatField(blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('noticia', kwargs={'slug': self.slug})
 
     def noticia_save(self, valor_string, valor1, valor2, valor3, valor4):
         self.data_orientation = valor_string
@@ -51,19 +60,7 @@ class Noticias(models.Model):
             listaDosEmails,
             fail_silently=False,
         )
-        num = Inteiro.objects.get(id=1)
-        if num.num == 1 and self.modificado == False:
-            self.noticia_save("horizontal", -25, -25, 2, 2)
-            num.num += 1
-            num.save()
-        elif num.num == 2 and self.modificado == False:
-            self.noticia_save("vertical", 10, -15, 1.5, 1.5)
-            num.num += 1
-            num.save()
-        elif self.modificado == False:
-            self.noticia_save("horizontal", 3, 3, 2, 1)
-            num.num = 1
-            num.save()
+        self.noticia_save("vertical", 10, -15, 1.5, 1.5)
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -71,6 +68,7 @@ class Noticias(models.Model):
 
     class Meta:
         verbose_name = "Notícia"
+        verbose_name_plural = "01 - Notícias"
 
 
 #Modelo para salvar os parceiros
@@ -85,11 +83,7 @@ class Parceiros(models.Model):
 
     class Meta:
         verbose_name = "Parceiro"
-
-
-class Inteiro(models.Model):
-
-    num = models.PositiveSmallIntegerField()
+        verbose_name_plural = "05 - Parceiros"
 
 
 class AreaModel(models.Model):
@@ -104,6 +98,7 @@ class AreaModel(models.Model):
 
     class Meta:
         verbose_name = "Área"
+        verbose_name_plural = "02 - Áreas"
 
 
 class SetorModel(models.Model):
@@ -119,13 +114,14 @@ class SetorModel(models.Model):
 
     class Meta:
         verbose_name = "Setor"
-        verbose_name_plural = "Setores"
+        verbose_name_plural = "03 - Setores"
 
 
 class EmpresaModel(models.Model):
 
     nome_empresa = models.CharField("Nome da empresa", max_length=100)
     foto_empresa = models.ImageField("Foto da empresa", upload_to="empresa/%y/%m/%d")
+    email_empresa = models.EmailField("E-mail da empresa")
     setor_referencia = models.ManyToManyField(SetorModel)
 
     def __str__(self):
@@ -133,6 +129,7 @@ class EmpresaModel(models.Model):
 
     class Meta:
         verbose_name = "Empresa"
+        verbose_name_plural = "04 - Empresas"
 
 
 class Diretor(models.Model):
@@ -146,7 +143,7 @@ class Diretor(models.Model):
 
     class Meta:
         verbose_name = "Diretor"
-        verbose_name_plural = "Diretores"
+        verbose_name_plural = "06 - Diretores"
 
 
 class Assessores(models.Model):
@@ -160,4 +157,4 @@ class Assessores(models.Model):
 
     class Meta:
         verbose_name = "Assessor"
-        verbose_name_plural = "Assessores"
+        verbose_name_plural = "07 - Assessores"

@@ -76,6 +76,7 @@ main > section {
     border: 0;
     position: relative;
     text-transform: uppercase;
+    margin: 20px;
 }
 
 .btn-blue {
@@ -92,7 +93,7 @@ main > section {
 }
 
 .bg-blue {
-    background-color: #009EE3;
+    background-color: #008600;
 }
 
 /* Sweep To Right */
@@ -437,7 +438,7 @@ h1.navbar-brand {
     top: 0;
     left: 0;
     background: #fff;
-    content: "";
+    content: "../img/icons/close.png";
     position: absolute;
     z-index: -1;
 
@@ -450,7 +451,7 @@ h1.navbar-brand {
 
 .btn-effect:hover,
 .btn-effect:active {
-    color: #0e83cd;
+    background-color: #008600;
 }
 
 .btn-effect:hover:after,
@@ -470,14 +471,14 @@ h1.navbar-brand {
 }
 
 .fancybox-next span {
-    background: url("../img/right.png") no-repeat scroll center center #009ee3;
+    background: url("../img/right.png") no-repeat scroll center center #008600;
     height: 50px;
     width: 50px;
     right: 0;
 }
 
 .fancybox-prev span {
-    background: url("../img/left.png") no-repeat scroll center center #009ee3;
+    background: url("../img/left.png") no-repeat scroll center center #008600;
     height: 50px;
     width: 50px;
     left: 0;
@@ -553,24 +554,23 @@ h1.navbar-brand {
     height: 85px;
     width: 85px;
     line-height: 101px;
-
     -webkit-transform: rotate(47deg);
-       -moz-transform: rotate(47deg);
-        -ms-transform: rotate(47deg);
-         -o-transform: rotate(47deg);
-            transform: rotate(47deg);
-
+    -moz-transform: rotate(47deg);
+    -ms-transform: rotate(47deg);
+    -o-transform: rotate(47deg);
+    transform: rotate(47deg);
     -webkit-transition: all 0.3s ease 0s;
-       -moz-transition: all 0.3s ease 0s;
-        -ms-transition: all 0.3s ease 0s;
-         -o-transition: all 0.3s ease 0s;
-            transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    
 }
 
 .service-item:hover .service-icon {
-    border: 3px solid #009ee3;
-    margin-bottom: 20px;
-    color: #009ee3;
+    border: 3px solid #008600;
+    margin-bottom: 10px;
+    color: #008600;
 }
 
 .service-icon i {
@@ -603,10 +603,12 @@ h1.navbar-brand {
 
 .portfolio-item {
     cursor: pointer;
-    margin: 0 1% 1% 0;
+    margin: auto;
     overflow: hidden;
     position: relative;
-    width: 32%;
+    width: 33%;
+    border-radius: 25px;
+
 }
 
 figcaption.mask {
@@ -667,7 +669,7 @@ ul.external li a {
 }
 
 ul.external li a:hover {
-    background-color: #009EE3;
+    background-color: #008600;
     color: #fff;
 }
 
@@ -713,7 +715,7 @@ ul.external li a:hover {
 }
 
 #testimonials .overlay {
-    background-color: rgba(15,155,224, 0.78);
+    background-color: #008600;
     padding: 70px 0 40px;
 }
 
@@ -931,9 +933,10 @@ ul.external li a:hover {
     border: 2px solid white;
     border-radius: 0;
     box-shadow: none;
-    color: white;
+    color: black;
     font-size: 16px;
     height: 50px;
+    border-color: #008600;
 }
 
 textarea.form-control {

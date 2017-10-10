@@ -12,9 +12,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>RN Junior</title>		
 		<!-- Meta Description -->
-        <meta name="description" content="Blue One Page Creative HTML5 Template">
-        <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
-        <meta name="author" content="Muhammad Morshed">
+        <meta name="description" content="RN Junior">
+        <meta name="keywords" content="Site federação empresas juniores RN">
+        <meta name="author" content="EJECT">
 		
 		<!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +37,7 @@
 		<!-- bootstrap.min -->
         <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
@@ -105,6 +105,22 @@
             <div id="slider" class="sl-slider-wrapper">
 
 				<div class="sl-slider">
+
+					{% for noticia in NoticiasModel %}
+					<div class="sl-slide" data-orientation="{{ noticia.data_orientation }}" data-slice1-rotation="{{ noticia.data_slice_1 }}" data-slice2-rotation="{{ noticia.data_slice_2 }}" data-slice1-scale="{{ noticia.data_slice_1_scale }}" data-slice2-scale="{{ noticia.data_slice_2_scale }}">
+
+						<div class="bg-img bg-img-1" style="background-image: url('{{ noticia.imagem.url }}')"></div>
+
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2 class="animated fadeInDown">RN Junior</h2>
+                                <span class="animated fadeInDown">Clean and Professional one page Template</span>
+                                <a href="{{ noticia.get_absolute_url }}" class="btn btn-blue btn-effect">Join US</a>
+                            </div>
+                        </div>
+						
+					</div>
+					{% endfor %}
 				
 					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
 
@@ -125,7 +141,7 @@
 						<div class="bg-img bg-img-2"></div>
 						<div class="slide-caption">
                             <div class="caption-content">
-                                <h2>BLUE Onepage HTML5 Template</h2>
+                                <h2>RN Junior</h2>
                                 <span>Clean and Professional one page Template</span>
                                 <a href="#" class="btn btn-blue btn-effect">Join US</a>
                             </div>
@@ -138,7 +154,7 @@
 						<div class="bg-img bg-img-3"></div>
 						<div class="slide-caption">
                             <div class="caption-content">
-                                <h2>BLUE Onepage HTML5 Template</h2>
+                                <h2>RN Junior</h2>
                                 <span>Clean and Professional one page Template</span>
                                 <a href="#" class="btn btn-blue btn-effect">Join US</a>
                             </div>
@@ -192,19 +208,19 @@
 						    <label for="exampleInputEmail1">Escolha a área:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjArea">
 						      <option id="area-none" disabled selected>Escolher</option>
-						      <option id="area-1">1</option>
-						      <option id="area-2">2</option>
-							  <option id="area-3">3</option>
-							  {% for area in AreaModel %}
+						      {% for area in AreaModel %}
 							  <option id="area-{{ area.nome_formatado }}">{{ area }}</option>
 							  {% endfor %}
+						      <option id="area-1">1</option>
+						      <option id="area-2">2</option>
+						      <option id="area-3">3</option>
 						    </select>
 						  </div>
 						  <div class="form-group col-xs-12 col-md-4">
 						    <label for="exampleInputPassword1">Escolha o serviço:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjServico">
-							  <option id="servico-none" disabled selected>Escolher</option>
-							  {% for setor in SetorModel %}
+						      <option id="servico-none" disabled selected>Escolher</option>
+						      {% for setor in SetorModel %}
 							  <option class="area-{{ setor.area_referencia.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
 							  {% endfor %}
 						      <option class="area-1" id="servico-4">1-4</option>
@@ -235,7 +251,7 @@
 									<a href="https://www.facebook.com/" target="_blank">
 										<img class="lazyload" data-src="http://fio.edu.br/site2013/images/logo/FIO_fundo-transparente.png">
 									</a>
-									<button class="btn">Pedir orçamento</button>
+									<button empresa="fio durinhos" class="btn openModalContrateSuaEj">Pedir orçamento</button>
 								</div>
 							</div>
 							<div class="area-2 servico-5 col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
@@ -243,7 +259,7 @@
 									<a href="https://www.facebook.com/" target="_blank">
 										<img class="lazyload" data-src="http://baloespromo.com.br/images/logo-vivo.png">
 									</a>
-									<button class="btn">Pedir orçamento</button>
+									<button empresa="Vivo" class="btn openModalContrateSuaEj">Pedir orçamento</button>
 								</div>
 							</div>
 							<div class="area-3 servico-6 col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
@@ -251,7 +267,7 @@
 									<a href="https://www.facebook.com/" target="_blank">
 										<img class="lazyload" data-src="http://img.ibxk.com.br/2013/10/materias/976973154241269-t640.jpg">
 									</a>
-									<button class="btn">Pedir orçamento</button>
+									<button empresa="Samsung" class="btn openModalContrateSuaEj">Pedir orçamento</button>
 								</div>
 							</div>
 							<div class="area-1 servico-7 col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
@@ -259,7 +275,7 @@
 									<a href="https://www.facebook.com/" target="_blank">
 										<img class="lazyload" data-src="http://www.kwb.com.br/blog/wp-content/uploads/2013/11/lg.jpg">
 									</a>
-									<button class="btn">Pedir orçamento</button>
+									<button empresa="LG" class="btn openModalContrateSuaEj">Pedir orçamento</button>
 								</div>
 							</div>
 							<div class="area-2 servico-8 col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
@@ -267,15 +283,15 @@
 									<a href="https://www.facebook.com/" target="_blank">
 										<img class="lazyload" data-src="http://www.albertokimtecidos.com.br/images/Logo_Visa.jpg?443">
 									</a>
-									<button class="btn">Pedir orçamento</button>
+									<button empresa="Visa)" class="btn openModalContrateSuaEj">Pedir orçamento</button>
 								</div>
 							</div>
-							<div class="area-3 servico-9 col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
+							<div  class="area-3 servico-9 col-xs-6 col-sm-4 col-md-3 displayNodeServico resultados-contrate">
 								<div>
 									<a href="https://www.facebook.com/" target="_blank">
 										<img class="lazyload" data-src="http://www.compracam.com.br/wp-content/uploads/2016/11/logo-com-fundo-transparente.png">
 									</a>
-									<button class="btn">Pedir orçamento</button>
+									<button empresa="Compracam" class="btn openModalContrateSuaEj">Pedir orçamento</button>
 								</div>
 							</div>
 						</div>
@@ -296,88 +312,83 @@
 						
 
 						<ul class="project-wrapper wow animated fadeInUp">
-							{% for parceiro in parceiros %}
+
+							{% for parceiro in ParceirosModel %}
 							<li class="portfolio-item">
-									<img src="{{ parceiro.foto.url }}" class="img-responsive" alt="{{ parceiro.texto }}">
-									<figcaption class="mask">
-										<h3>{{ parceiro.titulo }}</h3>
-										<p>{{ parceiro.texto|slice:":100" }}...</p>
-									</figcaption>
-									<ul class="external">
-										<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="{{ parceiro.foto.url }}"><i class="fa fa-search"></i></a></li>
-										<li><a href=""><i class="fa fa-link"></i></a></li>
-									</ul>
-								</li>
+								<img src="{{ parceiro.foto.url }}" class="img-responsive" alt="{{ parceiro.texto }}">
+								<figcaption class="mask">
+									<h3>{{ parceiro.titulo }}</h3>
+									<p>{{ parceiro.texto|slice:":100" }}...</p>
+								</figcaption>
+								<ul class="external">
+									<li><a class="fancybox" title="{{ parceiro.titulo }}" data-fancybox-group="works" href="{{ parceiro.foto.url }}"><i class="fa fa-search"></i></a></li>
+								</ul>
+							</li>
 							{% endfor %}
+
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item.jpg' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+								<img src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="{% static 'img/portfolio/item.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="{% static 'img/portfolio/eject.png' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item2.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="{% static 'img/portfolio/logomarca.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street" href="{% static 'img/slider/banner.jpg' %}" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Wall street" href="{% static 'img/portfolio/logomarca.png' %}" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item3.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="{% static 'img/portfolio/ufrn.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Behind The world" data-fancybox-group="works" href="{% static 'img/portfolio/item3.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Behind The world" data-fancybox-group="works" href="{% static 'img/portfolio/ufrn.png' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item4.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
+								<img src="{% static 'img/portfolio/brasiljunior.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 4" data-fancybox-group="works" href="{% static 'img/portfolio/item4.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Wall street 4" data-fancybox-group="works" href="{% static 'img/portfolio/brasiljunior.png' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item5.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="{% static 'img/portfolio/adm.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 5" data-fancybox-group="works" href="{% static 'img/portfolio/item5.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Wall street 5" data-fancybox-group="works" href="{% static 'img/portfolio/adm.png' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 							
 							<li class="portfolio-item">
-								<img src="{% static 'img/portfolio/item6.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								<img src="{% static 'img/portfolio/produtiva.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
 								<figcaption class="mask">
 									<h3>Wall street</h3>
 									<p>Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. </p>
 								</figcaption>
 								<ul class="external">
-									<li><a class="fancybox" title="Wall street 6" data-fancybox-group="works" href="{% static 'img/portfolio/item6.jpg' %}"><i class="fa fa-search"></i></a></li>
-									<li><a href=""><i class="fa fa-link"></i></a></li>
+									<li><a class="fancybox" title="Wall street 6" data-fancybox-group="works" href="{% static 'img/portfolio/produtiva.jpg' %}"><i class="fa fa-search"></i></a></li>
 								</ul>
 							</li>
 						</ul>
@@ -397,10 +408,10 @@
 							<p class="wow animated bounceInRight"></p>
 						</div>
 						
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center wow animated zoomIn">
+						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn">
 							<div class="service-item">
 								<div class="service-icon">
-									<i class="fa fa-home fa-3x"></i>
+									<i class="fa fa-tasks fa-3x"></i>
 								</div>
 								<h3>CAJU</h3>
 								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
@@ -408,7 +419,7 @@
 							<button type="submit" id="submit" class="btn btn-blue btn-effect">Entre em Contato</button>
 						</div>
 					
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.3s">
+						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.3s">
 							<div class="service-item">
 								<div class="service-icon">
 									<i class="fa fa-tasks fa-3x"></i>
@@ -419,18 +430,6 @@
 							<button type="submit" id="submit" class="btn btn-blue btn-effect">Entre em Contato</button>
 						</div>
 					
-						<div class="col-md-4 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.6s">
-							<div class="service-item">
-								<div class="service-icon">
-									<i class="fa fa-clock-o fa-3x"></i>
-								</div>
-								<h3>RN na minha EJ</h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-							</div>
-							<button type="submit" id="submit" class="btn btn-blue btn-effect">Entre em Contato</button>
-						</div>
-
-			
 					</div>
 				</div>
 			</section>
@@ -469,26 +468,6 @@
 											<h5 style="width:80%;margin:auto;text-align:center">{{ assessor }}</h5>
 										</div>
 										{% endfor %}
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
 									</div>
 								</div>
 								{% endfor %}
@@ -674,11 +653,25 @@
 							<div class="wow animated fadeInDown">
 								<p>Assine nossa newsletter</p>
 							</div>
-							<form action="#" method="post" class="subscribe-form wow animated fadeInUp">
+							{% if success_form_newsletter %}
+							<ul class="messages">
+								<li class="success">
+									Seu cadastro foi feito com sucesso.
+								</li>
+							</ul>
+							{% endif %}
+							<form method="post" class="subscribe-form wow animated fadeInUp">
 								{% csrf_token %}
 								<div class="input-field" style="max-width:380px;margin: auto;">
-									{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" style="border-bottom:none" %}
-									{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu Email" %}
+									{% for field in form_newsletter %}
+										{% if field.errors %}
+											<div style="display: inline-block;">
+												{{ field.errors }} ({{ field.label }})
+											</div>
+										{% endif %}										
+									{% endfor %}
+									{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" required="required" %}
+									{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu E-mail" required="required" %}
 									<button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
 										<i class="fa fa-paper-plane fa-lg"></i>
 									</button>
@@ -710,15 +703,22 @@
 						
 						
 						<div class="col-md-7 contact-form wow animated fadeInLeft">
-							<form action="#" method="post">{% csrf_token %}
-								{% for form in form_rodape %}
-								<div class="input-field">
-									{{ form.errors }}
-									{% render_field form class="form-control" %}
-								</div>
-								{% endfor %}
-						       	<input type="submit" id="submit" name="form_rodape" class="btn btn-blue btn-effect" value="Enviar"></input>
-							</form>
+							{% if success_form_rodape %}
+								<ul class="messages">
+									<li class="success">
+										Seu e-mail foi enviado com sucesso.
+									</li>
+								</ul>
+								{% endif %}
+								<form method="post">{% csrf_token %}
+									{% for form in form_rodape %}
+									<div class="input-field">
+										{{ form.errors }}
+										{% render_field form class="form-control" %}
+									</div>
+									{% endfor %}
+									   <input type="submit" id="submit" name="form_rodape" class="btn btn-blue btn-effect" value="Enviar"></input>
+								</form>
 						</div>
 						
 						<div class="col-md-5 wow animated fadeInRight">
@@ -732,12 +732,39 @@
 			
 					</div>
 				</div>
-			</section>
+</section>
 			<!-- end Contact section -->
 			
 			<section id="google-map">
 				<div id="map-canvas" class="wow animated fadeInUp"></div>
 			</section>
+
+			<!-- Modal do formulário de contatrate uma ej-->
+			<div id="myModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">Contrate uma EJ</h4>
+			        <p id="referenciaContrateUmaEJ"></p>
+			      </div>
+					<form action="#" style="padding: 0 10px" method="post">
+						{% csrf_token %}
+						{% for field in form_enviar_email_model %}
+							<div class="input-field">
+								{% render_field field class="form-control" %}
+							</div>
+						{% endfor %}
+				       	<button type="submit" id="submit" class="btn btn-blue btn-effect" name="form_modal" value="Enviar_Modal">Enviar</button>
+				       	<!--
+				       	<button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
+				       	-->
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</form>
+			    </div>
+
+			  </div>
+			</div>
 		
 		</main>
 		
