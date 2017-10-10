@@ -194,7 +194,6 @@ main > section {
 }
 
 .sec-title h2:after {
-    border-bottom: 1px solid #f0b833;
     content: "";
     display: block;
     left: 45%;
@@ -606,12 +605,11 @@ h1.navbar-brand {
     margin: auto;
     overflow: hidden;
     position: relative;
-    border-radius: 25px;
 }
 
 figcaption.mask {
     background-color: rgba(54, 55, 50, 0.79);
-    bottom: -126px;
+    bottom: -200px;
     color: #fff;
     padding: 25px;
     position: absolute;
