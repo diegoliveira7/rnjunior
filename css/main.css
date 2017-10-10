@@ -1128,7 +1128,7 @@ textarea.form-control {
 
 /* portfolio */
     figcaption.mask {
-        bottom: -151px;
+        bottom: -200px;
     }
 
     .testimonial-item > div:after {
@@ -1276,7 +1276,7 @@ textarea.form-control {
 /*portfolio*/
     .portfolio-item {
         margin: 0 auto 10px;
-        font-size: 14px;
+        font-size: 12px;
         width: 280px;
     }
 
@@ -1383,7 +1383,7 @@ textarea.form-control {
     }
 
     figcaption.mask {
-        bottom: -132px;
+        bottom: -200px;
     }
 
 /* testimonial */
