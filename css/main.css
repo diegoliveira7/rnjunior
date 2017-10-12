@@ -603,6 +603,7 @@ h1.navbar-brand {
 }
 
 .portfolio-item {
+    padding: 10px;
     cursor: pointer;
     margin: auto;
     overflow: hidden;
@@ -975,41 +976,33 @@ textarea.form-control {
     margin-left: 24px;
 }
 
-
-/*============================================================
-	Google Maps
-==============================================================*/
-
-#google-map {
-    padding: 0;
+#footer{
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #203940;
 }
 
-#map-canvas {
-    width: 100%;
-    height: 300px;
-}
-
-
 /*============================================================
-	Footer
+	newsletter
 ==============================================================*/
 
-#footer {
+#newsletter {
     height: 470px;
     background-color: #008600;
     padding: 70px 0;
     color: #fff;
 }
 
-.footer-content {
+.newsletter-content {
     margin: 0 auto;
 }
 
-.footer-content > div {
+.newsletter-content > div {
     margin-bottom: 40px;
 }
 
-.footer-content > div > p:first-child {
+.newsletter-content > div > p:first-child {
     margin-bottom: 15px;
     text-transform: uppercase;
 }
@@ -1068,23 +1061,23 @@ textarea.form-control {
             transform: translateX(30px);
 }
 
-.footer-content .footer-social {
+.newsletter-content .newsletter-social {
     margin: 40px 0 35px;
 }
 
-.footer-social ul {
+.newsletter-social ul {
     list-style: outside none none;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-.footer-social ul li {
+.newsletter-social ul li {
     display: inline-block;
     margin: 0 10px;
 }
 
-.footer-social ul li a {
+.newsletter-social ul li a {
     color: white;
     display: block;
     
@@ -1095,19 +1088,19 @@ textarea.form-control {
             transition: all 0.2s ease 0s;
 }
 
-.footer-social ul li a i {
+.newsletter-social ul li a i {
     font-size: 2em;
 }
 
-.footer-social ul li a:hover {
+.newsletter-social ul li a:hover {
     color: #f9f122;
 }
 
-.footer-content > p {
+.newsletter-content > p {
     color: white;
     font-size: 12px;
 }
-.footer-content >p> a {
+.newsletter-content >p> a {
     color: #ffdb39;
     font-size: 12px;
 }
@@ -1332,12 +1325,12 @@ textarea.form-control {
         margin-bottom: 50px;
     }
 
-/* footer */
-    .footer-content {
+/* newsletter */
+    .newsletter-content {
         width: 100%;
     }
 
-    .footer-social ul li {
+    .newsletter-social ul li {
         margin: 0 7px;
     }
 }
@@ -1418,8 +1411,8 @@ textarea.form-control {
         margin-bottom: 50px;
     }
 
-/* footer */
-    .footer-content {
+/* newsletter */
+    .newsletter-content {
         width: 380px;
     }
 }
