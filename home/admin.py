@@ -16,7 +16,7 @@ class ClienteNewsletterAdmin(admin.ModelAdmin):
 class NoticiasAdmin(admin.ModelAdmin):
 
 	search_fields = ['texto']
-	exclude = ('modificado', 'data_orientation', 'data_slice_1', 
+	exclude = ( 'data_orientation', 'data_slice_1', 
 		'data_slice_2', 'data_slice_1_scale', 'data_slice_2_scale',
 		)
 	#Esse campo indica que quando você escrever o campo 'título', o campo
@@ -38,3 +38,4 @@ admin.site.register(SetorModel)
 admin.site.register(EmpresaModel)
 admin.site.register(Diretor)
 admin.site.register(Assessores)
+admin.site.register(Eventos)
