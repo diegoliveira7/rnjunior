@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, DetailView
 
 from .forms import EnviarEmailRodape, NewsletterModelForm, EnviarEmailModel
 from .models import Noticias, Parceiros, AreaModel, SetorModel, EmpresaModel, \
-                    Diretor, Assessores
+                    Diretor, Assessores, Eventos
 
 #View mestra que recebe todos os valores de contexto e
 #valida os formulários
@@ -24,6 +24,7 @@ class HomeView(TemplateView):
         context['DiretorModel'] = Diretor.objects.all()
         context['AssessoresModel'] = Assessores.objects.all()
         context['form_enviar_email_model'] = EnviarEmailModel()
+        context['CrieSuaEJModel'] = Eventos.objects.all()
         return context
 
     #Quando tem um método "post" a view processa o pedido
@@ -63,8 +64,13 @@ class HomeView(TemplateView):
 class NoticiaView(DetailView):
 
     model = Noticias
-    template_name = 'noticias.html'
+    template_name = 'noticia.html'
 
     def get_object(self, queryset=None):
         obj = get_object_or_404(Noticias, slug=self.kwargs['slug'])
         return obj
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['noticia'] = self.get_object()
+        return context

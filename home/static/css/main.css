@@ -14,18 +14,18 @@
 /*	Basic Style 
 /* =================================== */
 .appearance-select{
-    color: black !important;
+    color: white !important;
     outline: none !important;
     border-color: transparent !important;
    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
    -moz-appearance: none; /* Remove estilo padrão do FireFox */
    appearance: none; /* Remove estilo padrão do FireFox*/
-   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;  /* Imagem de fundo (Seta) */
-   background-position: 0 center;  /*Posição da imagem do background*/
+   background: url(../img/icons/down-icon.png) no-repeat #203940;  /* Imagem de fundo (Seta) */
+   background-position: 10px center;  /*Posição da imagem do background*/
    width: 100%; /* Tamanho do select, maior que o tamanho da div "div-select" */
    height:30px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
    border:1px solid #ddd;
-   padding-left: 35px;
+   padding-left: 40px;
    text-align: end;
 }
 body {
@@ -194,7 +194,6 @@ main > section {
 }
 
 .sec-title h2:after {
-    border-bottom: 1px solid #f0b833;
     content: "";
     display: block;
     left: 45%;
@@ -320,6 +319,7 @@ h1.navbar-brand {
 
 .slide-caption {
     color: #fff;
+    text-shadow: 1px 1px 1px #080808;
     display: table;
     height: 100%;
     left: 0;
@@ -334,6 +334,7 @@ h1.navbar-brand {
 .slide-caption .caption-content {
     vertical-align: middle;
     display: table-cell;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
 }
 
 .caption-content h2 {
@@ -602,18 +603,16 @@ h1.navbar-brand {
 }
 
 .portfolio-item {
+    padding: 10px;
     cursor: pointer;
     margin: auto;
     overflow: hidden;
     position: relative;
-    width: 33%;
-    border-radius: 25px;
-
 }
 
 figcaption.mask {
     background-color: rgba(54, 55, 50, 0.79);
-    bottom: -126px;
+    bottom: -200px;
     color: #fff;
     padding: 25px;
     position: absolute;
@@ -928,7 +927,7 @@ ul.external li a:hover {
 .input-field {
     margin-bottom: 10px;
 }
-
+/* Ajustando as cores do formulario de contato */
 .form-control {
     border: 2px solid white;
     border-radius: 0;
@@ -936,7 +935,7 @@ ul.external li a:hover {
     color: black;
     font-size: 16px;
     height: 50px;
-    border-color: #008600;
+    border-color: #ccc;
 }
 
 textarea.form-control {
@@ -977,41 +976,33 @@ textarea.form-control {
     margin-left: 24px;
 }
 
-
-/*============================================================
-	Google Maps
-==============================================================*/
-
-#google-map {
-    padding: 0;
+#footer{
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #203940;
 }
 
-#map-canvas {
-    width: 100%;
-    height: 300px;
-}
-
-
 /*============================================================
-	Footer
+	newsletter
 ==============================================================*/
 
-#footer {
+#newsletter {
     height: 470px;
     background-color: #008600;
     padding: 70px 0;
     color: #fff;
 }
 
-.footer-content {
+.newsletter-content {
     margin: 0 auto;
 }
 
-.footer-content > div {
+.newsletter-content > div {
     margin-bottom: 40px;
 }
 
-.footer-content > div > p:first-child {
+.newsletter-content > div > p:first-child {
     margin-bottom: 15px;
     text-transform: uppercase;
 }
@@ -1070,23 +1061,23 @@ textarea.form-control {
             transform: translateX(30px);
 }
 
-.footer-content .footer-social {
+.newsletter-content .newsletter-social {
     margin: 40px 0 35px;
 }
 
-.footer-social ul {
+.newsletter-social ul {
     list-style: outside none none;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-.footer-social ul li {
+.newsletter-social ul li {
     display: inline-block;
     margin: 0 10px;
 }
 
-.footer-social ul li a {
+.newsletter-social ul li a {
     color: white;
     display: block;
     
@@ -1097,19 +1088,19 @@ textarea.form-control {
             transition: all 0.2s ease 0s;
 }
 
-.footer-social ul li a i {
+.newsletter-social ul li a i {
     font-size: 2em;
 }
 
-.footer-social ul li a:hover {
+.newsletter-social ul li a:hover {
     color: #f9f122;
 }
 
-.footer-content > p {
+.newsletter-content > p {
     color: white;
     font-size: 12px;
 }
-.footer-content >p> a {
+.newsletter-content >p> a {
     color: #ffdb39;
     font-size: 12px;
 }
@@ -1132,7 +1123,7 @@ textarea.form-control {
 
 /* portfolio */
     figcaption.mask {
-        bottom: -151px;
+        bottom: -200px;
     }
 
     .testimonial-item > div:after {
@@ -1280,7 +1271,7 @@ textarea.form-control {
 /*portfolio*/
     .portfolio-item {
         margin: 0 auto 10px;
-        font-size: 14px;
+        font-size: 12px;
         width: 280px;
     }
 
@@ -1334,12 +1325,12 @@ textarea.form-control {
         margin-bottom: 50px;
     }
 
-/* footer */
-    .footer-content {
+/* newsletter */
+    .newsletter-content {
         width: 100%;
     }
 
-    .footer-social ul li {
+    .newsletter-social ul li {
         margin: 0 7px;
     }
 }
@@ -1387,7 +1378,7 @@ textarea.form-control {
     }
 
     figcaption.mask {
-        bottom: -132px;
+        bottom: -200px;
     }
 
 /* testimonial */
@@ -1420,8 +1411,8 @@ textarea.form-control {
         margin-bottom: 50px;
     }
 
-/* footer */
-    .footer-content {
+/* newsletter */
+    .newsletter-content {
         width: 380px;
     }
 }

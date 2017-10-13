@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
+from django.utils import timezone
 
 from ckeditor.fields import RichTextField
 
@@ -23,12 +24,13 @@ class ClienteNewsletter(models.Model):
 #Cadastra as notícias e joga no SlideShow
 class Noticias(models.Model):
 
-    titulo = models.CharField(max_length=100, unique=True)
-    texto = models.CharField("Texto", max_length=100)
-    texto_teste = RichTextField()
+    titulo = models.CharField("Título", max_length=100, unique=True)
+    subtitulo = models.CharField("Subtítulo", max_length=200)
+    usuario = models.ForeignKey('auth.User')
+    criado = models.DateTimeField(default=timezone.now())
+    texto = RichTextField()
     slug = models.SlugField("Link", max_length=100, unique=True, help_text="Link da notícia. Não usar caracteres com acentos ou caracteres especiais.")
     imagem = models.ImageField("Imagem", upload_to="noticias/%y/%m/%d")
-    modificado = models.BooleanField(default=False)
     data_orientation = models.CharField(max_length=100, blank=True)
     data_slice_1 = models.SmallIntegerField(blank=True, null=True)
     data_slice_2 = models.SmallIntegerField(blank=True, null=True)
@@ -44,7 +46,6 @@ class Noticias(models.Model):
         self.data_slice_2 = valor2
         self.data_slice_1_scale = valor3
         self.data_slice_2_scale = valor4
-        self.modificado = True
 
     #Sobrescrevi o método save padrão do modelo para que
     #quando uma nova instância fosse criada e salva,
@@ -64,7 +65,7 @@ class Noticias(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.texto[:100]
+        return self.titulo
 
     class Meta:
         verbose_name = "Notícia"
@@ -75,7 +76,7 @@ class Noticias(models.Model):
 class Parceiros(models.Model):
 
     foto = models.ImageField("Imagem", upload_to="parceiros/%y/%m/%d")
-    titulo = models.CharField("Título", max_length=100)
+    titulo = models.CharField("Título", max_length=100, help_text="Para ajudar a ver as empresas na listagem.")
     texto = models.TextField("Texto")
 
     def __str__(self):
@@ -122,6 +123,7 @@ class EmpresaModel(models.Model):
     nome_empresa = models.CharField("Nome da empresa", max_length=100)
     foto_empresa = models.ImageField("Foto da empresa", upload_to="empresa/%y/%m/%d")
     email_empresa = models.EmailField("E-mail da empresa")
+    facebook = models.CharField("Facebook da empresa", max_length=200)
     setor_referencia = models.ManyToManyField(SetorModel)
 
     def __str__(self):
@@ -149,6 +151,7 @@ class Diretor(models.Model):
 class Assessores(models.Model):
 
     nome = models.CharField("Nome do assessor", max_length=200)
+    cargo = models.CharField("Cargo do assessor", max_length=200)
     foto = models.ImageField("Foto do assessor", upload_to="assessor/%y/%m/%d")
     diretor_referencia = models.ForeignKey(Diretor, on_delete=models.CASCADE)
 
@@ -158,3 +161,17 @@ class Assessores(models.Model):
     class Meta:
         verbose_name = "Assessor"
         verbose_name_plural = "07 - Assessores"
+
+
+class Eventos(models.Model):
+
+    foto = models.ImageField("Foto", upload_to="Eventos")
+    titulo = models.CharField("Título", max_length=150)
+    descricao = models.TextField("Descrição")
+
+    def __str__(self):
+        return self.titulo
+
+    class Meta:
+        verbose_name = "Evento"
+        verbose_name_plural = "09 - Eventos"
