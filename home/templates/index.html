@@ -288,7 +288,7 @@
 											<a href="https://www.facebook.com/" target="_blank">
 												<img class="lazyload" data-src="{{ empresa.foto_empresa.url }}">
 											</a>
-											<button empresa="fio durinhos" class="btn openModalContrateSuaEj">Pedir orçamento</button>
+											<button empresa="{{ empresa.nome_empresa }}" class="btn rx openModalContrateSuaEj">Pedir orçamento</button>
 										</div>
 									</div>
 								{% endfor %}
@@ -298,7 +298,7 @@
 									<a href="https://www.facebook.com/" target="_blank">
 										<img class="lazyload" data-src="http://fio.edu.br/site2013/images/logo/FIO_fundo-transparente.png">
 									</a>
-									<button empresa="fio durinhos" class="btn openModalContrateSuaEj">Pedir orçamento</button>
+									<button empresa="fio durinhos" class="btn rx openModalContrateSuaEj">Pedir orçamento</button>
 								</div>
 							</div>
 							<div class="area-2 servico-5 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
@@ -538,16 +538,16 @@
 			        <p id="referenciaContrateUmaEJ"></p>
 			      </div>
 					<form action="#" style="padding: 0 10px" method="post">
-						<div class="input-field">
-							<input style="color:black" required type="text" name="name" class="form-control" placeholder="Nome">
-						</div>
-						<div class="input-field">
-							<input style="color:black" required type="email" name="email" class="form-control" placeholder="Email">
-						</div>
-						<div class="input-field">
-							<textarea style="color:black;resize: vertical;" name="message" class="form-control" placeholder="Mensagem"></textarea>
-						</div>
-				       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Enviar</button>
+						{% csrf_token %}
+						{% for field in form_enviar_email_model %}
+							<div class="input-field">
+								{% render_field field class="form-control" %}
+							</div>
+						{% endfor %}
+				       	<button type="submit" id="submit" class="btn btn-blue btn-effect modal_enviar" name="form_modal" value="Enviar_Modal">Enviar</button>
+				       	<!--
+				       	<button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
+				       	-->
 			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</form>
 			    </div>
@@ -580,5 +580,6 @@
 		<!-- Custom Functions -->
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/background.js' %}"></script>
+		<script src="{% static 'js/modulo.js' %}"></script>
     </body>
 </html>
