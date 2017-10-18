@@ -182,6 +182,7 @@ main > section {
 }
 
 .sec-title h2 {
+    color: #203940;
     font-size: 36px;
     margin: 0 0 30px;
     padding-bottom: 30px;

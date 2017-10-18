@@ -76,7 +76,7 @@
 		// maximum possible angle
 		maxAngle : 0,
 		// maximum possible scale
-		maxScale : 2,
+		maxScale : 1,
 		// slideshow on / off
 		autoplay : false,
 		// keyboard navigation
