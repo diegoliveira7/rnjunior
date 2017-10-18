@@ -68,13 +68,13 @@
 
 	$.Slitslider.defaults = {
 		// transitions speed
-		speed : 800,
+		speed : 1000,
 		// if true the item's slices will also animate the opacity value
 		optOpacity : false,
 		// amount (%) to translate both slices - adjust as necessary
 		translateFactor : 230,
 		// maximum possible angle
-		maxAngle : 25,
+		maxAngle : 0,
 		// maximum possible scale
 		maxScale : 2,
 		// slideshow on / off
@@ -82,7 +82,7 @@
 		// keyboard navigation
 		keyboard : true,
 		// time between transitions
-		interval : 4000,
+		interval : 5000,
 		// callbacks
 		onBeforeChange : function( slide, idx ) { return false; },
 		onAfterChange : function( slide, idx ) { return false; }
@@ -171,7 +171,7 @@
 			
 			}
 
-			this.isAnimating = true;
+			this.isAnimating = false;
 
 			var self = this,
 				$currentSlide = this.$slides.eq( this.current );
