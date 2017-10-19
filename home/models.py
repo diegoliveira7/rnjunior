@@ -6,12 +6,14 @@ from django.utils import timezone
 
 from ckeditor.fields import RichTextField
 
+from .validators import validador_de_data
+
 
 #Modelo responsável por salvar o pessoal no Newsletter
 class ClienteNewsletter(models.Model):
 
     nome = models.CharField("Nome", max_length=100)
-    email = models.EmailField("E-mail")
+    email = models.EmailField("E-mail", unique=True)
 
     def __str__(self):
         return self.nome
@@ -27,7 +29,7 @@ class Noticias(models.Model):
     titulo = models.CharField("Título", max_length=100, unique=True)
     subtitulo = models.CharField("Subtítulo", max_length=200)
     usuario = models.ForeignKey('auth.User')
-    criado = models.DateTimeField(default=timezone.now())
+    criado = models.DateTimeField(default=timezone.now, validators=[validador_de_data])
     texto = RichTextField()
     slug = models.SlugField("Link", max_length=100, unique=True, help_text="Link da notícia. Não usar caracteres com acentos ou caracteres especiais.")
     imagem = models.ImageField("Imagem", upload_to="noticias/%y/%m/%d")
@@ -150,10 +152,10 @@ class Diretor(models.Model):
 
 class Assessores(models.Model):
 
-    nome = models.CharField("Nome do assessor", max_length=200)
-    cargo = models.CharField("Cargo do assessor", max_length=200)
-    foto = models.ImageField("Foto do assessor", upload_to="assessor/%y/%m/%d")
-    diretor_referencia = models.ForeignKey(Diretor, on_delete=models.CASCADE)
+    nome = models.CharField("Nome", max_length=200)
+    cargo = models.CharField("Cargo", max_length=200)
+    foto = models.ImageField("Foto", upload_to="assessor/%y/%m/%d")
+    diretor = models.ForeignKey(Diretor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
