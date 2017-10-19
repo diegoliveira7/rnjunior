@@ -180,7 +180,10 @@ main > section {
 .sec-title.white {
     color: #fff;
 }
-
+.resultados-contrate>div{
+    width: 100%;
+    max-height: 200px;
+}
 .sec-title h2 {
     color: #203940;
     font-size: 36px;
@@ -1439,6 +1442,8 @@ textarea.form-control {
     margin: auto;
 }
 .resultados-contrate>div>button{
+    width: 100%;
+    margin: auto;
     margin-top: 10px;
     opacity:0;
     transition-timing-function: ease-in-out;
@@ -1446,18 +1451,6 @@ textarea.form-control {
 }
 .resultados-contrate:hover>div>button{
     opacity:1;
-    transition-timing-function: ease-in-out;
-    transition-duration: 300ms;
-}
-.resultados-contrate>div>a>img{
-    margin:auto;
-    max-width:100%; 
-    max-height:100%; 
-    transition-timing-function: ease-in-out;
-    transition-duration: 300ms;
-}
-.resultados-contrate:hover>div>a>img{
-    transform: scale(0.6);
     transition-timing-function: ease-in-out;
     transition-duration: 300ms;
 }
@@ -1490,4 +1483,18 @@ textarea.form-control {
     display: inline-block;
     text-align: left;
     font-size: 13px;
+}
+
+.imagemcontrate{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+.resultados-contrate:hover .imagemcontrate{
+    transform: scale(0.6);
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
 }
