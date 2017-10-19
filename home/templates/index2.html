@@ -22,7 +22,7 @@
 		<!-- CSS
 		================================================== -->
 		
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 		
 		<!-- Fontawesome Icon font -->
         <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
@@ -42,23 +42,7 @@
 		<!-- Modernizer Script for old Browsers -->
         <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
 
-        <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicon//apple-icon-57x57.png' %}">
-				<link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicon//apple-icon-60x60.png' %}">
-				<link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicon//apple-icon-72x72.png' %}">
-				<link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicon//apple-icon-76x76.png' %}">
-				<link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicon//apple-icon-114x114.png' %}">
-				<link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon//apple-icon-120x120.png' %}">
-				<link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicon//apple-icon-144x144.png' %}">
-				<link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicon//apple-icon-152x152.png' %}">
-				<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon//apple-icon-180x180.png' %}">
-				<link rel="icon" type="image/png" sizes="192x192"  href="{% static 'img/favicon//android-icon-192x192.png' %}">
-				<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon//favicon-32x32.png' %}">
-				<link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicon//favicon-96x96.png' %}">
-				<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon//favicon-16x16.png' %}">
-				<link rel="manifest" href="{% static '/manifest.json' %}">
-				<meta name="msapplication-TileColor" content="#008600">
-				<meta name="msapplication-TileImage" content="{5 static 'img/favicon//ms-icon-144x144.png' %}">
-				<meta name="theme-color" content="#008600">
+        <link rel="shortcut icon" href="{% static 'img/icons/favicon.ico' %}"  />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -139,6 +123,46 @@
 						
 					</div>
 					{% endfor %}
+				
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                   
+						<div class="bg-img bg-img-1"></div>
+
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2 class="animated fadeInDown">RP - Mossoró </h2>
+                                <span class="animated fadeInDown">Esse sábado tivemos a nossa Reunião Presencial</span>
+                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+                            </div>
+                        </div>
+						
+					</div>
+					
+					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+					
+						<div class="bg-img bg-img-2"></div>
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2>Eleições RN Júnior</h2>
+                                <span>Os candidatos apresentaram suas propostas</span>
+                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+                            </div>
+                        </div>
+						
+					</div>
+					
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+						
+						<div class="bg-img bg-img-3"></div>
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2>Federada !!!</h2>
+                                <span>Agora a Pirâmide Topografia e Projetos faz parte do time !</span>
+                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+                            </div>
+                        </div>
+
+					</div>
 
 				</div><!-- /sl-slider -->
 
@@ -219,7 +243,7 @@
 			<!--end Conheça a RN -->	
 
 			<!-- Contratar section -->
-			<section id="contrate" style="background-color:#eee">
+			<section id="contrate">
 				<div class="container">
 					<div class="row">
 					
@@ -230,30 +254,36 @@
 						  <div class="form-group col-xs-12 col-md-offset-2 col-md-4">
 						    <label for="exampleInputEmail1">Escolha a área:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjArea">
-						      <option id="area-none" selected>Escolher</option>
-						      {% for area in AreaModel %}
+							  <option id="area-none" disabled selected>Escolher</option>
+							  {% for area in AreaModel %}
 							  <option id="area-{{ area.nome_formatado }}">{{ area }}</option>
 							  {% endfor %}
+						      <option id="area-1">1</option>
+						      <option id="area-2">2</option>
+						      <option id="area-3">3</option>
 						    </select>
 						  </div>
 						  <div class="form-group col-xs-12 col-md-4">
 						    <label for="exampleInputPassword1">Escolha o serviço:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjServico">
-						      <option id="servico-none" selected>Escolher</option>
-						      {% for setor in SetorModel %}
+							  <option id="servico-none" disabled selected>Escolher</option>
+							  {% for setor in SetorModel %}
 							  <option class="area-{{ setor.area_referencia.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
 							  {% endfor %}
+						      <option class="area-1" id="servico-4">1-4</option>
+						      <option class="area-2" id="servico-5">2-5</option>
+						      <option class="area-3" id="servico-6">3-6</option>
+						      <option class="area-1" id="servico-7">1-7</option>
+						      <option class="area-2" id="servico-8">2-8</option>
+						      <option class="area-3" id="servico-9">3-9</option>
 						    </select>
 						  </div>
 						</form>
 
 						<div class="col-xs-12" id="empresas-selecionadas">
 							{% for empresa in EmpresaModel %}
-									<div class="area-{{ setor.area_referencia.nome_formatado }}
-										{% for setor in empresa.setor_referencia.all %}
-											servico-{{ setor.nome_formatado }}
-										{% endfor %}
-									 	 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								{% for setor in empresa.setor_referencia.all %}
+									<div class="area-{{ setor.area_referencia.nome_formatado }} servico-{{ setor.nome_formatado }} col-xs-6 col-sm-4 col-md-3 resultados-contrate">
 										<div>
 											<a href="https://www.facebook.com/" target="_blank">
 												<img class="lazyload" data-src="{{ empresa.foto_empresa.url }}">
@@ -261,7 +291,56 @@
 											<button empresa="{{ empresa.nome_empresa }}" class="btn rx openModalContrateSuaEj">Pedir orçamento</button>
 										</div>
 									</div>
+								{% endfor %}
 							{% endfor %}
+							<div title="servico 4, serviço 5 ..." class="area-1 servico-4 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a href="https://www.facebook.com/" target="_blank">
+										<img class="lazyload" data-src="http://fio.edu.br/site2013/images/logo/FIO_fundo-transparente.png">
+									</a>
+									<button empresa="fio durinhos" class="btn rx openModalContrateSuaEj">Pedir orçamento</button>
+								</div>
+							</div>
+							<div class="area-2 servico-5 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a href="https://www.facebook.com/" target="_blank">
+										<img class="lazyload" data-src="http://baloespromo.com.br/images/logo-vivo.png">
+									</a>
+									<button empresa="Vivo" class="btn openModalContrateSuaEj">Pedir orçamento</button>
+								</div>
+							</div>
+							<div class="area-3 servico-6 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a href="https://www.facebook.com/" target="_blank">
+										<img class="lazyload" data-src="http://img.ibxk.com.br/2013/10/materias/976973154241269-t640.jpg">
+									</a>
+									<button empresa="Samsung" class="btn openModalContrateSuaEj">Pedir orçamento</button>
+								</div>
+							</div>
+							<div class="area-1 servico-7 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a href="https://www.facebook.com/" target="_blank">
+										<img class="lazyload" data-src="http://www.kwb.com.br/blog/wp-content/uploads/2013/11/lg.jpg">
+									</a>
+									<button empresa="LG" class="btn openModalContrateSuaEj">Pedir orçamento</button>
+								</div>
+							</div>
+							<div class="area-2 servico-8 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a href="https://www.facebook.com/" target="_blank">
+										<img class="lazyload" data-src="http://www.albertokimtecidos.com.br/images/Logo_Visa.jpg?443">
+									</a>
+									<button empresa="Visa)" class="btn openModalContrateSuaEj">Pedir orçamento</button>
+								</div>
+							</div>
+							<div  class="area-3 servico-9 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a href="https://www.facebook.com/" target="_blank">
+										<img class="lazyload" data-src="http://www.compracam.com.br/wp-content/uploads/2016/11/logo-com-fundo-transparente.png">
+									</a>
+									<button empresa="Compracam" class="btn openModalContrateSuaEj">Pedir orçamento</button>
+								</div>
+							</div>
 						</div>
 
 					</div>
@@ -278,7 +357,6 @@
 							<h2 class="wow animated bounceInLeft">Crie sua EJ</h2>
 							<p class="wow animated bounceInRight"></p>
 						</div>
-
 						{% for evento in CrieSuaEJModel %}
 						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn">
 							<div class="service-item">
@@ -412,6 +490,36 @@
 									<img src="{{ parceiro.foto.url }}" class="img-responsive" alt="{{ parceiro.texto }}">
 								</div>
 								{% endfor %}
+								<div class="col-xs-4 col-md-3 col-lg-2">
+									<img src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+								</div>
+								<div class="col-xs-4 col-md-3 col-lg-2">
+									<img src="{% static 'img/portfolio/logomarca.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="{% static 'img/portfolio/ufrn.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="{% static 'img/portfolio/brasiljunior.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="{% static 'img/portfolio/adm.png' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="{% static 'img/portfolio/produtiva.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="{% static 'img/portfolio/produtiva.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="{% static 'img/portfolio/produtiva.jpg' %}" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
 							</div>
 						</ul>
 						
@@ -428,8 +536,6 @@
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
 			        <h4 class="modal-title">Contrate uma EJ</h4>
 			        <p id="referenciaContrateUmaEJ"></p>
-<!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Site da empresa</a>-->
-<!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Facebook</a> -->
 			      </div>
 					<form action="#" style="padding: 0 10px" method="post">
 						{% csrf_token %}
@@ -474,6 +580,6 @@
 		<!-- Custom Functions -->
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/background.js' %}"></script>
-        <script src="{% static 'js/nomeDasEmpresasModal.js' %}"></script>
+		<script src="{% static 'js/modulo.js' %}"></script>
     </body>
 </html>
