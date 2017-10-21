@@ -31,6 +31,7 @@ class Noticias(models.Model):
     usuario = models.ForeignKey('auth.User')
     criado = models.DateTimeField(default=timezone.now, validators=[validador_de_data])
     texto = RichTextField()
+    visivel = models.BooleanField("Visível", default=True)
     slug = models.SlugField("Link", max_length=100, unique=True, help_text="Link da notícia. Não usar caracteres com acentos ou caracteres especiais.")
     imagem = models.ImageField("Imagem", upload_to="noticias/%y/%m/%d")
     data_orientation = models.CharField(max_length=100, blank=True)

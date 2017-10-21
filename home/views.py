@@ -16,7 +16,7 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['form_rodape'] = EnviarEmailRodape()
         context['form_newsletter'] = NewsletterModelForm()
-        context['NoticiasModel'] = Noticias.objects.all()
+        context['NoticiasModel'] = Noticias.objects.all().filter(visivel=True)
         context['ParceirosModel'] = Parceiros.objects.all()
         context['AreaModel'] = AreaModel.objects.all()
         context['SetorModel'] = SetorModel.objects.all()
