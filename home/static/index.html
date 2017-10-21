@@ -10,9 +10,9 @@
         <meta charset="utf-8">
 		<!-- Always force latest IE rendering engine or request Chrome Frame -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>RN Junior</title>		
+        <title>RN Júnior</title>		
 		<!-- Meta Description -->
-        <meta name="description" content="RN Junior">
+        <meta name="description" content="RN Júnior">
         <meta name="keywords" content="Site federação empresas juniores RN">
         <meta name="author" content="EJECT">
 		
@@ -55,9 +55,9 @@
 				<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon//favicon-32x32.png' %}">
 				<link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicon//favicon-96x96.png' %}">
 				<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon//favicon-16x16.png' %}">
-				<link rel="manifest" href="/manifest.json">
+				<link rel="manifest" href="{% static '/manifest.json' %}">
 				<meta name="msapplication-TileColor" content="#008600">
-				<meta name="msapplication-TileImage" content="img/favicon//ms-icon-144x144.png">
+				<meta name="msapplication-TileImage" content="{% static 'img/favicon//ms-icon-144x144.png' %}">
 				<meta name="theme-color" content="#008600">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -91,7 +91,7 @@
 					
 					<!-- logo -->
 					<a href="#home-slider">
-						<img style="height: 50px;margin-left: 10px;" src="img/logo-rn.png"/>
+						<img style="height: 50px;margin-left: 10px;" src="{% static 'img/logo-rn.png' %}"/>
 					</a>
 					<!-- /logo -->
                 </div>
@@ -99,7 +99,7 @@
 				<!-- main nav -->
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="nav" class="nav navbar-nav">
-                        <li><a href="#conheca-a-rn">Conheça a RN Junior</a></li>
+                        <li><a href="#conheca-a-rn">Conheça a RN Júnior</a></li>
                         <li><a href="#contrate">Contrate uma EJ</a></li>
                         <li><a href="#service">Crie sua EJ</a></li>
                         <li><a href="#contact">Contato</a></li>
@@ -123,6 +123,21 @@
             <div id="slider" class="sl-slider-wrapper">
 
 				<div class="sl-slider">
+					{% for noticia in NoticiasModel %}
+					<div class="sl-slide" data-orientation="{{ noticia.data_orientation }}" data-slice1-rotation="{{ noticia.data_slice_1 }}" data-slice2-rotation="{{ noticia.data_slice_2 }}" data-slice1-scale="{{ noticia.data_slice_1_scale }}" data-slice2-scale="{{ noticia.data_slice_2_scale }}">
+
+						<div class="bg-img bg-img-1" style="background-image: url('{{ noticia.imagem.url }}')"></div>
+
+						<div class="slide-caption">
+							<div class="caption-content">
+								<h2 class="animated fadeInDown">RN Junior</h2>
+								<span class="animated fadeInDown">Clean and Professional one page Template</span>
+								<a href="{{ noticia.get_absolute_url }}" class="btn btn-blue btn-effect">Join US</a>
+							</div>
+						</div>
+						
+					</div>
+					{% endfor %}
 				
 					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
                    
@@ -214,199 +229,27 @@
 							<br><br>
 							<h4>Conheça a equipe:</h4>
 							<div id="equipe-completa" class="centered">
-								<div class="col-xs-6 col-md-3 text-center">
-									<div id="diretoria-1" data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select">	
-									</div>
-									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
-									<div class="col-xs-12 centered equipe-diretoria diretoria-1 animated fadeInDown" style="display: none">
-										<br>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+								<div id="equipe-completa" class="centered">
+									{% for diretor in DiretorModel %}
+									<div class="col-xs-6 col-md-3 text-center">
+										<div id="diretoria-1" data-src="{{ diretor.foto.url }}" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select">	
 										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+										<h4 style="width:80%;margin:auto;text-align:center">{{ diretor.cargo }}</h4>
+										<div class="col-xs-12 centered equipe-diretoria diretoria-1 animated fadeInDown" style="display: none">
+											<br>
+											{% for assessor in diretor.assessores_set.all %}
+											<div class="col-xs-6 col-md-2 text-center">
+												<div data-src="{{ assessor.foto.url }}" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+												</div>
+												<h5 style="width:80%;margin:auto;text-align:center">{{ assessor.cargo }}</h5>
 											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+											{% endfor %}
 										</div>
 									</div>
+									{% endfor %}
 								</div>
-								<div class="col-xs-6 col-md-3 text-center">
-									<div id="diretoria-2" data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
-									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
-									<div class="col-xs-12 centered equipe-diretoria diretoria-2 animated fadeInDown" style="display: none">
-										<br>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-6 col-md-3 text-center">
-									<div id="diretoria-3" data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
-									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
-									<div class="col-xs-12 centered equipe-diretoria diretoria-3 animated fadeInDown" style="display: none">
-										<br>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-6 col-md-3 text-center">
-									<div id="diretoria-4" data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
-									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
-									<div class="col-xs-12 centered equipe-diretoria diretoria-4 animated fadeInDown" style="display: none">
-										<br>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-6 col-md-3 text-center">
-									<div id="diretoria-5" data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
-									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
-									<div class="col-xs-12 centered equipe-diretoria diretoria-5 animated fadeInDown" style="display: none">
-										<br>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-6 col-md-3 text-center">
-									<div id="diretoria-5" data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
-									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
-									<div class="col-xs-12 centered equipe-diretoria diretoria-5 animated fadeInDown" style="display: none">
-										<br>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-xs-6 col-md-3 text-center">
-									<div id="diretoria-6" data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
-									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
-									<div class="col-xs-12 centered equipe-diretoria diretoria-6 animated fadeInDown" style="display: none">
-										<br>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
-											</div>
-											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
-										</div>
-									</div>
-								</div>
-							</div>
 							<div id="voltar-equipe-completa" title="ver diretoria" style="align-items:center;cursor:pointer;width:30px;position:relative;display:none">
-								<img src="img/icons/back.svg" style="width:30px;height:30px;margin-right:5px">
+								<img src="{% static 'img/icons/back.svg' %}" style="width:30px;height:30px;margin-right:5px">
 								<h4>Voltar</h4>
 							</div>
 						</div>
@@ -427,81 +270,38 @@
 						  <div class="form-group col-xs-12 col-md-offset-2 col-md-4">
 						    <label for="exampleInputEmail1">Escolha a área:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjArea">
-						      <option id="area-none" selected>Escolher</option>
-						      <option id="area-1">1</option>
-						      <option id="area-2">2</option>
-						      <option id="area-3">3</option>
+							  <option id="area-none" selected>Escolher</option>
+							  {% for area in AreaModel %}
+							  <option id="area-{{ area.nome_formatado }}">{{ area }}</option>
+							  {% endfor %}
 						    </select>
 						  </div>
 						  <div class="form-group col-xs-12 col-md-4">
 						    <label for="exampleInputPassword1">Escolha o serviço:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjServico">
-						      <option id="servico-none" selected>Escolher</option>
-						      <option class="area-1" id="servico-4">1-4</option>
-						      <option class="area-2" id="servico-5">2-5</option>
-						      <option class="area-3" id="servico-6">3-6</option>
-						      <option class="area-1" id="servico-7">1-7</option>
-						      <option class="area-2" id="servico-8">2-8</option>
-						      <option class="area-3" id="servico-9">3-9</option>
+							  <option id="servico-none" selected>Escolher</option>
+							  {% for setor in SetorModel %}
+							  <option class="area-{{ setor.area_referencia.nome_formatado }}" id="servico-{{ setor.nome_formatado }}">{{ setor }}</option>
+							  {% endfor %}
 						    </select>
 						  </div>
 						</form>
 
 						<div class="col-xs-12" id="empresas-selecionadas">
-							<div title="servico 4, serviço 5 ..." class="area-1 servico-4 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+							{% for empresa in EmpresaModel %}
+							<div class="area-{{ setor.area_referencia.nome_formatado }}
+								{% for setor in empresa.setor_referencia.all %}
+									servico-{{ setor.nome_formatado }}
+								{% endfor %}
+									col-xs-6 col-sm-4 col-md-3 resultados-contrate">
 								<div>
-									<a target="_blank" href="http://facebook.com">
-										<div data-src="http://fio.edu.br/site2013/images/logo/FIO_fundo-transparente.png" class="lazyloadBackground imagemcontrate">	
-										</div>
+									<a href="https://www.facebook.com/" target="_blank">
+										<img class="lazyload" data-src="{{ empresa.foto_empresa.url }}">
 									</a>
-									<button empresa="fio durinhos" class="btn openModalContrateSuaEj">Orçamento</button>
+									<button empresa="{{ empresa.nome_empresa }}" class="btn rx openModalContrateSuaEj">Pedir orçamento</button>
 								</div>
 							</div>
-							<div class="area-2 servico-5 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
-								<div>
-									<a target="_blank" href="http://facebook.com">
-										<div data-src="http://baloespromo.com.br/images/logo-vivo.png" class="lazyloadBackground imagemcontrate">	
-										</div>
-									</a>
-									<button empresa="Vivo" class="btn openModalContrateSuaEj">Orçamento</button>
-								</div>
-							</div>
-							<div class="area-3 servico-6 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
-								<div>
-									<a target="_blank" href="http://facebook.com">
-										<div data-src="http://img.ibxk.com.br/2013/10/materias/976973154241269-t640.jpg" class="lazyloadBackground imagemcontrate">	
-										</div>
-									</a>
-									<button empresa="Samsung" class="btn openModalContrateSuaEj">Orçamento</button>
-								</div>
-							</div>
-							<div class="area-1 servico-7 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
-								<div>
-									<a target="_blank" href="http://facebook.com">
-										<div data-src="http://www.kwb.com.br/blog/wp-content/uploads/2013/11/lg.jpg" class="lazyloadBackground imagemcontrate">	
-										</div>
-									</a>
-									<button empresa="LG" class="btn openModalContrateSuaEj">Orçamento</button>
-								</div>
-							</div>
-							<div class="area-2 servico-8 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
-								<div>
-									<a target="_blank" href="http://facebook.com">
-										<div data-src="http://www.albertokimtecidos.com.br/images/Logo_Visa.jpg?443" class="lazyloadBackground imagemcontrate">	
-										</div>
-									</a>
-									<button empresa="Visa)" class="btn openModalContrateSuaEj">Orçamento</button>
-								</div>
-							</div>
-							<div  class="area-3 servico-9 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
-								<div>
-									<a target="_blank" href="http://facebook.com">
-										<div data-src="http://www.compracam.com.br/wp-content/uploads/2016/11/logo-com-fundo-transparente.png" class="lazyloadBackground imagemcontrate">	
-										</div>
-									</a>
-									<button empresa="Compracam" class="btn openModalContrateSuaEj">Orçamento</button>
-								</div>
-							</div>
+							{% endfor %}
 						</div>
 
 					</div>
@@ -519,23 +319,17 @@
 							<p class="wow animated bounceInRight"></p>
 						</div>
 						
+						{% for evento in CrieSuaEJModel %}
 						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn">
 							<div class="service-item">
-									<img src="img/caju.png" style="width: 50%">
-								<h3>CAJU</h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+									<img src="{% static 'img/caju.png' %}" style="width: 50%">
+								<h3>{{ evento.titulo }}</h3>
+								<p>{{ evento.descricao }}</p>
 							</div>
 
 						</div>
-					
-						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.3s">
-							<div class="service-item">
-								<img src="img/cajuweekend.png" style="width: 50%">
-								<h3>CAJU weekend</h3>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-							</div>
-							
-						</div>
+						{% endfor %}
+
                         <div class="col-md-12" style="text-align: center"><a href="#contact"><button type="submit" id="submit" class="btn btn-blue btn-effect">Entre em Contato</button></a></div>
 					</div>
 				</div>
@@ -552,11 +346,26 @@
 							<div class="wow animated fadeInDown">
 								<p>Assine nossa newsletter</p>
 							</div>
-							<form action="#" method="post" class="subscribe-form wow animated fadeInUp">
+							{% if success_form_newsletter %}
+							<ul class="messages">
+								<li class="success">
+									Seu cadastro foi feito com sucesso.
+								</li>
+							</ul>
+							{% endif %}
+							<form method="post" class="subscribe-form wow animated fadeInUp">
+								{% csrf_token %}
 								<div class="input-field" style="max-width:380px;margin: auto;">
-									<input style="border-bottom:none" type="text" required class="subscribe form-control" placeholder="Digite seu Nome">
-									<input type="email" required class="subscribe form-control" placeholder="Digite seu Email">
-									<button type="submit" class="submit-icon">
+									{% for field in form_newsletter %}
+										{% if field.errors %}
+											<div style="display: inline-block;">
+												{{ field.errors }} ({{ field.label }})
+											</div>
+										{% endif %}										
+									{% endfor %}
+									{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" required="required" %}
+									{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu E-mail" required="required" %}
+									<button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
 										<i class="fa fa-paper-plane fa-lg"></i>
 									</button>
 								</div>
@@ -586,20 +395,21 @@
 						
 						
 						<div class="col-md-7 contact-form wow animated fadeInLeft">
-							<form action="#" method="post">
+							{% if success_form_rodape %}
+							<ul class="messages">
+								<li class="success">
+									Seu e-mail foi enviado com sucesso.
+								</li>
+							</ul>
+							{% endif %}
+							<form method="post">{% csrf_token %}
+								{% for form in form_rodape %}
 								<div class="input-field">
-									<input type="text" name="name" class="form-control" placeholder="Nome">
+									{{ form.errors }}
+									{% render_field form class="form-control" %}
 								</div>
-								<div class="input-field">
-									<input type="email" name="email" class="form-control" placeholder="Email">
-								</div>
-								<div class="input-field">
-									<input type="text" name="subject" class="form-control" placeholder="Assunto">
-								</div>
-								<div class="input-field">
-									<textarea name="message" class="form-control" placeholder="Mensagem"></textarea>
-								</div>
-						       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Enviar</button>
+								{% endfor %}
+								<input type="submit" id="submit" name="form_rodape" class="btn btn-blue btn-effect" value="Enviar"></input>
 							</form>
 						</div>
 						
@@ -630,45 +440,19 @@
 							<div class="container centered">
 								<div class="col-xs-12 wow animated fadeIn">
 									<div style="display:flex;align-items: center;justify-content:center">
-										<img style="max-width:30%;margin:auto" src="img/portfolio/eject.png" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+										<img style="max-width:30%;margin:auto" src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-facebook"></a>
-	    								<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-instagram"></a>
-	    								<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-youtube"></a>
-										<img style="max-width:16%;border-left:4px solid white;margin:auto" src="img/portfolio/eject.png" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
-    								</div>
+										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-instagram"></a>
+										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-youtube"></a>
+										<img style="max-width:16%;border-left:4px solid white;margin:auto" src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+									</div>
 								</div>
 								<hr style="margin-bottom:30px;">
+								{% for parceiro in ParceirosModel %}
 								<div class="col-xs-4 col-md-3 col-lg-2">
-									<img src="img/portfolio/eject.png" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+									<img src="{{ parceiro.foto.url }}" class="img-responsive" alt="{{ parceiro.texto }}">
 								</div>
-								
-								<div class="col-xs-4 col-md-3 col-lg-2">
-									<img src="img/portfolio/logomarca.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
-								</div>
-								
-								<div class="col-xs-4 col-md-3 col-lg-2">
-										<img src="img/portfolio/ufrn.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
-								</div>
-								
-								<div class="col-xs-4 col-md-3 col-lg-2">
-										<img src="img/portfolio/brasiljunior.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
-								</div>
-								
-								<div class="col-xs-4 col-md-3 col-lg-2">
-										<img src="img/portfolio/adm.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
-								</div>
-								
-								<div class="col-xs-4 col-md-3 col-lg-2">
-										<img src="img/portfolio/produtiva.jpg" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
-								</div>
-
-								<div class="col-xs-4 col-md-3 col-lg-2">
-										<img src="img/portfolio/produtiva.jpg" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
-								</div>
-
-								<div class="col-xs-4 col-md-3 col-lg-2">
-										<img src="img/portfolio/produtiva.jpg" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
-								</div>
+								{% endfor %}
 							</div>
 						</ul>
 						
@@ -688,19 +472,19 @@
 <!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Site da empresa</a>-->
 <!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Facebook</a> -->
 			      </div>
-					<form action="#" style="padding: 0 10px" method="post">
-						<div class="input-field">
-							<input style="color:black" required type="text" name="name" class="form-control" placeholder="Nome">
-						</div>
-						<div class="input-field">
-							<input style="color:black" required type="email" name="email" class="form-control" placeholder="Email">
-						</div>
-						<div class="input-field">
-							<textarea style="color:black;resize: vertical;" name="message" class="form-control" placeholder="Mensagem"></textarea>
-						</div>
-				       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Enviar</button>
-			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</form>
+				  <form action="#" style="padding: 0 10px" method="post">
+					{% csrf_token %}
+					{% for field in form_enviar_email_model %}
+					  <div class="input-field">
+					  	{% render_field field class="form-control" %}
+					  </div>
+					{% endfor %}
+					  <button type="submit" id="submit" class="btn btn-blue btn-effect modal_enviar" name="form_modal" value="Enviar_Modal">Enviar</button>
+					  <!--
+					  <button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
+					  -->
+					  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				  </form>
 			    </div>
 
 			  </div>
