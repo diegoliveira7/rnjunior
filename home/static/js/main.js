@@ -241,7 +241,6 @@ $(document).ready(function(){
 	
 });
 
-// ========== END GOOGLE MAP ========== //
 
 var wow = new WOW ({
 	offset:       75,          // distance to the element when triggering the animation (default is 0)

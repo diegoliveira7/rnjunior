@@ -9,7 +9,10 @@
 * --------------------------------------------------------------------------- 
 *
 */
-
+@font-face {
+     font-family: 'Vollkorn';
+     src: url('../fonts/Vollkorn-BoldItalic.ttf') format('truetype');
+}
 /* =================================== */
 /*	Basic Style 
 /* =================================== */
@@ -20,7 +23,7 @@
    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
    -moz-appearance: none; /* Remove estilo padrão do FireFox */
    appearance: none; /* Remove estilo padrão do FireFox*/
-   background: url(../img/icons/down-icon.png) no-repeat #203940;  /* Imagem de fundo (Seta) */
+   background: url(../img/icons/down-icon.png) no-repeat #008600;  /* Imagem de fundo (Seta) */
    background-position: 10px center;  /*Posição da imagem do background*/
    width: 100%; /* Tamanho do select, maior que o tamanho da div "div-select" */
    height:30px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
@@ -30,7 +33,7 @@
 }
 body {
     background-color: #fff;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Vollkorn, 'Open Sans', sans-serif;
     line-height: 24px;
     font-size: 16px;
     color: #818181;
@@ -63,7 +66,7 @@ a, a:hover, a:focus, .btn:focus {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Vollkorn, 'Open Sans', sans-serif;
     color: #252525;
 }
 
@@ -99,7 +102,6 @@ main > section {
 /* Sweep To Right */
 .btn-effect {
 	vertical-align: middle;
-	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 	position: relative;
 	display: inline-block;
 
@@ -134,7 +136,7 @@ main > section {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: #fff;
+	background: #ffb918;
 	
 	-webkit-transform: scaleX(0);
 	   -moz-transform: scaleX(0);
@@ -276,11 +278,15 @@ h1.navbar-brand {
 }
 
 .navbar-inverse .navbar-nav > li > a {
+    transition-duration: 100ms;
     color: #fff;
     font-size: 15px;
     text-transform: uppercase;
 }
-
+.navbar-nav > li > a:hover {
+    transition-duration: 100ms;
+    color:#ffb918 !important;
+}
 
 /*=================================================================
 	Home Slider
@@ -323,7 +329,6 @@ h1.navbar-brand {
 
 .slide-caption {
     color: #fff;
-    text-shadow: 1px 1px 1px #080808;
     display: table;
     height: 100%;
     left: 0;
@@ -928,6 +933,14 @@ ul.external li a:hover {
 	Contact
 ==================================================================*/
 
+.redes-sociais > a:hover{
+    color: #ffb918;
+}
+.redes-sociais > a{
+    color:white;
+    font-size:35px;
+    margin:10px;
+}
 .input-field {
     margin-bottom: 10px;
 }
@@ -945,18 +958,6 @@ ul.external li a:hover {
 textarea.form-control {
     width: 100%;
     height: 165px;
-}
-
-#submit:hover {
-  color: #fff;
-}
-
-#submit:before {
-  background-color: #ffdb39;
-}
-
-#submit.btn-effect:after {
-  background: #2E2E2E;
 }
 
 .contact-details h3 {
