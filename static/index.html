@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+    	<!-- meta character set -->
+        <meta charset="utf-8">
+		<!-- Always force latest IE rendering engine or request Chrome Frame -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>RN Junior</title>		
+		<!-- Meta Description -->
+        <meta name="description" content="RN Junior">
+        <meta name="keywords" content="Site federação empresas juniores RN">
+        <meta name="author" content="EJECT">
+		
+		<!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- CSS
+		================================================== -->
+		
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+		
+		<!-- Fontawesome Icon font -->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="{% static 'css/jquery.fancybox.css' %}">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="{% static 'css/slit-slider.css' %}">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+		<!-- Main Stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+		<!-- Modernizer Script for old Browsers -->
+        <script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+
+        <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicon//apple-icon-57x57.png' %}">
+				<link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicon//apple-icon-60x60.png' %}">
+				<link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicon//apple-icon-72x72.png' %}">
+				<link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicon//apple-icon-76x76.png' %}">
+				<link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicon//apple-icon-114x114.png' %}">
+				<link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon//apple-icon-120x120.png' %}">
+				<link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicon//apple-icon-144x144.png' %}">
+				<link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicon//apple-icon-152x152.png' %}">
+				<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon//apple-icon-180x180.png' %}">
+				<link rel="icon" type="image/png" sizes="192x192"  href="{% static 'img/favicon//android-icon-192x192.png' %}">
+				<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon//favicon-32x32.png' %}">
+				<link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicon//favicon-96x96.png' %}">
+				<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon//favicon-16x16.png' %}">
+				<link rel="manifest" href="/manifest.json">
+				<meta name="msapplication-TileColor" content="#008600">
+				<meta name="msapplication-TileImage" content="img/favicon//ms-icon-144x144.png">
+				<meta name="theme-color" content="#008600">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+	
+    <body id="body">
+
+		<!-- preloader -->
+		<div id="preloader">
+            <div class="loder-box">
+            	<img src="{% static 'img/logo-rn.png' %}"/>
+            </div>
+		</div>
+		<!-- end preloader -->
+
+        <!--
+        Fixed Navigation
+        ==================================== -->
+        <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- responsive nav button -->
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+                    </button>
+					<!-- /responsive nav button -->
+					
+					<!-- logo -->
+					<a href="#home-slider">
+						<img style="height: 50px;margin-left: 10px;" src="img/logo-rn.png"/>
+					</a>
+					<!-- /logo -->
+                </div>
+
+				<!-- main nav -->
+                <nav class="collapse navbar-collapse navbar-right" role="navigation">
+                    <ul id="nav" class="nav navbar-nav">
+                        <li><a href="#conheca-a-rn">Conheça a RN Junior</a></li>
+                        <li><a href="#contrate">Contrate uma EJ</a></li>
+                        <li><a href="#service">Crie sua EJ</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </nav>
+				<!-- /main nav -->
+				
+            </div>
+        </header>
+        <!--
+        End Fixed Navigation
+        ==================================== -->
+		
+		<main class="site-content" role="main">
+		
+        <!--
+        Home Slider
+        ==================================== -->
+		
+		<section id="home-slider">
+            <div id="slider" class="sl-slider-wrapper">
+
+				<div class="sl-slider">
+				
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                   
+						<div class="bg-img bg-img-1"></div>
+
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2 class="animated fadeInDown">RP - Mossoró </h2>
+                                <span class="animated fadeInDown">Esse sábado tivemos a nossa Reunião Presencial</span>
+                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+                            </div>
+                        </div>
+						
+					</div>
+					
+					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+					
+						<div class="bg-img bg-img-2"></div>
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2>Eleições RN Júnior</h2>
+                                <span>Os candidatos apresentaram suas propostas</span>
+                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+                            </div>
+                        </div>
+						
+					</div>
+					
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+						
+						<div class="bg-img bg-img-3"></div>
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2>Federada !!!</h2>
+                                <span>Agora a Pirâmide Topografia e Projetos faz parte do time !</span>
+                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+                            </div>
+                        </div>
+
+					</div>
+
+				</div><!-- /sl-slider -->
+
+                <!-- 
+                <nav id="nav-arrows" class="nav-arrows">
+                    <span class="nav-arrow-prev">Previous</span>
+                    <span class="nav-arrow-next">Next</span>
+                </nav>
+                -->
+                
+                <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
+                    <a href="javascript:;" class="sl-prev">
+                        <i class="fa fa-angle-left fa-3x"></i>
+                    </a>
+                    <a href="javascript:;" class="sl-next">
+                        <i class="fa fa-angle-right fa-3x"></i>
+                    </a>
+                </nav>
+                
+
+				<nav id="nav-dots" class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+				</nav>
+
+			</div><!-- /slider-wrapper -->
+		</section>
+		
+        <!--
+        End Home SliderEnd
+        ==================================== -->
+
+			<!--Conheça a RN -->
+			<section id="conheca-a-rn" >
+				<div class="container">
+					<div class="row">
+						
+						<div class="sec-title text-center wow animated fadeInDown">
+							<h2>Conheça a RN</h2>
+						</div>
+						
+						
+						<div class="col-xs-12 wow animated fadeInLeft">
+							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+						</div>
+						<br>
+						<div class="col-xs-12 wow animated fadeInLeft">
+							<br><br>
+							<h4>Conheça a equipe:</h4>
+							<div id="equipe-completa" class="centered">
+								<div class="col-xs-6 col-md-3 text-center">
+									<div id="diretoria-1" data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select">	
+									</div>
+									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
+									<div class="col-xs-12 centered equipe-diretoria diretoria-1 animated fadeInDown" style="display: none">
+										<br>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://belicosa.com.br/novo/wp-content/uploads/2013/02/belicosa-mariaaugusta.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-md-3 text-center">
+									<div id="diretoria-2" data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
+									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
+									<div class="col-xs-12 centered equipe-diretoria diretoria-2 animated fadeInDown" style="display: none">
+										<br>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://static1.squarespace.com/static/51435924e4b02285c8b9c92d/t/558c96c3e4b03457461d0f2e/1435276998172/caiobraga-perfil.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-md-3 text-center">
+									<div id="diretoria-3" data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
+									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
+									<div class="col-xs-12 centered equipe-diretoria diretoria-3 animated fadeInDown" style="display: none">
+										<br>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://www.pedal.com.br/forum/uploads/7488/Pabloxtz_perfil03.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-md-3 text-center">
+									<div id="diretoria-4" data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
+									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
+									<div class="col-xs-12 centered equipe-diretoria diretoria-4 animated fadeInDown" style="display: none">
+										<br>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://empreendedor.com.br/wp-content/uploads/2017/05/perfil2-715x390.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-md-3 text-center">
+									<div id="diretoria-5" data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
+									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
+									<div class="col-xs-12 centered equipe-diretoria diretoria-5 animated fadeInDown" style="display: none">
+										<br>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-md-3 text-center">
+									<div id="diretoria-5" data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
+									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
+									<div class="col-xs-12 centered equipe-diretoria diretoria-5 animated fadeInDown" style="display: none">
+										<br>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="https://cdn.pensador.com/img/imagens/sh/ut/shutterstock_92466964_0_c.jpg" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-md-3 text-center">
+									<div id="diretoria-6" data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select"></div>
+									<h4 style="width:80%;margin:auto;text-align:center">Diretor de tal coisa</h4>
+									<div class="col-xs-12 centered equipe-diretoria diretoria-6 animated fadeInDown" style="display: none">
+										<br>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+										<div class="col-xs-6 col-md-2 text-center">
+											<div data-src="http://tutano.trampos.co/wp-content/uploads/2014/12/juliana.png" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											</div>
+											<h5 style="width:80%;margin:auto;text-align:center">Assessor de tal coisa</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="voltar-equipe-completa" title="ver diretoria" style="align-items:center;cursor:pointer;width:30px;position:relative;display:none">
+								<img src="img/icons/back.svg" style="width:30px;height:30px;margin-right:5px">
+								<h4>Voltar</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end Conheça a RN -->	
+
+			<!-- Contratar section -->
+			<section id="contrate" style="background-color:#eee">
+				<div class="container">
+					<div class="row">
+					
+						<div class="sec-title text-center wow animated fadeInDown">
+							<h2>Contrate sua EJ</h2>
+						</div>
+						<form>
+						  <div class="form-group col-xs-12 col-md-offset-2 col-md-4">
+						    <label for="exampleInputEmail1">Escolha a área:</label>
+						    <select class="appearance-select form-control" id="contrateSuaEjArea">
+						      <option id="area-none" selected>Escolher</option>
+						      <option id="area-1">1</option>
+						      <option id="area-2">2</option>
+						      <option id="area-3">3</option>
+						    </select>
+						  </div>
+						  <div class="form-group col-xs-12 col-md-4">
+						    <label for="exampleInputPassword1">Escolha o serviço:</label>
+						    <select class="appearance-select form-control" id="contrateSuaEjServico">
+						      <option id="servico-none" selected>Escolher</option>
+						      <option class="area-1" id="servico-4">1-4</option>
+						      <option class="area-2" id="servico-5">2-5</option>
+						      <option class="area-3" id="servico-6">3-6</option>
+						      <option class="area-1" id="servico-7">1-7</option>
+						      <option class="area-2" id="servico-8">2-8</option>
+						      <option class="area-3" id="servico-9">3-9</option>
+						    </select>
+						  </div>
+						</form>
+
+						<div class="col-xs-12" id="empresas-selecionadas">
+							<div title="servico 4, serviço 5 ..." class="area-1 servico-4 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a target="_blank" href="http://facebook.com">
+										<div data-src="http://fio.edu.br/site2013/images/logo/FIO_fundo-transparente.png" class="lazyloadBackground imagemcontrate">	
+										</div>
+									</a>
+									<button empresa="fio durinhos" class="btn openModalContrateSuaEj">Orçamento</button>
+								</div>
+							</div>
+							<div class="area-2 servico-5 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a target="_blank" href="http://facebook.com">
+										<div data-src="http://baloespromo.com.br/images/logo-vivo.png" class="lazyloadBackground imagemcontrate">	
+										</div>
+									</a>
+									<button empresa="Vivo" class="btn openModalContrateSuaEj">Orçamento</button>
+								</div>
+							</div>
+							<div class="area-3 servico-6 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a target="_blank" href="http://facebook.com">
+										<div data-src="http://img.ibxk.com.br/2013/10/materias/976973154241269-t640.jpg" class="lazyloadBackground imagemcontrate">	
+										</div>
+									</a>
+									<button empresa="Samsung" class="btn openModalContrateSuaEj">Orçamento</button>
+								</div>
+							</div>
+							<div class="area-1 servico-7 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a target="_blank" href="http://facebook.com">
+										<div data-src="http://www.kwb.com.br/blog/wp-content/uploads/2013/11/lg.jpg" class="lazyloadBackground imagemcontrate">	
+										</div>
+									</a>
+									<button empresa="LG" class="btn openModalContrateSuaEj">Orçamento</button>
+								</div>
+							</div>
+							<div class="area-2 servico-8 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a target="_blank" href="http://facebook.com">
+										<div data-src="http://www.albertokimtecidos.com.br/images/Logo_Visa.jpg?443" class="lazyloadBackground imagemcontrate">	
+										</div>
+									</a>
+									<button empresa="Visa)" class="btn openModalContrateSuaEj">Orçamento</button>
+								</div>
+							</div>
+							<div  class="area-3 servico-9 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
+								<div>
+									<a target="_blank" href="http://facebook.com">
+										<div data-src="http://www.compracam.com.br/wp-content/uploads/2016/11/logo-com-fundo-transparente.png" class="lazyloadBackground imagemcontrate">	
+										</div>
+									</a>
+									<button empresa="Compracam" class="btn openModalContrateSuaEj">Orçamento</button>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!-- end Contratar section -->
+
+			<!-- crie sua ej section -->
+			<section id="service">
+				<div class="container">
+					<div class="row">
+					
+						<div class="sec-title text-center">
+							<h2 class="wow animated bounceInLeft">Crie sua EJ</h2>
+							<p class="wow animated bounceInRight"></p>
+						</div>
+						
+						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn">
+							<div class="service-item">
+									<img src="img/caju.png" style="width: 50%">
+								<h3>CAJU</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+							</div>
+
+						</div>
+					
+						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.3s">
+							<div class="service-item">
+								<img src="img/cajuweekend.png" style="width: 50%">
+								<h3>CAJU weekend</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+							</div>
+							
+						</div>
+                        <div class="col-md-12" style="text-align: center"><a href="#contact"><button type="submit" id="submit" class="btn btn-blue btn-effect">Entre em Contato</button></a></div>
+					</div>
+				</div>
+
+			</section>
+			
+			<!-- end crie sua ej section -->
+
+			<section id="newsletter">
+				<canvas style="width: 100%;height: 400px;position: absolute;" id="backgroundWaves"></canvas>
+				<div class="container">
+					<div class="row text-center">
+						<div class="col-xs-12 newsletter-content">
+							<div class="wow animated fadeInDown">
+								<p>Assine nossa newsletter</p>
+							</div>
+							<form action="#" method="post" class="subscribe-form wow animated fadeInUp">
+								<div class="input-field" style="max-width:380px;margin: auto;">
+									<input style="border-bottom:none" type="text" required class="subscribe form-control" placeholder="Digite seu Nome">
+									<input type="email" required class="subscribe form-control" placeholder="Digite seu Email">
+									<button type="submit" class="submit-icon">
+										<i class="fa fa-paper-plane fa-lg"></i>
+									</button>
+								</div>
+							</form>
+							<div class="newsletter-social">
+								<ul>
+									<li class="wow animated zoomIn"><a href="#"><i class="fa fa-facebook fa-3x"></i></a></li>
+									<li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="#"><i class="fa fa-instagram fa-3x"></i></a></li>
+									<li class="wow animated zoomIn" data-wow-delay="0.6s"><a href="#"><i class="fa fa-youtube fa-3x"></i></a></li>
+								</ul>
+							</div>
+							
+							<p>Copyright &copy; 2017 <a href="http://www.ejectufrn.com.br">EJECT</a> </p>
+						</div>
+					</div>
+				</div>
+			</section>		
+			
+			<!-- Contact section -->
+			<section id="contact" >
+				<div class="container">
+					<div class="row">
+						
+						<div class="sec-title text-center wow animated fadeInDown">
+							<h2>Contato</h2>
+						</div>
+						
+						
+						<div class="col-md-7 contact-form wow animated fadeInLeft">
+							<form action="#" method="post">
+								<div class="input-field">
+									<input type="text" name="name" class="form-control" placeholder="Nome">
+								</div>
+								<div class="input-field">
+									<input type="email" name="email" class="form-control" placeholder="Email">
+								</div>
+								<div class="input-field">
+									<input type="text" name="subject" class="form-control" placeholder="Assunto">
+								</div>
+								<div class="input-field">
+									<textarea name="message" class="form-control" placeholder="Mensagem"></textarea>
+								</div>
+						       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Enviar</button>
+							</form>
+						</div>
+						
+						<div class="col-md-5 wow animated fadeInRight">
+							<address class="contact-details">
+								<h3>Fale Conosco</h3>						
+								<p><i class="fa fa-pencil"></i>Phoenix Inc.<span>PO Box 345678</span> <span>Little Lonsdale St, Melbourne </span><span>Australia</span></p><br>
+								<p><i class="fa fa-phone"></i>Phone: (415) 124-5678 </p>
+								<p><i class="fa fa-envelope"></i>website@yourname.com</p>
+							</address>
+								<div class="col-md-5 wow animated fadeInRight" style="margin-top: 20px; margin-left: -20px">
+									<a href="#" class="fa fa-facebook" style="font-size: 40px; margin-right: 10px"></a>
+    								<a href="#" class="fa fa-instagram"  style="font-size: 40px; margin-right: 10px"></a>
+    								<a href="#" class="fa fa-youtube"  style="font-size: 40px; margin-right: 10px"></a>
+								</div>
+						</div>
+			
+					</div>
+				</div>
+			</section>
+			<!-- end Contact section -->
+
+			<!-- parceiros section -->
+			<footer id="footer">
+				<div class="container">
+					<div class="row">
+						<ul class="project-wrapper wow animated fadeInUp">
+							<div class="container centered">
+								<div class="col-xs-12 wow animated fadeIn">
+									<div style="display:flex;align-items: center;justify-content:center">
+										<img style="max-width:30%;margin:auto" src="img/portfolio/eject.png" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-facebook"></a>
+	    								<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-instagram"></a>
+	    								<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-youtube"></a>
+										<img style="max-width:16%;border-left:4px solid white;margin:auto" src="img/portfolio/eject.png" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+    								</div>
+								</div>
+								<hr style="margin-bottom:30px;">
+								<div class="col-xs-4 col-md-3 col-lg-2">
+									<img src="img/portfolio/eject.png" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+									<img src="img/portfolio/logomarca.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="img/portfolio/ufrn.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="img/portfolio/brasiljunior.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry.">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="img/portfolio/adm.png" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+								
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="img/portfolio/produtiva.jpg" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="img/portfolio/produtiva.jpg" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+
+								<div class="col-xs-4 col-md-3 col-lg-2">
+										<img src="img/portfolio/produtiva.jpg" class="img-responsive" alt="Lorem Ipsum is simply dummy text of the printing and typesetting ndustry. ">
+								</div>
+							</div>
+						</ul>
+						
+					</div>
+				</div>
+			</footer>
+			<!-- end parceiros section -->
+
+			<!-- Modal do formulário de contatrate uma ej-->
+			<div id="myModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">Contrate uma EJ</h4>
+			        <p id="referenciaContrateUmaEJ"></p>
+<!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Site da empresa</a>-->
+<!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Facebook</a> -->
+			      </div>
+					<form action="#" style="padding: 0 10px" method="post">
+						<div class="input-field">
+							<input style="color:black" required type="text" name="name" class="form-control" placeholder="Nome">
+						</div>
+						<div class="input-field">
+							<input style="color:black" required type="email" name="email" class="form-control" placeholder="Email">
+						</div>
+						<div class="input-field">
+							<textarea style="color:black;resize: vertical;" name="message" class="form-control" placeholder="Mensagem"></textarea>
+						</div>
+				       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Enviar</button>
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</form>
+			    </div>
+
+			  </div>
+			</div>
+		
+		</main>
+		
+		
+		<!-- Essential jQuery Plugins
+		================================================== -->
+		<!-- Main jQuery -->
+        <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+		<!-- Twitter Bootstrap -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<!-- Single Page Nav -->
+        <script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>
+		<!-- jquery.fancybox.pack -->
+        <script src="{% static 'js/jquery.fancybox.pack.js' %}"></script>
+		<!-- Owl Carousel -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <!-- jquery easing -->
+        <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+        <!-- Fullscreen slider -->
+        <script src="{% static 'js/jquery.slitslider.js' %}"></script>
+        <script src="{% static 'js/jquery.ba-cond.min.js' %}"></script>
+		<!-- onscroll animation -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+		<!-- Custom Functions -->
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/background.js' %}"></script>
+    </body>
+</html>

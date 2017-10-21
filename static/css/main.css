@@ -14,18 +14,18 @@
 /*	Basic Style 
 /* =================================== */
 .appearance-select{
-    color: black !important;
+    color: white !important;
     outline: none !important;
     border-color: transparent !important;
    -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
    -moz-appearance: none; /* Remove estilo padrão do FireFox */
    appearance: none; /* Remove estilo padrão do FireFox*/
-   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;  /* Imagem de fundo (Seta) */
-   background-position: 0 center;  /*Posição da imagem do background*/
+   background: url(../img/icons/down-icon.png) no-repeat #203940;  /* Imagem de fundo (Seta) */
+   background-position: 10px center;  /*Posição da imagem do background*/
    width: 100%; /* Tamanho do select, maior que o tamanho da div "div-select" */
    height:30px; /* Altura do select, importante para que tenha a mesma altura em todo os navegadores */
    border:1px solid #ddd;
-   padding-left: 35px;
+   padding-left: 40px;
    text-align: end;
 }
 body {
@@ -76,6 +76,7 @@ main > section {
     border: 0;
     position: relative;
     text-transform: uppercase;
+    margin: 20px;
 }
 
 .btn-blue {
@@ -92,7 +93,7 @@ main > section {
 }
 
 .bg-blue {
-    background-color: #009EE3;
+    background-color: #008600;
 }
 
 /* Sweep To Right */
@@ -179,8 +180,12 @@ main > section {
 .sec-title.white {
     color: #fff;
 }
-
+.resultados-contrate>div{
+    width: 100%;
+    max-height: 200px;
+}
 .sec-title h2 {
+    color: #203940;
     font-size: 36px;
     margin: 0 0 30px;
     padding-bottom: 30px;
@@ -193,7 +198,6 @@ main > section {
 }
 
 .sec-title h2:after {
-    border-bottom: 1px solid #f0b833;
     content: "";
     display: block;
     left: 45%;
@@ -319,6 +323,7 @@ h1.navbar-brand {
 
 .slide-caption {
     color: #fff;
+    text-shadow: 1px 1px 1px #080808;
     display: table;
     height: 100%;
     left: 0;
@@ -333,6 +338,7 @@ h1.navbar-brand {
 .slide-caption .caption-content {
     vertical-align: middle;
     display: table-cell;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
 }
 
 .caption-content h2 {
@@ -437,7 +443,7 @@ h1.navbar-brand {
     top: 0;
     left: 0;
     background: #fff;
-    content: "";
+    content: "../img/icons/close.png";
     position: absolute;
     z-index: -1;
 
@@ -450,7 +456,7 @@ h1.navbar-brand {
 
 .btn-effect:hover,
 .btn-effect:active {
-    color: #0e83cd;
+    background-color: #008600;
 }
 
 .btn-effect:hover:after,
@@ -470,14 +476,14 @@ h1.navbar-brand {
 }
 
 .fancybox-next span {
-    background: url("../img/right.png") no-repeat scroll center center #009ee3;
+    background: url("../img/right.png") no-repeat scroll center center #008600;
     height: 50px;
     width: 50px;
     right: 0;
 }
 
 .fancybox-prev span {
-    background: url("../img/left.png") no-repeat scroll center center #009ee3;
+    background: url("../img/left.png") no-repeat scroll center center #008600;
     height: 50px;
     width: 50px;
     left: 0;
@@ -553,24 +559,23 @@ h1.navbar-brand {
     height: 85px;
     width: 85px;
     line-height: 101px;
-
     -webkit-transform: rotate(47deg);
-       -moz-transform: rotate(47deg);
-        -ms-transform: rotate(47deg);
-         -o-transform: rotate(47deg);
-            transform: rotate(47deg);
-
+    -moz-transform: rotate(47deg);
+    -ms-transform: rotate(47deg);
+    -o-transform: rotate(47deg);
+    transform: rotate(47deg);
     -webkit-transition: all 0.3s ease 0s;
-       -moz-transition: all 0.3s ease 0s;
-        -ms-transition: all 0.3s ease 0s;
-         -o-transition: all 0.3s ease 0s;
-            transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    
 }
 
 .service-item:hover .service-icon {
-    border: 3px solid #009ee3;
-    margin-bottom: 20px;
-    color: #009ee3;
+    border: 3px solid #008600;
+    margin-bottom: 10px;
+    color: #008600;
 }
 
 .service-icon i {
@@ -602,16 +607,16 @@ h1.navbar-brand {
 }
 
 .portfolio-item {
+    padding: 10px;
     cursor: pointer;
-    margin: 0 1% 1% 0;
+    margin: auto;
     overflow: hidden;
     position: relative;
-    width: 32%;
 }
 
 figcaption.mask {
     background-color: rgba(54, 55, 50, 0.79);
-    bottom: -126px;
+    bottom: -200px;
     color: #fff;
     padding: 25px;
     position: absolute;
@@ -667,7 +672,7 @@ ul.external li a {
 }
 
 ul.external li a:hover {
-    background-color: #009EE3;
+    background-color: #008600;
     color: #fff;
 }
 
@@ -713,7 +718,7 @@ ul.external li a:hover {
 }
 
 #testimonials .overlay {
-    background-color: rgba(15,155,224, 0.78);
+    background-color: #008600;
     padding: 70px 0 40px;
 }
 
@@ -926,14 +931,15 @@ ul.external li a:hover {
 .input-field {
     margin-bottom: 10px;
 }
-
+/* Ajustando as cores do formulario de contato */
 .form-control {
     border: 2px solid white;
     border-radius: 0;
     box-shadow: none;
-    color: white;
+    color: black;
     font-size: 16px;
     height: 50px;
+    border-color: #ccc;
 }
 
 textarea.form-control {
@@ -974,41 +980,33 @@ textarea.form-control {
     margin-left: 24px;
 }
 
-
-/*============================================================
-	Google Maps
-==============================================================*/
-
-#google-map {
-    padding: 0;
+#footer{
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #203940;
 }
 
-#map-canvas {
-    width: 100%;
-    height: 300px;
-}
-
-
 /*============================================================
-	Footer
+	newsletter
 ==============================================================*/
 
-#footer {
+#newsletter {
     height: 470px;
     background-color: #008600;
     padding: 70px 0;
     color: #fff;
 }
 
-.footer-content {
+.newsletter-content {
     margin: 0 auto;
 }
 
-.footer-content > div {
+.newsletter-content > div {
     margin-bottom: 40px;
 }
 
-.footer-content > div > p:first-child {
+.newsletter-content > div > p:first-child {
     margin-bottom: 15px;
     text-transform: uppercase;
 }
@@ -1067,23 +1065,23 @@ textarea.form-control {
             transform: translateX(30px);
 }
 
-.footer-content .footer-social {
+.newsletter-content .newsletter-social {
     margin: 40px 0 35px;
 }
 
-.footer-social ul {
+.newsletter-social ul {
     list-style: outside none none;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-.footer-social ul li {
+.newsletter-social ul li {
     display: inline-block;
     margin: 0 10px;
 }
 
-.footer-social ul li a {
+.newsletter-social ul li a {
     color: white;
     display: block;
     
@@ -1094,19 +1092,19 @@ textarea.form-control {
             transition: all 0.2s ease 0s;
 }
 
-.footer-social ul li a i {
+.newsletter-social ul li a i {
     font-size: 2em;
 }
 
-.footer-social ul li a:hover {
+.newsletter-social ul li a:hover {
     color: #f9f122;
 }
 
-.footer-content > p {
+.newsletter-content > p {
     color: white;
     font-size: 12px;
 }
-.footer-content >p> a {
+.newsletter-content >p> a {
     color: #ffdb39;
     font-size: 12px;
 }
@@ -1129,7 +1127,7 @@ textarea.form-control {
 
 /* portfolio */
     figcaption.mask {
-        bottom: -151px;
+        bottom: -200px;
     }
 
     .testimonial-item > div:after {
@@ -1277,7 +1275,7 @@ textarea.form-control {
 /*portfolio*/
     .portfolio-item {
         margin: 0 auto 10px;
-        font-size: 14px;
+        font-size: 12px;
         width: 280px;
     }
 
@@ -1331,12 +1329,12 @@ textarea.form-control {
         margin-bottom: 50px;
     }
 
-/* footer */
-    .footer-content {
+/* newsletter */
+    .newsletter-content {
         width: 100%;
     }
 
-    .footer-social ul li {
+    .newsletter-social ul li {
         margin: 0 7px;
     }
 }
@@ -1384,7 +1382,7 @@ textarea.form-control {
     }
 
     figcaption.mask {
-        bottom: -132px;
+        bottom: -200px;
     }
 
 /* testimonial */
@@ -1417,8 +1415,8 @@ textarea.form-control {
         margin-bottom: 50px;
     }
 
-/* footer */
-    .footer-content {
+/* newsletter */
+    .newsletter-content {
         width: 380px;
     }
 }
@@ -1444,6 +1442,8 @@ textarea.form-control {
     margin: auto;
 }
 .resultados-contrate>div>button{
+    width: 100%;
+    margin: auto;
     margin-top: 10px;
     opacity:0;
     transition-timing-function: ease-in-out;
@@ -1451,18 +1451,6 @@ textarea.form-control {
 }
 .resultados-contrate:hover>div>button{
     opacity:1;
-    transition-timing-function: ease-in-out;
-    transition-duration: 300ms;
-}
-.resultados-contrate>div>a>img{
-    margin:auto;
-    max-width:100%; 
-    max-height:100%; 
-    transition-timing-function: ease-in-out;
-    transition-duration: 300ms;
-}
-.resultados-contrate:hover>div>a>img{
-    transform: scale(0.6);
     transition-timing-function: ease-in-out;
     transition-duration: 300ms;
 }
@@ -1495,4 +1483,19 @@ textarea.form-control {
     display: inline-block;
     text-align: left;
     font-size: 13px;
+}
+
+.imagemcontrate{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+    width: 100%;
+}
+.resultados-contrate:hover .imagemcontrate{
+    transform: scale(0.6);
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
 }

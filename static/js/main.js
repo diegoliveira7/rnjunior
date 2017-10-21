@@ -79,7 +79,7 @@ $(function() {
 
 });
 var selecionado=null
-
+var servicoSelecionado=null
 $(document).ready(function(){
     
     $( window ).load( function(){
@@ -94,11 +94,16 @@ $(document).ready(function(){
         equipeInicial=$("#equipe-completa").html()
     } );
 
+    $('.openModalContrateSuaEj').click(function() {
+        $('#referenciaContrateUmaEJ').text('Contato com a empresa '+$(this).attr( "empresa" )+" em relação ao serviço "+servicoSelecionado) 
+        $('#myModal').modal('show')   
+    })
+
     $('.equipe-pessoa-select').click(function() {
         if(selecionado?$(this)[0].id!==selecionado[0].id:true){
             selecionado=$(this)
             $(this).parent().toggleClass("col-xs-12")
-            $(this).parent().toggleClass("col-md-2")
+            $(this).parent().toggleClass("col-md-3")
             $(this).parent().toggleClass("col-xs-6")
             $("."+$(this)[0].id).css("display","block")
             $("#voltar-equipe-completa").css("display","flex")
@@ -110,10 +115,10 @@ $(document).ready(function(){
         if(selecionado){
             $("."+selecionado[0].id).css("display","none")
             selecionado.parent().toggleClass("col-xs-6")
-            selecionado.parent().toggleClass("col-md-2")
+            selecionado.parent().toggleClass("col-md-3")
             selecionado.parent().toggleClass("col-xs-12")
             $("#voltar-equipe-completa").css("display","none")
-            $("#equipe-completa").children().css("display","block")
+            $("#equipe-completa").children().css("display","inline-block")
             selecionado=null
         }
     })
@@ -123,11 +128,11 @@ $(document).ready(function(){
         var id=$('#contrateSuaEjArea').find(":selected")[0].id
         if (id == 'area-none') {
             $('#contrateSuaEjServico > option').hide();
-            $('#empresas-selecionadas > div').addClass('displayNodeArea');
+            $('#empresas-selecionadas > div').removeClass('displayNodeServico');
         } else {
             var $el = $('.' + id)
-            $('#empresas-selecionadas > div').removeClass('displayNodeArea');
-            $('#empresas-selecionadas > div').not($el).addClass('displayNodeArea');
+            $('#empresas-selecionadas > div').removeClass('displayNodeServico');
+            $('#empresas-selecionadas > div').not($el).addClass('displayNodeServico');
 
             $("#contrateSuaEjServico > ."+id).show();
             $("#contrateSuaEjServico > option").not($el).hide();
@@ -135,8 +140,10 @@ $(document).ready(function(){
     })
     var $servicos = $('#contrateSuaEjServico').change(function() {
         var id=$('#contrateSuaEjServico').find(":selected")[0].id
+        servicoSelecionado=id;
         if (id == 'servico-none') {
             $('#contrateSuaEjServico > option').addClass('displayNodeServico');
+            $('#empresas-selecionadas > div').removeClass('displayNodeServico');
         } else {
             var $el = $('.' + id)
             $('#empresas-selecionadas > div').removeClass('displayNodeServico');
@@ -233,94 +240,6 @@ $(document).ready(function(){
 	});
 	
 });
-
-
-/* ==========  START GOOGLE MAP ========== */
-
-// When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
-
-function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-
-	    var myLatLng = new google.maps.LatLng(22.402789, 91.822156);
-
-	    var mapOptions = {
-	        zoom: 15,
-	        center: myLatLng,
-	        disableDefaultUI: true,
-	        scrollwheel: false,
-	        navigationControl: true,
-	        mapTypeControl: false,
-	        scaleControl: false,
-	        draggable: true,
-
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
-        styles: [{
-            featureType: 'water',
-            stylers: [{
-                color: '#008600'
-            }, {
-                visibility: 'on'
-            }]
-        }, {
-            featureType: 'landscape',
-            stylers: [{
-                color: '#f2f2f2'
-            }]
-        }, {
-            featureType: 'road',
-            stylers: [{
-                saturation: -100
-            }, {
-                lightness: 45
-            }]
-        }, {
-            featureType: 'road.highway',
-            stylers: [{
-                visibility: 'simplified'
-            }]
-        }, {
-            featureType: 'road.arterial',
-            elementType: 'labels.icon',
-            stylers: [{
-                visibility: 'off'
-            }]
-        }, {
-            featureType: 'administrative',
-            elementType: 'labels.text.fill',
-            stylers: [{
-                color: '#444444'
-            }]
-        }, {
-            featureType: 'transit',
-            stylers: [{
-                visibility: 'off'
-            }]
-        }, {
-            featureType: 'poi',
-            stylers: [{
-                visibility: 'off'
-            }]
-        }]
-    };
-
-    // Get the HTML DOM element that will contain your map 
-    // We are using a div with id="map" seen below in the <body>
-    var mapElement = document.getElementById('map-canvas');
-
-    // Create the Google Map using our element and options defined above
-    var map = new google.maps.Map(mapElement, mapOptions);
-
-    // Let's also add a marker while we're at it
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(22.402789, 91.822156),
-        map: map,
-		icon: 'img/icons/map-marker.png',
-    });
-}
 
 // ========== END GOOGLE MAP ========== //
 

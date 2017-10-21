@@ -57,7 +57,7 @@
 				<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon//favicon-16x16.png' %}">
 				<link rel="manifest" href="{% static '/manifest.json' %}">
 				<meta name="msapplication-TileColor" content="#008600">
-				<meta name="msapplication-TileImage" content="{5 static 'img/favicon//ms-icon-144x144.png' %}">
+				<meta name="msapplication-TileImage" content="{% static 'img/favicon//ms-icon-144x144.png' %}">
 				<meta name="theme-color" content="#008600">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -192,14 +192,14 @@
 							<div id="equipe-completa" class="centered">
 								{% for diretor in DiretorModel %}
 								<div class="col-xs-6 col-md-3 text-center">
-									<div id="diretoria-1" data-src="{{ diretor.foto.url }}" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select">	
+									<div id="diretoria-1" data-src="{{ diretor.foto.url }}" title="{{ diretor.nome }}" class="lazyloadBackground equipe-pessoa equipe-pessoa-select">	
 									</div>
 									<h4 style="width:80%;margin:auto;text-align:center">{{ diretor.cargo }}</h4>
 									<div class="col-xs-12 centered equipe-diretoria diretoria-1 animated fadeInDown" style="display: none">
 										<br>
 										{% for assessor in diretor.assessores_set.all %}
 										<div class="col-xs-6 col-md-2 text-center">
-											<div data-src="{{ assessor.foto.url }}" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+											<div data-src="{{ assessor.foto.url }}" title="{{ assessor.nome }}" class="lazyloadBackground equipe-pessoa">	
 											</div>
 											<h5 style="width:80%;margin:auto;text-align:center">{{ assessor.cargo }}</h5>
 										</div>
@@ -249,8 +249,9 @@
 
 						<div class="col-xs-12" id="empresas-selecionadas">
 							{% for empresa in EmpresaModel %}
-									<div class="area-{{ setor.area_referencia.nome_formatado }}
+									<div class="
 										{% for setor in empresa.setor_referencia.all %}
+											area-{{ setor.area_referencia.nome_formatado }}
 											servico-{{ setor.nome_formatado }}
 										{% endfor %}
 									 	 col-xs-6 col-sm-4 col-md-3 resultados-contrate">
@@ -399,11 +400,11 @@
 							<div class="container centered">
 								<div class="col-xs-12 wow animated fadeIn">
 									<div style="display:flex;align-items: center;justify-content:center">
-										<img style="max-width:30%;margin:auto" src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+										<img style="max-width:30%;margin:auto" src="{% static 'rn-junior.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-facebook"></a>
 	    								<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-instagram"></a>
 	    								<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-youtube"></a>
-										<img style="max-width:16%;border-left:4px solid white;margin:auto" src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+										<img style="max-width:16%;border-left:4px solid white;margin:auto" src="{% static 'logo-eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
     								</div>
 								</div>
 								<hr style="margin-bottom:30px;">
