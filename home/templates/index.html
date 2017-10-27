@@ -124,19 +124,16 @@
 
 				<div class="sl-slider">
 					{% for noticia in NoticiasModel %}
-					<div class="sl-slide" data-orientation="{{ noticia.data_orientation }}" data-slice1-rotation="{{ noticia.data_slice_1 }}" data-slice2-rotation="{{ noticia.data_slice_2 }}" data-slice1-scale="{{ noticia.data_slice_1_scale }}" data-slice2-scale="{{ noticia.data_slice_2_scale }}">
-
-						<div class="bg-img bg-img-1" style="background-image: url('{{ noticia.imagem.url }}')"></div>
-
-						<div class="slide-caption">
-							<div class="caption-content">
-								<h2 class="animated fadeInDown">{{ noticia.titulo }}</h2>
-								<span class="animated fadeInDown">{{ noticia.subtitulo }}</span>
-								<a href="{{ noticia.get_absolute_url }}" class="btn btn-blue btn-effect">VER MAIS</a>
-							</div>
-						</div>
-						
-					</div>
+					<div class="sl-slide" data-orientation="horizontal">	
+ 						<div class="bg-img" style="background-image: url({{ noticia.imagem.url }})"></div>
+ 						<div class="slide-caption">
+                             <div class="caption-content">
+                                 <h2>{{ noticia.titulo }}</h2>
+                                 <span>{{ noticia.subtitulo }}</span>
+                                 <a href="{{ noticia.get_absolute_url }}" class="btn btn-blue btn-effect">Saiba Mais</a>
+                             </div>
+                         </div> 
+ 					</div>
 					{% endfor %}
 
 				</div><!-- /sl-slider -->
@@ -189,17 +186,16 @@
 							<br><br>
 							<h4>Conheça a equipe:</h4>
 							<div id="equipe-completa" class="centered">
-								<div id="equipe-completa" class="centered">
 									{% for diretor in DiretorModel %}
 									<div class="col-xs-6 col-md-3 text-center">
-										<div id="diretoria-1" data-src="{{ diretor.foto.url }}" title="diretor de tal coisa" class="lazyloadBackground equipe-pessoa equipe-pessoa-select">	
+										<div id="diretoria-1" data-src="{{ diretor.foto.url }}" title="{{ diretor.nome }}" class="lazyloadBackground equipe-pessoa equipe-pessoa-select">	
 										</div>
 										<h4 style="width:80%;margin:auto;text-align:center">{{ diretor.cargo }}</h4>
 										<div class="col-xs-12 centered equipe-diretoria diretoria-1 animated fadeInDown" style="display: none">
 											<br>
 											{% for assessor in diretor.assessores_set.all %}
 											<div class="col-xs-6 col-md-2 text-center">
-												<div data-src="{{ assessor.foto.url }}" title="Assessor de tal coisa" class="lazyloadBackground equipe-pessoa">	
+												<div data-src="{{ assessor.foto.url }}" title="{{ assessor.nome }}" class="lazyloadBackground equipe-pessoa">	
 												</div>
 												<h5 style="width:80%;margin:auto;text-align:center">{{ assessor.cargo }}</h5>
 											</div>
@@ -249,16 +245,17 @@
 
 						<div class="col-xs-12" id="empresas-selecionadas">
 							{% for empresa in EmpresaModel %}
-							<div class="area-{{ setor.area_referencia.nome_formatado }}
+							<div class="
 								{% for setor in empresa.setor_referencia.all %}
+									area-{{ setor.area_referencia.nome_formatado }}
 									servico-{{ setor.nome_formatado }}
 								{% endfor %}
 									col-xs-6 col-sm-4 col-md-3 resultados-contrate">
 								<div>
-									<a href="https://www.facebook.com/" target="_blank">
-										<img class="lazyload" data-src="{{ empresa.foto_empresa.url }}">
+									<a href="{{ empresa.facebook }}" target="_blank">
+										<div data-src="{{ empresa.foto_empresa.url }}" class="lazyloadBackground imagemcontrate" style="background-image: url({{ empresa.foto_empresa.url }})"></div>
 									</a>
-									<button empresa="{{ empresa.nome_empresa }}" class="btn rx openModalContrateSuaEj">Pedir orçamento</button>
+									<button empresa="{{ empresa.nome_empresa }}" class="btn rx btn-blue btn-effect openModalContrateSuaEj" style="padding:15px 0	">Contato</button>
 								</div>
 							</div>
 							{% endfor %}
@@ -282,7 +279,7 @@
 						{% for evento in CrieSuaEJModel %}
 						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn">
 							<div class="service-item">
-									<img src="{% static 'img/caju.png' %}" style="width: 50%">
+									<img src="{{ evento.foto.url }}" style="width: 50%">
 								<h3>{{ evento.titulo }}</h3>
 								<p>{{ evento.descricao }}</p>
 							</div>
@@ -369,7 +366,7 @@
 									{% render_field form class="form-control" %}
 								</div>
 								{% endfor %}
-								<input type="submit" id="submit" name="form_rodape" class="btn btn-blue btn-effect" value="Enviar"></input>
+								<button type="submit" id="submit" name="form_rodape" class="btn btn-blue btn-effect" value="Enviar">Enviar</button>
 							</form>
 						</div>
 						
@@ -400,11 +397,11 @@
 							<div class="container centered">
 								<div class="col-xs-12 wow animated fadeIn">
 									<div style="display:flex;align-items: center;justify-content:center">
-										<img style="max-width:30%;margin:auto" src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+										<img style="max-width:30%;margin:auto" src="{% static 'img/Logomarca - RN Junior branca.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-facebook"></a>
 										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-instagram"></a>
 										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-youtube"></a>
-										<img style="max-width:16%;border-left:4px solid white;margin:auto" src="{% static 'img/portfolio/eject.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+										<img style="max-width:16%;margin:auto" src="{% static 'img/MONOEJECT.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 									</div>
 								</div>
 								<hr style="margin-bottom:30px;">
@@ -475,5 +472,6 @@
 		<!-- Custom Functions -->
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/background.js' %}"></script>
+	<script src="{% static 'js/nomeDasEmpresasModal.js' %}"></script>
     </body>
 </html>
