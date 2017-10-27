@@ -95,7 +95,7 @@ $(document).ready(function(){
     } );
 
     $('.openModalContrateSuaEj').click(function() {
-        $('#referenciaContrateUmaEJ').text('Contato com a empresa '+$(this).attr( "empresa" )+" em relação ao serviço "+servicoSelecionado) 
+        $('#referenciaContrateUmaEJ').text('Contato com a empresa '+$(this).attr( "empresa" )+(servicoSelecionado!==null?" em relação ao serviço "+servicoSelecionado:"")) 
         $('#myModal').modal('show')   
     })
 
@@ -197,7 +197,7 @@ $(document).ready(function(){
 	
 	
 	
-	$("#works, #testimonial").owlCarousel({	 
+	$("#works, #testimonial").owlCarousel({
 		navigation : true,
 		pagination : false,
 		slideSpeed : 700,
@@ -240,11 +240,3 @@ $(document).ready(function(){
 	});
 	
 });
-
-
-var wow = new WOW ({
-	offset:       75,          // distance to the element when triggering the animation (default is 0)
-	mobile:       false,       // trigger animations on mobile devices (default is true)
-});
-wow.init();
-
