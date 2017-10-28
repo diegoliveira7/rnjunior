@@ -32,7 +32,7 @@
 		<!-- bootstrap.min -->
         <link rel="stylesheet" href="css/owl.carousel.css">
 		<!-- bootstrap.min -->
-        <link rel="stylesheet" href="css/slit-slider.css">
+        <link rel="stylesheet" href="css/slide.css">
 		<!-- bootstrap.min -->
         <link rel="stylesheet" href="css/animate.css">
 		<!-- Main Stylesheet -->
@@ -118,89 +118,60 @@
         Home Slider
         ==================================== -->
 		
-		<section id="home-slider">
-            <div id="slider" class="sl-slider-wrapper">
+				<section id="home">	    
+			 <div class="slider">
 
-				<div class="sl-slider">
-				
-					<div class="sl-slide" data-orientation="horizontal">
-                   
-						<div class="bg-img bg-img-1"></div>
-
-						<div class="slide-caption">
-                            <div class="caption-content">
-                                <h2 class="animated fadeInDown">RP - Mossoró </h2>
-                                <span class="animated fadeInDown">Esse sábado tivemos a nossa Reunião Presencial</span>
-                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
-                            </div>
-                        </div>
-						
-					</div>
-					
-					<div class="sl-slide" data-orientation="horizontal">
-					
-						<div class="bg-img bg-img-2"></div>
-						<div class="slide-caption">
-                            <div class="caption-content">
-                                <h2>Eleições RN Júnior</h2>
-                                <span>Os candidatos apresentaram suas propostas</span>
-                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
-                            </div>
-                        </div>
-						
-					</div>
-					
-					<div class="sl-slide" data-orientation="horizontal">
-						
-						<div class="bg-img bg-img-3"></div>
-						<div class="slide-caption">
-                            <div class="caption-content">
-                                <h2>Federada !!!</h2>
-                                <span>Agora a Pirâmide Topografia e Projetos faz parte do time !</span>
-                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
-                            </div>
-                        </div>
-
-					</div>
-					
-					<div class="sl-slide" data-orientation="horizontal">
-						
-						<div class="bg-img bg-img-3"></div>
-						<div class="slide-caption">
-                            <div class="caption-content">
-                                <h2>Federada !!!</h2>
-                                <span>Agora a Pirâmide Topografia e Projetos faz parte do time !</span>
-                                <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
-                            </div>
-                        </div>
-
-					</div>
-
-				</div><!-- /sl-slider -->
-
-                <!-- 
-                <nav id="nav-arrows" class="nav-arrows">
-                    <span class="nav-arrow-prev">Previous</span>
-                    <span class="nav-arrow-next">Next</span>
-                </nav>
-                -->
-                
-                <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
-                    <a href="javascript:;" class="sl-prev">
-                        <i class="fa fa-angle-left fa-3x"></i>
-                    </a>
-                    <a href="javascript:;" class="sl-next">
-                        <i class="fa fa-angle-right fa-3x"></i>
-                    </a>
-                </nav>
-                
-
-				<nav id="nav-dots" class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
-					<span class="nav-dot-current"></span>
-					<span></span>
-					<span></span>
-				</nav>
-
+			 	<!-- Indicators -->
+		    <ol id="my-indicators" class="carousel-indicators">
+		    </ol>
+			  <!-- slides -->
+			  <div class="slider__slides">
+			    <div class="slide s--active">
+			      <div class="slide__inner" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-2.jpg)">
+			        <div class="slide__content">
+			          <h2 class="slide__heading">RN é top</h2>
+			          <p class="slide__text">Greetings, Traveler!</p>
+			          <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+			        </div>
+			      </div>
+			    </div>
+			    <div class="slide">
+			      <div class="slide__inner" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-3.jpg)">
+			        <div class="slide__content">
+			          <h2 class="slide__heading">Onda verde</h2>
+			          <p class="slide__text">Clip-path magic!</p>
+			          <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+			        </div>
+			      </div>
+			    </div>
+			    <div class="slide">
+			      <div class="slide__inner" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-4.jpg)">
+			        <div class="slide__content">
+			          <h2 class="slide__heading">MEMBROS!</h2>
+			          <p class="slide__text">It looks cool, isn't it?</p>
+			          <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+			        </div>
+			      </div>
+			    </div>
+			    <div class="slide s--prev">
+			      <div class="slide__inner" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-5.jpg)">
+			        <div class="slide__content">
+			          <h2 class="slide__heading">A RN é todos nós</h2>
+			          <p class="slide__text">Forget about IE/Edge and FF</p>
+			          <a href="#" class="btn btn-blue btn-effect">Saiba Mais</a>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			  <!-- slides end -->
+			  <div class="slider__control">
+			    <div class="slider__control-line"></div>
+			    <div class="slider__control-line"></div>
+			  </div>
+			  <div class="slider__control slider__control--right m--right">
+			    <div class="slider__control-line"></div>
+			    <div class="slider__control-line"></div>
+			  </div>
 			</div><!-- /slider-wrapper -->
 		</section>
 		
@@ -738,7 +709,7 @@
         <!-- jquery easing -->
         <script src="js/jquery.easing.min.js"></script>
         <!-- Fullscreen slider -->
-        <script src="js/jquery.slitslider.js"></script>
+        <script src="js/slide.js"></script>
         <script src="js/jquery.ba-cond.min.js"></script>
 		<!-- onscroll animation -->
         <script src="js/wow.min.js"></script>
