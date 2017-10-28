@@ -85,7 +85,7 @@ main > section {
 .btn-blue {
     background-color: #008600;
     box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.15) inset;
-    padding: 15px 55px;
+    padding: 15px;
     color: #fff;
 }
 
@@ -110,10 +110,6 @@ main > section {
 		-ms-transform: translateZ(0);
 		 -o-transform: translateZ(0);
 			transform: translateZ(0);
-		  
-	-webkit-backface-visibility: hidden;
-	   -moz-backface-visibility: hidden;
-			backface-visibility: hidden;
 		  
 	-webkit-transition-property: color;
 	   -moz-transition-property: color;
