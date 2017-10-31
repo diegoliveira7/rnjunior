@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
 {% load widget_tweaks %}
-<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="ptBR" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="ptBR" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="ptBR" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="ptBR" class="no-js"> <!--<![endif]-->
     <head>
     	<!-- meta character set -->
         <meta charset="utf-8">
@@ -33,7 +33,7 @@
 		<!-- bootstrap.min -->
         <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
 		<!-- bootstrap.min -->
-        <link rel="stylesheet" href="{% static 'css/slit-slider.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slide.css' %}">
 		<!-- bootstrap.min -->
         <link rel="stylesheet" href="{% static 'css/animate.css' %}">
 		<!-- Main Stylesheet -->
@@ -118,49 +118,52 @@
         <!--
         Home Slider
         ==================================== -->
-		
-		<section id="home-slider">
-            <div id="slider" class="sl-slider-wrapper">
 
-				<div class="sl-slider">
-					{% for noticia in NoticiasModel %}
-					<div class="sl-slide" data-orientation="horizontal">	
- 						<div class="bg-img" style="background-image: url({{ noticia.imagem.url }})"></div>
- 						<div class="slide-caption">
-                             <div class="caption-content">
-                                 <h2>{{ noticia.titulo }}</h2>
-                                 <span>{{ noticia.subtitulo }}</span>
-                                 <a href="{{ noticia.get_absolute_url }}" class="btn btn-blue btn-effect">Saiba Mais</a>
-                             </div>
-                         </div> 
- 					</div>
-					{% endfor %}
+		<section id="home">	    
+			<div class="slider">
 
-				</div><!-- /sl-slider -->
+			 	<!-- Indicators -->
+		    <ol id="my-indicators" class="carousel-indicators">
+		    </ol>
+			  <!-- slides -->
+			  <div class="slider__slides">
+			  	{% for slide in NoticiasModel %}
+				  	{% if forloop.first %}
+				    <div class="slide {% if forloop.first %} s--active {% endif %} ">
+				      <div class="slide__inner" style="background-image: url({{ slide.imagem.url }})"> 
+				        <div class="slide__content">
+ 			          <h2 class="slide__heading">{{ slide.titulo }}</h2>
+ 			          <p class="slide__text">{{ slide.subtitulo }}</p>
+			          <a href="{{ slide.get_absolute_url }}" class="btn btn-blue">Saiba Mais</a>
+				          
+				        </div>
 
-                <!-- 
-                <nav id="nav-arrows" class="nav-arrows">
-                    <span class="nav-arrow-prev">Previous</span>
-                    <span class="nav-arrow-next">Next</span>
-                </nav>
-                -->
-                
-                <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
-                    <a href="javascript:;" class="sl-prev">
-                        <i class="fa fa-angle-left fa-3x"></i>
-                    </a>
-                    <a href="javascript:;" class="sl-next">
-                        <i class="fa fa-angle-right fa-3x"></i>
-                    </a>
-                </nav>
-                
-
-				<nav id="nav-dots" class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
-					<span class="nav-dot-current"></span>
-					<span></span>
-					<span></span>
-				</nav>
-
+				      </div>
+				    </div>
+				    {% endif %}
+				    
+				    {% if forloop.last %}
+				    <div class="slide s--prev">
+				      <div class="slide__inner" style="background-image: url({{ slide.imagem.url }})"> 
+				        <div class="slide__content">
+	 			          <h2 class="slide__heading">{{ slide.titulo }}</h2>
+	 			          <p class="slide__text">{{ slide.subtitulo }}</p>
+				          <a href="{{ slide.get_absolute_url }}" class="btn btn-blue">Saiba Mais</a>
+				        </div>
+				      </div>
+				    </div>
+					{% endif %}
+			  	{% endfor %}
+			  </div>
+			  <!-- slides end -->
+			  <div class="slider__control">
+			    <div class="slider__control-line"></div>
+			    <div class="slider__control-line"></div>
+			  </div>
+			  <div class="slider__control slider__control--right m--right">
+			    <div class="slider__control-line"></div>
+			    <div class="slider__control-line"></div>
+			  </div>
 			</div><!-- /slider-wrapper -->
 		</section>
 		
@@ -471,7 +474,8 @@
         <script src="{% static 'js/wow.min.js' %}"></script>
 		<!-- Custom Functions -->
         <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/slide.js' %}"></script>
         <script src="{% static 'js/background.js' %}"></script>
-	<script src="{% static 'js/nomeDasEmpresasModal.js' %}"></script>
+		<script src="{% static 'js/nomeDasEmpresasModal.js' %}"></script>
     </body>
 </html>
