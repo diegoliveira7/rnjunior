@@ -95,7 +95,7 @@ $(document).ready(function(){
     } );
 
     $('.openModalContrateSuaEj').click(function() {
-        $('#referenciaContrateUmaEJ').text('Contato com a empresa '+$(this).attr( "empresa" )+(servicoSelecionado!==null?" em relação ao serviço "+servicoSelecionado:""))
+        $('#referenciaContrateUmaEJ').text('Contato com a empresa '+$(this).attr( "empresa" )//+(servicoSelecionado!==null?" em relação ao serviço "+servicoSelecionado:""))
         $('#myModal').modal('show')   
     })
 
