@@ -3,6 +3,13 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-post/blob/master/LICENSE)
  */
+@font-face {
+     font-family: 'Vollkorn';
+     src: url('../fonts/Vollkorn-BoldItalic.ttf') format('truetype');
+}
+body {
+    font-family: Vollkorn, 'Open Sans', sans-serif;
+}
 #navigation {
     -webkit-transition: all 0.8s ease 0s;
        -moz-transition: all 0.8s ease 0s;
@@ -27,6 +34,7 @@ h1.navbar-brand {
 }
 
 .navbar-inverse .navbar-nav > li > a {
+    transition-duration: 100ms; 
     color: #fff;
     font-size: 15px;
     text-transform: uppercase;
@@ -40,6 +48,11 @@ h1.navbar-brand {
     .navbar-inverse .navbar-toggle:focus {
         background-color: transparent;
     }
+
+.navbar-nav > li > a:hover {
+    transition-duration: 100ms;
+    color:#ffb918 !important;
+}
 
 article img{
 	max-width: 100%;

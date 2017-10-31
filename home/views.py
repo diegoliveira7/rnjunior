@@ -17,6 +17,7 @@ class HomeView(TemplateView):
         context['form_rodape'] = EnviarEmailRodape()
         context['form_newsletter'] = NewsletterModelForm()
         context['NoticiasModel'] = Noticias.objects.all().filter(visivel=True)
+        context['quantidade_noticias'] = context['NoticiasModel'].count()
         context['ParceirosModel'] = Parceiros.objects.all()
         context['AreaModel'] = AreaModel.objects.all()
         context['SetorModel'] = SetorModel.objects.all()
