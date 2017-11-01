@@ -178,3 +178,17 @@ class Eventos(models.Model):
     class Meta:
         verbose_name = "Evento"
         verbose_name_plural = "09 - Eventos"
+
+
+class TextoRN(models.Model):
+
+    texto = RichTextField()
+    telefone = models.CharField(max_length=100)
+    email = models.EmailField()
+
+    def __str__(self):
+        return "Aba de texto"
+
+    class Meta:
+        verbose_name = "Texto da RN"
+        verbose_name_plural = '10 - Textos da RN'

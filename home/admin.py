@@ -30,12 +30,23 @@ class ParceirosAdmin(admin.ModelAdmin):
 	search_fields = ['titulo', 'texto']
 
 
+class SetoresAdmin(admin.ModelAdmin):
+
+	search_fields = ['setor']
+
+
+class EmpresasAdmin(admin.ModelAdmin):
+
+	search_fields = ['nome_empresa']
+
+
 admin.site.register(ClienteNewsletter, ClienteNewsletterAdmin)
 admin.site.register(Noticias, NoticiasAdmin)
 admin.site.register(Parceiros, ParceirosAdmin)
 admin.site.register(AreaModel)
-admin.site.register(SetorModel)
-admin.site.register(EmpresaModel)
+admin.site.register(SetorModel, SetoresAdmin)
+admin.site.register(EmpresaModel, EmpresasAdmin)
 admin.site.register(Diretor)
 admin.site.register(Assessores)
 admin.site.register(Eventos)
+admin.site.register(TextoRN)
