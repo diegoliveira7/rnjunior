@@ -28,13 +28,8 @@ $(document).ready(function(){
     } );
 
     $('.openModalContrateSuaEj').click(function() {
-<<<<<<< HEAD
-        $('#referenciaContrateUmaEJ').text('Contato com a empresa '+$(this).attr( "empresa" )//+(servicoSelecionado!==null?" em relação ao serviço "+servicoSelecionado:""))
-        $('#myModal').modal('show')   
-=======
         $('#referenciaContrateUmaEJ').text('Contato com a empresa '+$(this).attr( "empresa" ))
         $('#myModal').modal('show')
->>>>>>> 908db8023b6197b5c309a003d95ff530867b92e5
     })
 
     $('.equipe-pessoa-select').click(function() {

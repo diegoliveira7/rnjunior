@@ -128,14 +128,13 @@
 			  <!-- slides -->
 			  <div class="slider__slides">
 			  	{% for slide in NoticiasModel %}
-				  	{% if forloop.first %}
+				  {% if not forloop.last %}
 				    <div class="slide {% if forloop.first %} s--active {% endif %} ">
 				      <div class="slide__inner" style="background-image: url({{ slide.imagem.url }})"> 
 				        <div class="slide__content">
- 			          <h2 class="slide__heading">{{ slide.titulo }}</h2>
- 			          <p class="slide__text">{{ slide.subtitulo }}</p>
-			          <a href="{{ slide.get_absolute_url }}" class="btn btn-blue">Saiba Mais</a>
-				          
+ 			                  <h2 class="slide__heading">{{ slide.titulo }}</h2>
+ 			          	  <p class="slide__text">{{ slide.subtitulo }}</p>
+      	   			          <a href="{{ slide.get_absolute_url }}" class="btn btn-blue">Saiba Mais</a>
 				        </div>
 
 				      </div>
@@ -376,9 +375,8 @@
 						<div class="col-md-5 wow animated fadeInRight">
 							<address class="contact-details">
 								<h3>Fale Conosco</h3>						
-								<p><i class="fa fa-pencil"></i>Phoenix Inc.<span>PO Box 345678</span> <span>Little Lonsdale St, Melbourne </span><span>Australia</span></p><br>
-								<p><i class="fa fa-phone"></i>Phone: (415) 124-5678 </p>
-								<p><i class="fa fa-envelope"></i>website@yourname.com</p>
+								<p><i class="fa fa-phone"></i>Telefone: (84) 9 9806-1567</p>
+								<p><i class="fa fa-envelope"></i>comunicacao@rnjunior.org.br</p>
 							</address>
 								<div class="col-md-5 wow animated fadeInRight" style="margin-top: 20px; margin-left: -20px">
 									<a href="#" class="fa fa-facebook" style="font-size: 40px; margin-right: 10px"></a>
@@ -401,10 +399,12 @@
 								<div class="col-xs-12 wow animated fadeIn">
 									<div style="display:flex;align-items: center;justify-content:center">
 										<img style="max-width:30%;margin:auto" src="{% static 'img/Logomarca - RN Junior branca.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
-										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-facebook"></a>
-										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-instagram"></a>
-										<a style="color:white;font-size:35px;margin:10px" href="#" class="fa fa-youtube"></a>
-										<img style="max-width:16%;margin:auto" src="{% static 'img/MONOEJECT.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+										<div class="redes-sociais">
+											<a href="#" class="fa fa-facebook"></a>
+											<a href="#" class="fa fa-instagram"></a>
+											<a href="#" class="fa fa-youtube"></a>
+										</div>
+										<img style="max-width:16%;margin:auto" src="{% static 'img/eject-white.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 									</div>
 								</div>
 								<hr style="margin-bottom:30px;">
@@ -453,29 +453,38 @@
 		</main>
 		
 		
-		<!-- Essential jQuery Plugins
-		================================================== -->
-		<!-- Main jQuery -->
+	<!-- Essential jQuery Plugins
+	================================================== -->
+	
+	<!-- Main jQuery -->
         <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
-		<!-- Twitter Bootstrap -->
+	
+	<!-- Twitter Bootstrap -->
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
-		<!-- Single Page Nav -->
+	
+	<!-- Single Page Nav -->
         <script src="{% static 'js/jquery.singlePageNav.min.js' %}"></script>
-		<!-- jquery.fancybox.pack -->
+	
+	<!-- jquery.fancybox.pack -->
         <script src="{% static 'js/jquery.fancybox.pack.js' %}"></script>
-		<!-- Owl Carousel -->
+	
+	<!-- Owl Carousel -->
         <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-        <!-- jquery easing -->
+        
+	<!-- jquery easing -->
         <script src="{% static 'js/jquery.easing.min.js' %}"></script>
-        <!-- Fullscreen slider -->
+        
+	<!-- Fullscreen slider -->
         <script src="{% static 'js/jquery.slitslider.js' %}"></script>
         <script src="{% static 'js/jquery.ba-cond.min.js' %}"></script>
-		<!-- onscroll animation -->
+	
+	<!-- onscroll animation -->
         <script src="{% static 'js/wow.min.js' %}"></script>
-		<!-- Custom Functions -->
+	
+	<!-- Custom Functions -->
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/slide.js' %}"></script>
         <script src="{% static 'js/background.js' %}"></script>
-		<script src="{% static 'js/nomeDasEmpresasModal.js' %}"></script>
+	<script src="{% static 'js/nomeDasEmpresasModal.js' %}"></script>
     </body>
 </html>
