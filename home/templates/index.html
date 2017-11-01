@@ -128,7 +128,11 @@
 			  <!-- slides -->
 			  <div class="slider__slides">
 			  	{% for slide in NoticiasModel %}
+<<<<<<< HEAD
 				  {% if not forloop.last %}
+=======
+				  	{% if not forloop.last %}
+>>>>>>> 38baf4d882b8d6865c462323432ce52b4b436913
 				    <div class="slide {% if forloop.first %} s--active {% endif %} ">
 				      <div class="slide__inner" style="background-image: url({{ slide.imagem.url }})"> 
 				        <div class="slide__content">
@@ -180,8 +184,10 @@
 						</div>
 						
 						
-						<div class="col-xs-12 wow animated fadeInLeft">
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+						<div class="col-xs-12 wow animated fadeInLeft text-center">
+							{% autoescape off %}
+								{{ TextoRN.texto }}
+							{% endautoescape %}
 						</div>
 						<br>
 						<div class="col-xs-12 wow animated fadeInLeft">
@@ -374,9 +380,15 @@
 						
 						<div class="col-md-5 wow animated fadeInRight">
 							<address class="contact-details">
+<<<<<<< HEAD
 								<h3>Fale Conosco</h3>						
 								<p><i class="fa fa-phone"></i>Telefone: (84) 9 9806-1567</p>
 								<p><i class="fa fa-envelope"></i>comunicacao@rnjunior.org.br</p>
+=======
+								<h3>Fale Conosco</h3>
+								<p><i class="fa fa-phone"></i>Telefone: {{ TextoRN.telefone }} </p>
+								<p><i class="fa fa-envelope"></i>{{ TextoRN.email }}</p>
+>>>>>>> 38baf4d882b8d6865c462323432ce52b4b436913
 							</address>
 								<div class="col-md-5 wow animated fadeInRight" style="margin-top: 20px; margin-left: -20px">
 									<a href="#" class="fa fa-facebook" style="font-size: 40px; margin-right: 10px"></a>
@@ -400,11 +412,19 @@
 									<div style="display:flex;align-items: center;justify-content:center">
 										<img style="max-width:30%;margin:auto" src="{% static 'img/Logomarca - RN Junior branca.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
 										<div class="redes-sociais">
+<<<<<<< HEAD
 											<a href="#" class="fa fa-facebook"></a>
 											<a href="#" class="fa fa-instagram"></a>
 											<a href="#" class="fa fa-youtube"></a>
 										</div>
 										<img style="max-width:16%;margin:auto" src="{% static 'img/eject-white.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+=======
+											<a href="https://www.facebook.com/federacaornjunior/" class="fa fa-facebook"></a>
+											<a href="https://www.instagram.com/rnjunior_/" class="fa fa-instagram"></a>
+											<a href="https://www.youtube.com/user/RNjuniorFederacao" class="fa fa-youtube"></a>
+										</div>
+										<img style="max-width:16%;margin:auto" src="{% static 'img/MONOEJECT.png' %}" class="img-responsive" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat">
+>>>>>>> 38baf4d882b8d6865c462323432ce52b4b436913
 									</div>
 								</div>
 								<hr style="margin-bottom:30px;">

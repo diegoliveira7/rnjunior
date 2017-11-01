@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, DetailView
 
 from .forms import EnviarEmailRodape, NewsletterModelForm, EnviarEmailModel
 from .models import Noticias, Parceiros, AreaModel, SetorModel, EmpresaModel, \
-                    Diretor, Assessores, Eventos
+                    Diretor, Assessores, Eventos, TextoRN
 
 #View mestra que recebe todos os valores de contexto e
 #valida os formulários
@@ -25,6 +25,14 @@ class HomeView(TemplateView):
         context['AssessoresModel'] = Assessores.objects.all()
         context['form_enviar_email_model'] = EnviarEmailModel()
         context['CrieSuaEJModel'] = Eventos.objects.all()
+
+        #Verifica se o modelo tem alguma instância e se tiver, pega a primeira
+        #Para não causar o erro de não ter nenhuma instância, usei o 'try except'
+        try:
+            context['TextoRN'] = TextoRN.objects.all()[0]
+        except IndexError:
+            pass
+
         return context
 
     #Quando tem um método "post" a view processa o pedido
