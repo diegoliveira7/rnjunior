@@ -23,7 +23,7 @@ class EnviarEmailRodape(forms.Form):
             nome_cliente,
             mensagem,
             settings.DEFAULT_FROM_EMAIL,
-            ['gabrielnunes@ejectufrn.com.br'],
+            ['comunicacao@rnjunior.org.br'],
             fail_silently=False,
         )
 
