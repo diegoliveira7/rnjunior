@@ -18,6 +18,11 @@ class ClienteNewsletter(models.Model):
     def __str__(self):
         return self.nome
 
+    def save(self, *args, **kwargs):
+        texto = 'Seu e-mail foi cadastrado com sucesso! Aguarde para receber as notícias e oportunidades do MEJ Potiguar.\n\n Att.\n Comunicação do Time RN'
+        send_mail("Equipe RN", texto, settings.DEFAULT_FROM_EMAIL, [self.email], fail_silently=True)
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = "Newsletter"
         verbose_name_plural = "08 - Newsletter"
@@ -57,13 +62,8 @@ class Noticias(models.Model):
         listaDosEmails = []
         for i in ClienteNewsletter.objects.all():
             listaDosEmails.append(i.email)
-        send_mail(
-            "Nome do camarada",
-            self.texto,
-            settings.DEFAULT_FROM_EMAIL,
-            listaDosEmails,
-            fail_silently=False,
-        )
+        texto = "Ei, boy! Confira a última notícia que saiu do MEJ Potiguar: "+ self.titulo + " (" + "http://rnjunior.ejectufrn.com.br" + self.get_absolute_url() + ")\n\nAbraço!\nComunicação RN Júnior."
+        send_mail("Equipe RN", texto, settings.DEFAULT_FROM_EMAIL, listaDosEmails, fail_silently=False)
         self.noticia_save("vertical", 10, -15, 1.5, 1.5)
         super().save(*args, **kwargs)
 
