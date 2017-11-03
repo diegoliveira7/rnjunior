@@ -64,11 +64,16 @@ a, a:hover, a:focus, .btn:focus {
     outline: none;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1, h2, h3, h6,
+.h1, .h2, .h3, .h6 {
     font-family: Vollkorn, 'Open Sans', sans-serif;
     color: #252525;
 }
+
+h4, h5, .h4, .h5 {
+     font-family:'Open Sans', sans-serif;
+     color: #252525;
+ }
 
 main > section {
     padding: 60px 0;

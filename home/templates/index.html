@@ -18,6 +18,8 @@
 		
 		<!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		
 		<!-- CSS
 		================================================== -->
@@ -181,13 +183,13 @@
 						</div>
 						
 						
-						<div class="col-xs-12 wow animated fadeInLeft text-center">
+						<div class="col-xs-12 wow animated fadeInLeft text-center" style="font-family:'Open Sans'">
 							{% autoescape off %}
 								{{ TextoRN.texto }}
 							{% endautoescape %}
 						</div>
 						<br>
-						<div class="col-xs-12 wow animated fadeInLeft">
+						<div class="col-xs-12 wow animated fadeInLeft" style="font-family:'Open Sans'">
 							<br><br>
 							<h4>Conheça a equipe:</h4>
 							<div id="equipe-completa" class="centered">
@@ -227,7 +229,7 @@
 						<div class="sec-title text-center wow animated fadeInDown">
 							<h2>Contrate sua EJ</h2>
 						</div>
-						<form>
+						<form style="font-family:'Open Sans'">
 						  <div class="form-group col-xs-12 col-md-offset-2 col-md-4">
 						    <label for="exampleInputEmail1">Escolha a área:</label>
 						    <select class="appearance-select form-control" id="contrateSuaEjArea">
@@ -286,7 +288,7 @@
 							<div class="service-item">
 									<img src="{{ evento.foto.url }}" style="width: 50%">
 								<h3>{{ evento.titulo }}</h3>
-								<p>{{ evento.descricao }}</p>
+								<p style="font-family:'Open Sans'">{{ evento.descricao }}</p>
 							</div>
 
 						</div>
@@ -325,8 +327,10 @@
 											</div>
 										{% endif %}										
 									{% endfor %}
-									{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" required="required" %}
-									{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu E-mail" required="required" %}
+									<div style="font-family:'Open Sans'">
+										{% render_field form_newsletter.nome class="subscribe form-control" placeholder="Digite seu nome" required="required" %}
+										{% render_field form_newsletter.email class="subscribe form-control" placeholder="Digite seu E-mail" required="required" %}
+									</div>
 									<button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
 										<i class="fa fa-paper-plane fa-lg"></i>
 									</button>
@@ -334,13 +338,13 @@
 							</form>
 							<div class="newsletter-social">
 								<ul>
-									<li class="wow animated zoomIn"><a href="#"><i class="fa fa-facebook fa-3x"></i></a></li>
-									<li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="#"><i class="fa fa-instagram fa-3x"></i></a></li>
-									<li class="wow animated zoomIn" data-wow-delay="0.6s"><a href="#"><i class="fa fa-youtube fa-3x"></i></a></li>
+									<li class="wow animated zoomIn"><a href="https://www.facebook.com/federacaornjunior/"><i class="fa fa-facebook fa-3x"></i></a></li>
+									<li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="https://www.instagram.com/rnjunior_/"><i class="fa fa-instagram fa-3x"></i></a></li>
+									<li class="wow animated zoomIn" data-wow-delay="0.6s"><a href="https://www.youtube.com/user/RNjuniorFederacao"><i class="fa fa-youtube fa-3x"></i></a></li>
 								</ul>
 							</div>
 							
-							<p>Copyright &copy; 2017 <a href="http://www.ejectufrn.com.br">EJECT</a> </p>
+							<p style="font-family:'Open Sans'">Copyright &copy; 2017 <a href="http://www.ejectufrn.com.br">EJECT</a> </p>
 						</div>
 					</div>
 				</div>
@@ -364,27 +368,34 @@
 								</li>
 							</ul>
 							{% endif %}
-							<form method="post">{% csrf_token %}
-								{% for form in form_rodape %}
-								<div class="input-field">
-									{{ form.errors }}
-									{% render_field form class="form-control" %}
+							<form method="post">
+								{% csrf_token %}
+
+								<div style="font-family:'Open Sans'">
+									{% for form in form_rodape %}
+									<div class="input-field" style="font-family:'Open Sans'">
+										{{ form.errors }}
+										{% render_field form class="form-control" %}
+									</div>
+									{% endfor %}
 								</div>
-								{% endfor %}
 								<button type="submit" id="submit" name="form_rodape" class="btn btn-blue btn-effect" value="Enviar">Enviar</button>
+
 							</form>
 						</div>
 						
 						<div class="col-md-5 wow animated fadeInRight">
 							<address class="contact-details">
 								<h3>Fale Conosco</h3>
-								<p><i class="fa fa-phone"></i>Telefone: {{ TextoRN.telefone }} </p>
-								<p><i class="fa fa-envelope"></i>{{ TextoRN.email }}</p>
+								<div style="font-family:'Open Sans'">
+									<p><i class="fa fa-phone"></i>Telefone: {{ TextoRN.telefone }} </p>
+									<p><i class="fa fa-envelope"></i>{{ TextoRN.email }}</p>
+								</div>
 							</address>
 								<div class="col-md-5 wow animated fadeInRight" style="margin-top: 20px; margin-left: -20px">
 									<a href="#" class="fa fa-facebook" style="font-size: 40px; margin-right: 10px"></a>
-    								<a href="#" class="fa fa-instagram"  style="font-size: 40px; margin-right: 10px"></a>
-    								<a href="#" class="fa fa-youtube"  style="font-size: 40px; margin-right: 10px"></a>
+    								<a href="https://www.instagram.com/rnjunior_/" class="fa fa-instagram"  style="font-size: 40px; margin-right: 10px"></a>
+    								<a href="https://www.youtube.com/user/RNjuniorFederacao" class="fa fa-youtube"  style="font-size: 40px; margin-right: 10px"></a>
 								</div>
 						</div>
 			
@@ -426,31 +437,31 @@
 
 			<!-- Modal do formulário de contatrate uma ej-->
 			<div id="myModal" class="modal fade" role="dialog">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal">&times;</button>
-			        <h4 class="modal-title">Contrate uma EJ</h4>
-			        <p id="referenciaContrateUmaEJ"></p>
-<!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Site da empresa</a>-->
-<!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Facebook</a> -->
-			      </div>
-				  <form action="#" style="padding: 0 10px" method="post">
-					{% csrf_token %}
-					{% for field in form_enviar_email_model %}
-					  <div class="input-field">
-					  	{% render_field field class="form-control" %}
-					  </div>
-					{% endfor %}
-					  <button type="submit" id="submit" class="btn btn-blue btn-effect modal_enviar" name="form_modal" value="Enviar_Modal">Enviar</button>
-					  <!--
-					  <button type="submit" class="submit-icon" name="form_newsletter" value="Enviar_newsletter">
-					  -->
-					  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				  </form>
-			    </div>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Contrate uma EJ</h4>
+							<p id="referenciaContrateUmaEJ" style="font-family:'Open Sans'"></p>
+				<!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Site da empresa</a>-->
+				<!-- 							<a empresa="fio durinhos" class="btn openModalContrateSuaEj">Facebook</a> -->
+						</div>
+						<form action="#" style="padding: 0 10px" method="post">
+							{% csrf_token %}
+							<div style="font-family:'Open Sans'">
+								{% for field in form_enviar_email_model %}
+								<div class="input-field">
+									{% render_field field class="form-control" %}
+								</div>
+								{% endfor %}
+							</div>
 
-			  </div>
+							<button type="submit" id="submit" class="btn btn-blue btn-effect modal_enviar" name="form_modal" value="Enviar_Modal">Enviar</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+						</form>
+					</div>
+
+				</div>
 			</div>
 		
 		</main>

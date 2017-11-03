@@ -94,7 +94,7 @@
           <hr>
 
           <!-- Date/Time -->
-          <p>Postado em {{ noticia.criado }}</p>
+          <p style="font-family:'Open Sans'">Postado em {{ noticia.criado }}</p>
 
           <hr>
 
@@ -104,11 +104,11 @@
           <hr>
 
           <!-- Post Content -->
-          
+          <div style="font-family:'Open Sans'">
           {% autoescape off %}
             {{ noticia.texto }}
           {% endautoescape %}
-          
+          </div>
 
         </article>
       </div>
@@ -119,7 +119,7 @@
 
     <!-- Footer -->
     <footer style="margin-top: 30px;background-color:#203940;color:white;padding-top:10px" class="py-5 bg-dark">
-      <div class="container">
+      <div class="container" style="font-family:'Open Sans'" >
         <p class="m-0 text-center text-white">Copyright &copy; EJECT 2017</p>
       </div>
       <!-- /.container -->
