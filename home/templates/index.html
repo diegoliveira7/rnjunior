@@ -63,7 +63,13 @@
 				<meta name="theme-color" content="#008600">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	<style>
+		h4, h5,
+		.h4, .h5 {
+		    font-family:'Open Sans', sans-serif;
+		    color: #252525;
+		}
+	</style>
     </head>
 	
     <body id="body">
@@ -180,13 +186,7 @@
 						<div class="sec-title text-center wow animated fadeInDown">
 							<h2>Conheça a RN</h2>
 						</div>
-						
-						
-<<<<<<< HEAD
-						<div class="col-xs-12 wow animated fadeInLeft">
-=======
 						<div class="col-xs-12 wow animated fadeInLeft text-center" style="font-family:'Open Sans'">
->>>>>>> 275c352890330c7692efddff8faf0db69361be93
 							{% autoescape off %}
 								{{ TextoRN.texto }}
 							{% endautoescape %}
@@ -314,7 +314,7 @@
 								<p>Assine nossa newsletter</p>
 							</div>
 							{% if success_form_newsletter %}
-							<ul class="messages">
+							<ul class="messages" style="list-style-type: none;">
 								<li class="success">
 									Seu cadastro foi feito com sucesso.
 								</li>
